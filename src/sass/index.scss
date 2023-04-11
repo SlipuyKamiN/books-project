@@ -1,5 +1,19 @@
-@import './common/vars';
+@import './utils/vars';
 @import './common/base';
-@import './common/main-container';
+@import './utils/visually-hidden';
 
-@import './layouts/header';
+@import './common/a-header';
+@import './common/main-container';
+@import './common/e-support';
+
+@import './layouts/home/b-side-bar';
+@import './layouts/home/c-categories';
+@import './layouts/home/d-main';
+
+@import './layouts/shopping-list/c-side-bar';
+@import './layouts/shopping-list/d-main';
+
+@import './layouts/f-modal';
+@import './layouts/g-auth-modal';
+
+@import './common/h-dark-theme';

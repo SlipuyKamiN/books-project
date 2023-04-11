@@ -18,7 +18,10 @@
     "url": "https://github.com/slipuykamin/books-project/issues"
   },
   "dependencies": {
-    "modern-normalize": "^1.1.0"
+    "axios": "^1.3.5",
+    "basiclightbox": "^5.0.4",
+    "modern-normalize": "^1.1.0",
+    "notiflix": "^3.2.6"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
