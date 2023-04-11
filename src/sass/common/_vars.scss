@@ -1,0 +1,30 @@
+$dark-color: #111111;
+$dark-tranparent-color: rgba(
+  $color: #111111,
+  $alpha: 0.6,
+);
+$dark-gray-color: #202024;
+$text-gray-color: #b4afaf;
+$blue-color: #4f2ee8;
+$yellow-color: #eac645;
+$white-color: #ffffff;
+$radial-gradient: radial-gradient(
+  183.6% 183.01% at 59.76% -23.42%,
+  #4f2ee8 18.03%,
+  #ffffff 100%
+);
+$theme-switcher-linear-gradient: linear-gradient(
+  180deg,
+  #ffffff 0%,
+  #f7f7f7 100%
+);
+$white-theme-switcher-linear-gradient: linear-gradient(
+  180deg,
+  #4f2ee8 0%,
+  #dcdcdc 100%
+);
+$dark-theme-switcher-linear-gradient: linear-gradient(
+  180deg,
+  #4f2ee8 0%,
+  #686868 100%
+);

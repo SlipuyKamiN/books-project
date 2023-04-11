@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://slipuykamin.github.io/books-project",
   "scripts": {
-    "start": "parcel src/*.html",
+    "start": "parcel src/*.html -p 8999",
     "build": "parcel build src/*.html --public-url /books-project/"
   },
   "repository": {

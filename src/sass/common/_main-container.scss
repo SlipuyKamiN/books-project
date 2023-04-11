@@ -1,0 +1,38 @@
+.main-container {
+  width: 100%;
+
+  @media screen and (min-width: 1440px) {
+    display: flex;
+  }
+}
+
+.side-bar {
+  outline: 1px solid tomato;
+  width: 100%;
+  padding: 20px;
+
+  @media screen and (min-width: 768px) {
+    padding: 40px 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 372px;
+    display: flex;
+
+    padding: 40px 24px;
+  }
+}
+
+.main {
+  outline: 1px solid tomato;
+  width: 100%;
+  padding: 20px;
+
+  @media screen and (min-width: 768px) {
+    padding: 40px 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 40px 24px;
+  }
+}

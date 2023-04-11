@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shopping List</title>
+    <title>Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,13 +15,16 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./shopping-list.js"></script>
+    <script type="module" src="./index.js"></script>
   </head>
   <body>
     <include src="./partials/a-header.html"></include>
     <div class="main-container">
-      <include src="./partials/shopping-list/c-side-bar.html"></include>
-      <include src="./partials/shopping-list/b-main.html"></include>
+      <include src="./partials/home/c-side-bar.html"></include>
+      <include src="./partials/home/b-main.html"></include>
+    </div>
+    <div>
+      <include src="./partials/home/d-modal.html"></include>
     </div>
   </body>
 </html>
