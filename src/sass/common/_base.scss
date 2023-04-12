@@ -2,7 +2,9 @@ body {
   font-family: DM Sans, sans-serif;
   font-weight: 400;
   letter-spacing: -0.04em;
+
   color: #111111;
+  background-color: $primary-background-color;
 
   body.modal-open {
     overflow: hidden;
