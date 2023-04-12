@@ -4,7 +4,7 @@ import './js/fetchBooks';
 // import './js/...';
 // import './js/...';
 
-import { fetchBooks } from './js/fetchBooks';
+// import { fetchBooks } from './js/fetchBooks';
 
 // (async () => {
 //   console.dir(await fetchBooks.getCategoriesList());
