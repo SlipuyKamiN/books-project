@@ -1,0 +1,38 @@
+<button class="modal__close-btn modal__close-btn-js">
+    <svg class="modal__close-icon" width="18px" height="18px">
+        <use href="../images/icons.svg#icon-x-close"></use>
+    </svg>
+</button>
+<div class="modal__wrapper">
+    <img class="modal__img" src="{{book_image}}" alt="Book image">
+    <div class="modal__content">
+        <p class="modal__title">{{title}}</p>
+        <p class="modal__author">{{author}}</p>
+        <p class="modal__description">{{description}}</p>
+        <ul class="modal__list">
+            <li class="modal__item" name="Amazon">
+                <a class="modal__link" href="">Amazon
+                    <img class="modal__shop-img" src="" alt="">
+                </a>
+            </li>
+            <li class="modal__item" name="Apple Books">
+                <a class="modal__link" href="">Apple Books
+                    <img class="modal__shop-img" src="" alt="">
+                </a>
+            </li>
+            <li class="modal__item" name="Barnes and Noble">
+                <a class="modal__link" href="">Barnes and Noble
+                    <img class="modal__shop-img" src="" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<button class="modal__add-btn modal__add-btn-js" type="submit">ADD TO SHOPPING LIST</button>
+<div class="modal__remove-btn-wrapper">
+    <button class="modal__remove-btn modal__remove-btn-js" type="submit">REMOVE FROM THE SHOPPING LIST</button>
+    <p class="modal__remobe-btn-message">Сongratulations! You have added the book to the shopping list. To delete, press the
+        button “Remove from the shopping
+        list”.
+    </p>
+    </div>
