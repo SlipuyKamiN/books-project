@@ -77,7 +77,6 @@ async function feachAllCategories() {
 
 const handleImgClick = event => {
   idBook = event.target.dataset.id;
-  console.log(idBook);
 
   if (event.target.nodeName !== 'IMG') {
     return;
