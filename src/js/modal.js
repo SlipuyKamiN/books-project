@@ -5,13 +5,13 @@ import renderModal from '../templates/modal.hbs';
 // Delete after testing
 const openModalEl = document.querySelector('.modal__open-modal-js');
 openModalEl.addEventListener('click', () => { 
-    globalRefs.modal.classList.toggle('visually-hidden');
+    globalRefs.modal.classList.toggle('is-hidden');
 });
 // Delete after testing
 
- const globalRefs = {
+const globalRefs = {
     modal: document.querySelector('.modal-js'),
-  };
+};
 
 const BOOKS_DATA_KEY = "books-data";
 const IsUserLogged = true;  // change to real object from autorization block
@@ -65,7 +65,7 @@ export async function handleModalWindow(bookId) {
         refs.closeModalBtn.addEventListener('click', handleCloseModalBtnClick);
 
         function handleCloseModalBtnClick() {
-            globalRefs.modal.classList.toggle('visually-hidden');
+            globalRefs.modal.classList.toggle('is-hidden');
         }
 
         function handleAddBtnClick() { 
