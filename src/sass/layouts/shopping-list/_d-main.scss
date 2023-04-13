@@ -1,0 +1,56 @@
+.shopping__item {
+    border: 2px solid rgba(79, 46, 232, 0.4);
+    border-radius: 16px;
+
+    padding: 20px;
+    width: 335px;
+
+    position: relative;
+}
+
+.shopping-button {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+    padding: 0;
+}
+
+.shopping__box {
+    margin: 0;
+}
+
+.shopping__img {}
+
+.shopping__title {
+    margin: 0;
+}
+
+.shopping__titleText {
+    margin: 0;
+}
+
+.flex-box {
+    display: flex;
+}
+
+.flex-box__text {
+    display: flex;
+    flex-direction: column;
+}
+
+.shops-list {
+    display: flex;
+}
+
+.shopping__text {
+    margin: 0;
+}
+
+.shopping-button__icon{
+    pointer-events: none;
+}
