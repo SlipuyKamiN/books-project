@@ -1,6 +1,7 @@
-const openAuthorizationBtn = document.querySelector('[data-modal-open]');
-const closeAuthorizationBtn = document.querySelector('[data-modal-close]');
-const modalAuthorization = document.querySelector('[data-modal]');
+const openAuthorizationBtn = document.querySelector('[data-auth-modal-open]');
+console.log(openAuthorizationBtn);
+const closeAuthorizationBtn = document.querySelector('[data-auth-modal-close]');
+const modalAuthorization = document.querySelector('[data-auth-modal]');
 
 openAuthorizationBtn.addEventListener('click', toggleModal);
 closeAuthorizationBtn.addEventListener('click', toggleModal);
