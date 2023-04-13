@@ -5,7 +5,16 @@ import renderModal from '../templates/modal.hbs';
 // Delete after testing
 const openModalEl = document.querySelector('.modal__open-modal-js');
 openModalEl.addEventListener('click', () => { 
-    globalRefs.modal.classList.remove('is-hidden');
+    // globalRefs.modal.classList.remove('is-hidden');
+
+    // Several books for testing vvvv
+
+    // handleModalWindow('643282b1e85766588626a080');
+    handleModalWindow('643282b1e85766588626a0ba');  
+    // handleModalWindow('643282b1e85766588626a0dc');
+    // handleModalWindow('643282b2e85766588626a0fc');
+    // handleModalWindow('643282b2e85766588626a112');
+    // handleModalWindow('643282b3e85766588626a194');
 });
 // Delete after testing
 
@@ -25,6 +34,9 @@ if (currentStorage) {
 }
 
 export async function handleModalWindow(bookId) {
+
+    globalRefs.modal.classList.remove('is-hidden');
+
     try {
         const bookData = await fetchBooks.getBookById(bookId);
 
@@ -68,7 +80,7 @@ export async function handleModalWindow(bookId) {
 
         function handleCloseModalBtnClick() {
             closeModal();
-            window.removeEventListener('keydown', handleEscKeyPress);
+            removeListeners();
         }
 
         function handleAddBtnClick() { 
@@ -93,14 +105,14 @@ export async function handleModalWindow(bookId) {
             const isEsc = evt.code === "Escape";
             if (isEsc) {
                 closeModal();
-                window.removeEventListener('keydown', handleEscKeyPress);
+                removeListeners();
             }   
         }
 
         function handleBackDropClick(evt) {
             if (evt.target === globalRefs.modal) {
                 closeModal();
-                window.removeEventListener('click', handleBackDropClick);
+                removeListeners();
             }
         }
 
@@ -108,19 +120,13 @@ export async function handleModalWindow(bookId) {
             globalRefs.modal.classList.add('is-hidden');
         }
 
+        function removeListeners() {
+            window.removeEventListener('keydown', handleEscKeyPress);
+            window.removeEventListener('click', handleBackDropClick);
+        }
+
     } catch (error) {
         console.log(error);
     }
 }
-
-
-// Several books for testing vvvv
-
-// handleModalWindow('643282b1e85766588626a080');
-// handleModalWindow('643282b1e85766588626a0ba');  
-handleModalWindow('643282b1e85766588626a0dc');
-// handleModalWindow('643282b2e85766588626a0fc');
-// handleModalWindow('643282b2e85766588626a112');
-// handleModalWindow('643282b3e85766588626a194');
-
 
