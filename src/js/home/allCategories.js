@@ -12,18 +12,17 @@ export const showAllCategories = () => {
 };
 showAllCategories();
 
-const makeMarkupAllCategories = categories => {
+const makeMarkupAllCategories1 = categories => {
   return categories
     .map(category => {
-      return `<ul class='all-categories__list'>
+      return `
            <li class='all-categories__item'>
            <h3 class='category-books__title'>${category.list_name}</h3>
             <ul class='categoty-books__list-js card-set'>
            ${makeMarkupGategory(category.books)}
            </ul>
-           </li>
-         </ul>
-      <button class="load-more-js" type="button">see more</button>
+           <button class="load-more-js" type="button">see more</button>
+           </li>   
       `;
     })
     .join('');
@@ -38,7 +37,7 @@ export const makeMarkupGategory = category => {
             class='category-books__img'
             src='${book.book_image}'
             alt='book'
-            id="${book._id}"
+            data-id="${book._id}"
            loading="lazy"
           />
           <p class='category-books__name' >${book.title}</p>
@@ -47,6 +46,13 @@ export const makeMarkupGategory = category => {
       `;
     })
     .join('');
+};
+
+const makeMarkupAllCategories = categories => {
+  return `<ul class='all-categories__list'>
+           ${makeMarkupAllCategories1(categories)} 
+         </ul>
+    `;
 };
 
 async function feachAllCategories() {
@@ -70,7 +76,8 @@ async function feachAllCategories() {
 }
 
 const handleImgClick = event => {
-  idBook = event.target.getAttribute('id');
+  idBook = event.target.dataset.id;
+  console.log(idBook);
 
   if (event.target.nodeName !== 'IMG') {
     return;
