@@ -1,4 +1,3 @@
-
 const switchDayNight = document.querySelector('.mode-switch');
 const bookNameArray = document.querySelectorAll('.book-name');
 
@@ -26,17 +25,17 @@ function addDarkTheme() {
   document.body.style.backgroundColor = '#202024';
   document.querySelector('header').style.backgroundColor = '#111111';
 
-  bookNameArray.forEach((book) => {
+  bookNameArray.forEach(book => {
     book.style.color = 'rgba(255, 255, 255, 0.6)';
   });
 }
 
 function removeDarkTheme() {
   document.body.classList.remove('dark');
-  document.body.style.backgroundColor = '#D0D0D0';
+  document.body.style.backgroundColor = '#f6f6f6';
   document.querySelector('header').style.backgroundColor = '#FFFFFF';
 
-  bookNameArray.forEach((book) => {
+  bookNameArray.forEach(book => {
     book.style.color = 'rgba(17, 17, 17, 0.6)';
   });
 }
