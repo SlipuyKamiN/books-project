@@ -5,7 +5,7 @@ import renderModal from '../templates/modal.hbs';
 // Delete after testing
 const openModalEl = document.querySelector('.modal__open-modal-js');
 openModalEl.addEventListener('click', () => { 
-    globalRefs.modal.classList.toggle('is-hidden');
+    globalRefs.modal.classList.remove('is-hidden');
 });
 // Delete after testing
 
@@ -37,7 +37,9 @@ export async function handleModalWindow(bookId) {
             amazonUrl,
             appleBooksUrl,
             barnesAndNobleUrl,
-        });    
+        });   
+        
+        window.addEventListener('keydown', handleEscKeyPress);
         
         const refs = {
             addBtn: document.querySelector('.modal__add-btn-js'),
@@ -65,7 +67,8 @@ export async function handleModalWindow(bookId) {
         refs.closeModalBtn.addEventListener('click', handleCloseModalBtnClick);
 
         function handleCloseModalBtnClick() {
-            globalRefs.modal.classList.toggle('is-hidden');
+            closeModal();
+            window.removeEventListener('keydown', handleEscKeyPress);
         }
 
         function handleAddBtnClick() { 
@@ -84,7 +87,20 @@ export async function handleModalWindow(bookId) {
 
             refs.addBtn.classList.remove('visually-hidden');
             refs.removeBlock.classList.add('visually-hidden');
-        }     
+        }
+        
+        function handleEscKeyPress(evt) {
+            const isEsc = evt.code === "Escape";
+            if (isEsc) {
+                closeModal();
+                window.removeEventListener('keydown', handleEscKeyPress);
+            }   
+        }
+
+        function closeModal() {
+            globalRefs.modal.classList.add('is-hidden');
+        }
+
     } catch (error) {
         console.log(error);
     }
