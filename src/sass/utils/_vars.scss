@@ -1,3 +1,4 @@
+$primary-background-color: #f6f6f6;
 $dark-color: #111111;
 $dark-transparent-color: rgba(
   $color: #111111,
@@ -28,3 +29,4 @@ $dark-theme-switcher-linear-gradient: linear-gradient(
   #4f2ee8 0%,
   #686868 100%
 );
+$cubic-time: 250ms cubic-bezier(0.4, 0, 0.2, 1);
