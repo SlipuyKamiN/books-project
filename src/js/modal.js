@@ -1,83 +1,103 @@
 import { fetchBooks } from '../js/fetchBooks';
 import renderModal from '../templates/modal.hbs';
 
+
+// Delete after testing
 const openModalEl = document.querySelector('.modal__open-modal-js');
 openModalEl.addEventListener('click', () => { 
-    modalEl.classList.toggle('is-hidden');
+    globalRefs.modal.classList.toggle('visually-hidden');
 });
+// Delete after testing
 
-const modalEl = document.querySelector('.modal-js');
+ const globalRefs = {
+    modal: document.querySelector('.modal-js'),
+  };
 
 const BOOKS_DATA_KEY = "books-data";
-
-
-let bookArray = [];
+const IsUserLogged = true;  // change to real object from autorization block
+const bookArray = [];
 const currentStorage = JSON.parse(localStorage.getItem(BOOKS_DATA_KEY));
 
 if (currentStorage) {
-    bookArray.push([...currentStorage]);
-}
-console.log(currentStorage);
-console.log(bookArray);
-
-// localStorage.setItem(BOOKS_DATA_KEY, JSON.stringify([]));
-
-export function openModal(bookId) {
-
-    fetchBookById(bookId);   
-
+    bookArray.push(...currentStorage);
+} else { 
+    localStorage.setItem(BOOKS_DATA_KEY, JSON.stringify([]));
 }
 
-async function fetchBookById(bookId) {
+export async function handleModalWindow(bookId) {
     try {
         const bookData = await fetchBooks.getBookById(bookId);
-
-        bookArray.push(bookData);
-        console.log(bookArray);
-        // console.log(bookData);
-        // console.log(bookData.buy_links);
 
         const amazonUrl = bookData.buy_links.find((book) => book.name === "Amazon").url;
         const appleBooksUrl = bookData.buy_links.find((book) => book.name === "Apple Books").url;
         const barnesAndNobleUrl = bookData.buy_links.find((book) => book.name === "Barnes and Noble").url;
 
-        modalEl.innerHTML = renderModal({
+        globalRefs.modal.innerHTML = renderModal({
             ...bookData,
-            amazonUrl: amazonUrl,
-            appleBooksUrl: appleBooksUrl,
-            barnesAndNobleUrl: barnesAndNobleUrl,
-        });
-      
-        const addBtnEl = document.querySelector('.modal__add-btn-js');
-        const removeBtnEl = document.querySelector('.modal__remove-btn-js');
-        const closeModalBtn = document.querySelector('.modal__close-btn-js');
+            amazonUrl,
+            appleBooksUrl,
+            barnesAndNobleUrl,
+        });    
+        
+        const refs = {
+            addBtn: document.querySelector('.modal__add-btn-js'),
+            removeBlock: document.querySelector('.modal__remove-block-js'),
+            removeBtn: document.querySelector('.modal__remove-btn-js'),       
+            closeModalBtn: document.querySelector('.modal__close-btn-js'),
+        };
+        
+        refs.removeBlock.classList.add('visually-hidden');
 
-        addBtnEl.addEventListener('click', handleAddBtnClick);
-        removeBtnEl.addEventListener('click', handleRemoveBtnClick);
-        closeModalBtn.addEventListener('click', handleCloseModalBtnClick);
+        if (!IsUserLogged) {
+            refs.addBtn.classList.add('visually-hidden');
+        }
+
+        const isBookInStorage = bookArray.find((book) => book._id === bookData._id);
+        const bookIndex = bookArray.indexOf(isBookInStorage);
+        
+        if (isBookInStorage) {
+            refs.addBtn.classList.add('visually-hidden');
+            refs.removeBlock.classList.remove('visually-hidden');
+        }
+
+        refs.addBtn.addEventListener('click', handleAddBtnClick);
+        refs.removeBtn.addEventListener('click', handleRemoveBtnClick);
+        refs.closeModalBtn.addEventListener('click', handleCloseModalBtnClick);
 
         function handleCloseModalBtnClick() {
-            modalEl.classList.toggle('is-hidden');
+            globalRefs.modal.classList.toggle('visually-hidden');
         }
 
         function handleAddBtnClick() { 
+            bookArray.push(bookData);
+
             localStorage.setItem(BOOKS_DATA_KEY, JSON.stringify(bookArray));
+
+            refs.addBtn.classList.add('visually-hidden');
+            refs.removeBlock.classList.remove('visually-hidden');
         }
 
         function handleRemoveBtnClick() {
-            console.log("remove");
-            localStorage.removeItem(BOOKS_DATA_KEY);
-        }
+            bookArray.splice(bookIndex, 1);
 
-     
+            localStorage.setItem(BOOKS_DATA_KEY, JSON.stringify(bookArray));
+
+            refs.addBtn.classList.remove('visually-hidden');
+            refs.removeBlock.classList.add('visually-hidden');
+        }     
     } catch (error) {
         console.log(error);
     }
-
 }
 
 
-openModal('643282b1e85766588626a080');
+// Several books for testing vvvv
 
-openModal('643282b1e85766588626a0ba');  
+// handleModalWindow('643282b1e85766588626a080');
+// handleModalWindow('643282b1e85766588626a0ba');  
+handleModalWindow('643282b1e85766588626a0dc');
+// handleModalWindow('643282b2e85766588626a0fc');
+// handleModalWindow('643282b2e85766588626a112');
+// handleModalWindow('643282b3e85766588626a194');
+
 
