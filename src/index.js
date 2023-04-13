@@ -1,5 +1,5 @@
 import './js/fetchBooks';
-// import './js/...';
+import './js/modal';
 // import './js/...';
 // import './js/...';
 // import './js/...';
