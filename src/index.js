@@ -1,6 +1,6 @@
 import './js/fetchBooks';
 import './js/modal';
-// import './js/...';
+import './js/categories';
 // import './js/...';
 // import './js/...';
 
