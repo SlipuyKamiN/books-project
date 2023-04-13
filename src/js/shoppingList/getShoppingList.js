@@ -1,15 +1,15 @@
-const ulList = document.querySelector('.shopping-list-js');
-const button = document.querySelector('shopping-button-js');
+const shoppingList = document.querySelector('.shopping-main__list-js');
+const button = document.querySelector('.shopping-button-js');
 
-let dataBooks = localStorage.getItem('dataBooks');
+let dataBooks = localStorage.getItem('books-data');
 dataBooks = JSON.parse(dataBooks);
 
 const cardMarkup = createCardMarkup(dataBooks);
 
-ulList.insertAdjacentHTML('beforeend', cardMarkup);
-ulList.addEventListener('click', removeCardMarkup);
+shoppingList.insertAdjacentHTML('beforeend', cardMarkup);
+shoppingList.addEventListener('click', removeCardMarkup);
 
-// const mediaQuery = window.matchMedia('(max-widts: 375px)');
+// const mediaQuery = window.matchMedia('(max-width: 375px)');
 // mediaQuery.addListener(createCardMarkup);
 
 function createCardMarkup(dataBooks) {
@@ -75,13 +75,12 @@ function createCardMarkup(dataBooks) {
               <img
                 src="${book.book_image}"
                 alt=""
-                width="98"
-                height="139"
+                
                 class="shopping__img"
                 loading="lazy"
               />
             </picture>
-            <figcaption>${book.author}</figcaption>
+            <figcaption class='shopping__author'>${book.author}</figcaption>
           </figure>
 
           <div class="flex-box__text">
@@ -138,15 +137,15 @@ function removeCardMarkup(event) {
     return;
   }
 
-  const parenNode = event.target.closest('.shopping__item');
-  const id = parenNode.id;
+  const parentNode = event.target.closest('.shopping__item');
+  const bookToRemoveId = parentNode.id;
 
-  dataBooks = dataBooks.filter(book => book._id !== id);
+  dataBooks = dataBooks.filter(book => book._id !== bookToRemoveId);
 
   saveToLocalStorage();
-  parenNode.remove();
+  parentNode.remove();
 }
 
 function saveToLocalStorage() {
-  localStorage.setItem('dataBooks', JSON.stringify(dataBooks));
+  localStorage.setItem('books-data', JSON.stringify(dataBooks));
 }
