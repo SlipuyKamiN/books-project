@@ -2,7 +2,7 @@ import './js/fetchBooks';
 import './js/modal';
 // import './js/...';
 // import './js/...';
-// import './js/...';
+import './js/home/allCategories';
 
 // import { fetchBooks } from './js/fetchBooks';
 
