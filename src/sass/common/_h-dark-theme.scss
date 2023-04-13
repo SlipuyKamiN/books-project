@@ -1,12 +1,13 @@
 
 
+
   body {
     background-color: #D0D0D0;
     color: rgba(17, 17, 17, 0.6);
   }
 
   body.dark {
-    background-color: #202024;
+    background-color: $dark-gray-color;
     color: rgba(255, 255, 255, 0.6);
   }
  
