@@ -37,10 +37,8 @@ export async function handleModalWindow(bookId) {
             amazonUrl,
             appleBooksUrl,
             barnesAndNobleUrl,
-        });   
-        
-        window.addEventListener('keydown', handleEscKeyPress);
-        
+        });       
+                
         const refs = {
             addBtn: document.querySelector('.modal__add-btn-js'),
             removeBlock: document.querySelector('.modal__remove-block-js'),
@@ -62,6 +60,8 @@ export async function handleModalWindow(bookId) {
             refs.removeBlock.classList.remove('visually-hidden');
         }
 
+        window.addEventListener('keydown', handleEscKeyPress);
+        window.addEventListener('click', handleBackDropClick);
         refs.addBtn.addEventListener('click', handleAddBtnClick);
         refs.removeBtn.addEventListener('click', handleRemoveBtnClick);
         refs.closeModalBtn.addEventListener('click', handleCloseModalBtnClick);
@@ -95,6 +95,13 @@ export async function handleModalWindow(bookId) {
                 closeModal();
                 window.removeEventListener('keydown', handleEscKeyPress);
             }   
+        }
+
+        function handleBackDropClick(evt) {
+            if (evt.target === globalRefs.modal) {
+                closeModal();
+                window.removeEventListener('click', handleBackDropClick);
+            }
         }
 
         function closeModal() {
