@@ -1,0 +1,79 @@
+.auth__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(79, 46, 232, 1);
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auth__backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.auth__backdrop.is-hidden .modal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.auth__modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 335px;
+  transform: translate(-50%, -50%) scale(1);
+  padding: 40px 20px;
+  background-color: rgba(246, 246, 246, 1);
+  border: 2px solid #111111;
+  border-radius: 18px;
+}
+
+.auth__modal-close {
+  position: absolute;
+}
+
+.form {
+}
+
+.form-field {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.form-field input {
+  margin: 0;
+  padding: 0;
+  padding-left: 24px;
+  width: 295px;
+  height: 50px;
+  // border: 1px solid rgba(33, 33, 33, 0.2);
+  border: 2px solid #111111;
+  border-radius: 40px;
+}
+
+.form-label {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  transform: translateY(-50%);
+  transition: transform 250ms linear;
+}
+
+.form-input:focus + .form-label {
+  transform: translateY(-46px);
+  color: rgba(79, 46, 232, 1);
+}
+
+.form-btn {
+  width: 295px;
+  height: 50px;
+  background: #111111;
+  border: 2px solid #111111;
+  border-radius: 40px;
+  color: #f3f3f3;
+}
