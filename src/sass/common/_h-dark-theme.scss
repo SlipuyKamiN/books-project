@@ -1,5 +1,5 @@
 
-
+/////switcher///////
 .theme__switch-wrapper {
   display: flex;
   align-items: center;
@@ -78,11 +78,7 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  background: linear-gradient(
-    to bottom,
-    rgba(79, 46, 232, 1),
-    rgba(104, 104, 104, 1)
-  );
+  background: linear-gradient(to bottom, rgba(79, 46, 232, 1), rgba(104, 104, 104, 1) );
   box-shadow: inset 1px 1px rgba(0, 0, 0, 0.1),
     inset -1px -1px rgba(0, 0, 0, 0.1), 0 0 4px rgba(79, 46, 232, 1);
 }
@@ -97,22 +93,28 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-
+///body////
 body.dark {
   background-color: $dark-gray-color;
   color: rgba(255, 255, 255, 0.6);
 }
 
+/////category section///
  .dark .category-books__title + .category-books__author{
   color:$text-gray-color;
 }
 
 
-.dark .category-books__name{
+.dark .category-books__name {
   color: $white-color;
 }
 
 .dark .load-more-js{
   color: $white-color;
   background-color: $dark-gray-color;
+}
+
+.dark .main__title-js {
+ 
+  color: $white-color;
 }
