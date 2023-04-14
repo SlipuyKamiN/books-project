@@ -2,7 +2,7 @@ import { fetchBooks } from '../fetchBooks';
 import { handleModalWindow } from '../modal';
 
 const mainTitleEl = document.querySelector('.main__title-js');
-const mainWraperEl = document.querySelector('.main__list-wrapper-js');
+const mainWraperEl = document.querySelector('.main__list-js');
 let idBook = 0;
 
 export const showAllCategories = () => {
@@ -34,7 +34,7 @@ export const makeMarkupGategory = category => {
     .map(book => {
       return `
         <li class='category-books__item card-set__item'>
-        <a href="" class='category-books__item__link'>
+         <a href="" class='category-books__link'>
           <img
             class='category-books__img'
             src='${book.book_image}'
@@ -62,13 +62,13 @@ async function feachAllCategories() {
     mainWraperEl.innerHTML = makeMarkupAllCategories(categories);
 
     const seeMoreBtnEl = document.querySelectorAll('.load-more-js');
-    const booksListEl = document.querySelectorAll('.categoty-books__list-js');
+    const bookslinkEl = document.querySelectorAll('.category-books__link');
 
     seeMoreBtnEl.forEach(el => {
       el.addEventListener('click', handleSeeMoreBtnClick);
     });
 
-    booksListEl.forEach(el => {
+    bookslinkEl.forEach(el => {
       el.addEventListener('click', handleImgClick);
     });
   } catch (error) {
@@ -77,6 +77,7 @@ async function feachAllCategories() {
 }
 
 const handleImgClick = event => {
+  event.preventDefault();
   idBook = event.target.dataset.id;
 
   if (event.target.nodeName !== 'IMG') {
