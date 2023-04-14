@@ -10,9 +10,10 @@ export const showAllCategories = () => {
     ' Best Sellers <span class="main__title--color-purple">Books</span>';
   feachAllCategories();
 };
+
 showAllCategories();
 
-const makeMarkupAllCategories1 = categories => {
+const makeMarkupAllCategories = categories => {
   return categories
     .map(category => {
       return `
@@ -33,6 +34,7 @@ export const makeMarkupGategory = category => {
     .map(book => {
       return `
         <li class='category-books__item card-set__item'>
+        <a href="" class='category-books__item__link'>
           <img
             class='category-books__img'
             src='${book.book_image}'
@@ -40,19 +42,18 @@ export const makeMarkupGategory = category => {
             data-id="${book._id}"
            loading="lazy"
           />
-          <p class='category-books__name' >${book.title}</p>
+          <div class='category-books__wrapper'>
+          <p class='category-books__text'>quick view</p>
+          </div>
+          </a>
+          <p class='category-books__name' >${checkLengthBookTitle(
+            book.title
+          )}</p>
           <p class='category-books__author'>${book.author}</p>
         </li>
       `;
     })
     .join('');
-};
-
-const makeMarkupAllCategories = categories => {
-  return `<ul class='all-categories__list'>
-           ${makeMarkupAllCategories1(categories)} 
-         </ul>
-    `;
 };
 
 async function feachAllCategories() {
@@ -84,6 +85,15 @@ const handleImgClick = event => {
 
   handleModalWindow(idBook);
 };
+
 const handleSeeMoreBtnClick = event => {
   event.target.classList.add('visually-hidden');
+};
+
+export const checkLengthBookTitle = title => {
+  if (title.length > 20) {
+    return `${title.slice(0, 19)}...`;
+  }
+
+  return title;
 };
