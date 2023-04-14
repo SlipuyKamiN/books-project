@@ -2,7 +2,7 @@ import { fetchBooks } from '../fetchBooks';
 import { handleModalWindow } from '../modal';
 
 const mainTitleEl = document.querySelector('.main__title-js');
-const mainWraperEl = document.querySelector('.main__list-wrapper-js');
+const mainWraperEl = document.querySelector('.main__list-js');
 let idBook = 0;
 
 export const showAllCategories = () => {
@@ -10,15 +10,16 @@ export const showAllCategories = () => {
     ' Best Sellers <span class="main__title--color-purple">Books</span>';
   feachAllCategories();
 };
+
 showAllCategories();
 
-const makeMarkupAllCategories1 = categories => {
+const makeMarkupAllCategories = categories => {
   return categories
     .map(category => {
       return `
            <li class='all-categories__item'>
            <h3 class='category-books__title'>${category.list_name}</h3>
-            <ul class='categoty-books__list-js card-set'>
+            <ul class='category-books__list-js card-set'>
            ${makeMarkupGategory(category.books)}
            </ul>
            <button class="load-more-js" type="button">see more</button>
@@ -33,6 +34,7 @@ export const makeMarkupGategory = category => {
     .map(book => {
       return `
         <li class='category-books__item card-set__item'>
+         <a href="/" class='category-books__link'>
           <img
             class='category-books__img'
             src='${book.book_image}'
@@ -40,19 +42,18 @@ export const makeMarkupGategory = category => {
             data-id="${book._id}"
            loading="lazy"
           />
-          <p class='category-books__name' >${book.title}</p>
+          <div class='category-books__wrapper'>
+          <p class='category-books__text'>quick view</p>
+          </div>
+          </a>
+          <p class='category-books__name' >${checkLengthBookTitle(
+            book.title
+          )}</p>
           <p class='category-books__author'>${book.author}</p>
         </li>
       `;
     })
     .join('');
-};
-
-const makeMarkupAllCategories = categories => {
-  return `<ul class='all-categories__list'>
-           ${makeMarkupAllCategories1(categories)} 
-         </ul>
-    `;
 };
 
 async function feachAllCategories() {
@@ -61,13 +62,13 @@ async function feachAllCategories() {
     mainWraperEl.innerHTML = makeMarkupAllCategories(categories);
 
     const seeMoreBtnEl = document.querySelectorAll('.load-more-js');
-    const booksListEl = document.querySelectorAll('.categoty-books__list-js');
+    const bookslinkEl = document.querySelectorAll('.category-books__link');
 
     seeMoreBtnEl.forEach(el => {
       el.addEventListener('click', handleSeeMoreBtnClick);
     });
 
-    booksListEl.forEach(el => {
+    bookslinkEl.forEach(el => {
       el.addEventListener('click', handleImgClick);
     });
   } catch (error) {
@@ -76,6 +77,7 @@ async function feachAllCategories() {
 }
 
 const handleImgClick = event => {
+  event.preventDefault();
   idBook = event.target.dataset.id;
 
   if (event.target.nodeName !== 'IMG') {
@@ -84,6 +86,15 @@ const handleImgClick = event => {
 
   handleModalWindow(idBook);
 };
+
 const handleSeeMoreBtnClick = event => {
   event.target.classList.add('visually-hidden');
+};
+
+export const checkLengthBookTitle = title => {
+  if (title.length > 19) {
+    return `${title.slice(0, 18)}...`;
+  }
+
+  return title;
 };
