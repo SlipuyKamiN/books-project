@@ -45,5 +45,3 @@ function markup(ev) {
   ev.target.style.textTransform = 'uppercase';
   previ = ev.target;
 }
-
-console.log(handleImgClick());
