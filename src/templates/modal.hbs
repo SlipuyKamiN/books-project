@@ -1,6 +1,6 @@
 <div class="modal">
     <button class="modal__close-btn modal__close-btn-js">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 32 32">
+        <svg class="modal__close-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32">
             <title>x-close</title>
             <path
                 d="M7.626 6.245c-0.291 0.085-0.749 0.427-1.029 0.774-0.432 0.533-0.509 1.054-0.24 1.616 0.088 0.184 1.011 1.143 3.665 3.806l3.547 3.56-3.551 3.56c-3.907 3.918-3.806 3.799-3.805 4.44 0 0.449 0.157 0.77 0.586 1.199 0.429 0.43 0.75 0.586 1.199 0.586 0.634 0 0.526 0.093 4.44-3.808l3.56-3.547 3.56 3.547c3.914 3.901 3.806 3.808 4.44 3.808 0.449 0 0.77-0.157 1.199-0.586 0.43-0.429 0.586-0.75 0.586-1.199 0-0.634 0.093-0.526-3.808-4.44l-3.547-3.56 3.547-3.56c3.901-3.914 3.808-3.806 3.808-4.44 0-0.449-0.157-0.77-0.586-1.199-0.429-0.43-0.75-0.586-1.199-0.586-0.634 0-0.526-0.093-4.44 3.808l-3.56 3.547-3.56-3.547c-2.721-2.712-3.619-3.576-3.814-3.67-0.29-0.138-0.728-0.186-1-0.109z">
@@ -16,18 +16,39 @@
             <p class="modal__description">{{description}}</p>
             <ul class="modal__list">
                 <li class="modal__item" name="Amazon">
-                    <a class="modal__link" href="{{amazonUrl}}" target="_blank" rel="noopener noreferrer">Amazon
-                        <img class="modal__shop-img" src="" alt="">
+                    <a class="modal__link" href="{{amazonUrl}}" target="_blank" rel="noopener noreferrer">
+                        <img 
+                            class="modal__shop-img" 
+                            src="./images/modal/image-1@1x.png"
+                            srcset="./images/modal/image-1@1x.png 1x, ./images/modal/image-1@2x.png 2x"
+                            alt="Amazom logo"
+                            width="62"
+                            height="19"
+                        >
                     </a>
                 </li>
                 <li class="modal__item" name="Apple Books">
-                    <a class="modal__link" href="{{appleBooksUrl}}" target="_blank" rel="noopener noreferrer">Apple Books
-                        <img class="modal__shop-img" src="" alt="">
+                    <a class="modal__link" href="{{appleBooksUrl}}" target="_blank" rel="noopener noreferrer">
+                        <img 
+                            class="modal__shop-img" 
+                            src="./images/modal/image-2@1x.png"
+                            srcset="./images/modal/image-2@1x.png 1x, ./images/modal/image-2@2x.png 2x" 
+                            alt="Apple Books logo"
+                            width="33"
+                            height="32"
+                        >
                     </a>
                 </li>
                 <li class="modal__item" name="Barnes and Noble">
-                    <a class="modal__link" href="{{barnesAndNobleUrl}}" target="_blank" rel="noopener noreferrer">Barnes and Noble
-                        <img class="modal__shop-img" src="" alt="">
+                    <a class="modal__link" href="{{barnesAndNobleUrl}}" target="_blank" rel="noopener noreferrer">
+                        <img 
+                            class="modal__shop-img" 
+                            src="./images/modal/image-3@1x.png"
+                            srcset="./images/modal/image-3@1x.png 1x, ./images/modal/image-3@2x.png 2x" 
+                            alt="Barnes and Noble logo"
+                            width="38"
+                            height="36"
+                        >
                     </a>
                 </li>
             </ul>
