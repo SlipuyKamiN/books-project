@@ -1,15 +1,214 @@
 .header {
-  outline: 1px solid tomato;
-  display: flex;
   width: 100%;
+}
 
-  padding: 20px;
+
+.header-container {
+  display: flex;
+
+  border: 1.5px solid $dark-color;
+  border-radius: 0px 0px 8px 8px;
+
+  padding-left: 20px;
+  padding-right: 20px;
 
   @media screen and (min-width: 768px) {
-    padding: 14px 32px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 
-  @media screen and (min-width: 1280px) {
-    padding: 14px 24px;
+  @media screen and (min-width: 1440px) {
+    padding-left: 24px;
+    padding-right: 24px;
   }
+}
+
+
+
+//  ЛОГОТИП
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 24px;
+    padding-bottom: 20px;
+  }
+}
+
+
+
+// МЕНЮ ДЛЯ АВТОРИЗОВАНОГО КОРИСТУВАЧА
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+
+  color: $dark-color;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-left: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-left: 99px;
+  }
+}
+
+.menu__shopping {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.icon-cart {
+  fill: currentColor;
+}
+
+
+.current {
+  font-weight: 700;
+  background: $yellow-color;
+  border-radius: 36px;
+  padding: 8px 16px;
+}
+
+
+
+//  КНОПКА БУРГЕР МЕНЮ МЕНЮ
+
+.menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+.icon-burger {
+  fill: #000000;
+}
+
+.menu-toggle :hover,
+.menu-toggle :focus {
+  fill: $blue-color
+}
+
+
+
+
+// ПЕРЕМИКАЧ ТЕМНОІ ТЕМИ ТА  КНОПКИ  "sign-up", "user"
+
+.header__group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-left: auto;
+
+  @media screen and (min-width: 768px) {
+    gap: 24px;
+  }
+}
+
+//  КНОПКИ  "sign-up" ТА  "user"
+
+.btn-sign-up {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+  width: 184px;
+  height: 48px;
+  background-color: $blue-color;
+  border: 1.5px solid $dark-color;
+  border-radius: 18px;
+  color: $white-color;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.btn-sign-up:hover,
+.btn-sign-up:focus {
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.30);
+}
+
+.btn-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 5px;
+
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 29px;
+  letter-spacing: -0.02em;
+
+  color: $white-color;
+  border: 1px solid #000000;
+  background-color: $blue-color;
+
+  width: 184px;
+  height: 45px;
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 36px;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.fone-icon-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: $primary-background-color;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+}
+
+.icon-use {
+  fill: $blue-color;
+}
+
+.icon-triangle-down {
+  fill: $white-color;
+}
+
+
+.btn-user:hover,
+.btn-user:focus {
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.30);
 }
