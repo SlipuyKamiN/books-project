@@ -35,7 +35,7 @@ if (currentStorage) {
 
 export async function handleModalWindow(bookId) {
 
-    globalRefs.modal.innerHTML = "";
+    globalRefs.modal.innerHTML =
 
     globalRefs.modal.classList.remove('is-hidden');
 

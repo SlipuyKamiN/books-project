@@ -8,6 +8,10 @@
 //     pointer-events: none;
 // }
 
+// .hidden {
+//     display: none;
+// }
+
 .backdrop {
     position: fixed;
     top: 0;
@@ -38,12 +42,10 @@
     transform: translate(-50%, -50%) scale(1);
 
     padding: 40px 22px;
-    // max-width: 335px;
     width: calc(100% - 20px * 2);
     min-height: 609px;
 
     background: $white-color;
-    // box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border: 2px solid $dark-color;
     border-radius: 18px;
 
@@ -61,7 +63,18 @@
 
     @media screen and (min-width: 768px) {
         width: 579px;
+        // height: auto;
+        min-height: 465px;
+        // max-height: 501px;
+        // height: 501px;
+        padding-left: 40px;
+        padding-right: 40px;
     }   
+
+    @media screen and (min-width: 768px) and (max-width: 1439.8px) {
+        bottom: 200px;
+        transform: translateX(-50%);
+    }
 }
 
 .modal__close-btn {
@@ -86,10 +99,32 @@
     &:focus {
         color: $blue-color;
     }
+
+    @media screen and (min-width: 768px) {
+        top: 24px;
+        right: 24px;
+
+        width: 28px;
+        height: 28px;
+    }
 }
 
 .modal__close-icon {
     fill: currentColor;
+
+    @media screen and (min-width: 768px) {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.modal__wrapper {  
+
+    @media screen and (min-width: 768px) {
+        display: flex;
+        gap: 24px;
+        margin-bottom: 40px;
+    }
 }
 
 
@@ -102,6 +137,20 @@
     border-radius: 8px;
     object-fit: cover;
     overflow: hidden;
+
+    @media screen and (min-width: 768px) {
+        width: 192px;
+        height: 281px;
+        margin-bottom: 0;
+    }
+
+}
+
+.modal__content {
+
+    @media screen and (min-width: 768px) {
+        width: 280px;           
+    }
 }
 
 .modal__title {
@@ -109,7 +158,13 @@
 
     font-weight: 700;
     font-size: 16px;
-    line-height: calc(18 / 16);        
+    line-height: calc(18 / 16);   
+    
+    @media screen and (min-width: 768px) {
+        margin-bottom: 8px;
+        font-size: 24px;
+        line-height: calc(28 / 24);
+    }
 }
 
 .modal__author {
@@ -119,7 +174,13 @@
     font-size: 12px;
     line-height: calc(14 / 12);
     
-    color: #B4AFAF;
+    color: $text-gray-color;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 20px;
+        font-size: 14px;
+        line-height: calc(18 / 14);
+    }
 }
 
 .modal__description {
@@ -128,6 +189,10 @@
 
     font-size: 14px;
     line-height: calc(18 / 14);
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 20px;
+    }
 }
 
 .modal__list {
@@ -139,7 +204,7 @@
 }
 
 .modal__shop-img {
-    outline: 1px red solid;
+    outline: 1px solid red;
 
     mix-blend-mode: luminosity;
 
@@ -170,13 +235,17 @@
     text-transform: uppercase;
     color: inherit;
 
-    transition: color $cubic-time, background-color $cubic-time;
-
-
+    transition: color $cubic-time, background-color $cubic-time, transform $cubic-time, opacity $cubic-time;
+    
     &:hover,
     &:focus {
         color: $white-color;
         background-color: $blue-color;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 100%;
+        padding: 20px 0;
     }
 
 }
@@ -186,6 +255,14 @@
 
     padding-left: 23px;
     padding-right: 23px;
+}
+
+.modal__add-btn.is-hidden,
+.modal__remove-btn.is-hidden {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .modal__remobe-btn-message {
@@ -200,6 +277,14 @@
     text-align: center;
 
     color: rgba(17, 17, 17, 0.5);
+
+
+    @media screen and (min-width: 768px) {
+        max-width: 324px;
+
+        font-size: 12px;
+        line-height: calc(14 / 12);
+    }
 }
 
 
