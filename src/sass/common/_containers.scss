@@ -1,0 +1,78 @@
+.header-container {
+  outline: 1px solid blue;
+  margin: 0 auto;
+  width: 375px;
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
+}
+
+.page-container {
+  width: 100%;
+
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
+
+.side-bar {
+  outline: 1px solid tomato;
+  width: 100%;
+  padding: 20px;
+
+  @media screen and (min-width: 768px) {
+    padding: 40px 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 372px;
+
+    padding: 40px 24px;
+  }
+}
+
+.side-bar-container {
+  outline: 1px solid blue;
+  margin: 0 auto;
+  max-width: 375px;
+  @media screen and (min-width: 768px) {
+    width: 328px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 328px;
+  }
+}
+
+.main {
+  outline: 1px solid tomato;
+  width: 100%;
+  padding: 20px;
+
+  @media screen and (min-width: 768px) {
+    padding: 40px 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 40px 24px;
+  }
+}
+
+.main-container {
+  outline: 1px solid blue;
+  margin: 0 auto;
+  max-width: 375px;
+  @media screen and (min-width: 768px) {
+    max-width: 100%;
+    width: 768px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 100%;
+  }
+}
