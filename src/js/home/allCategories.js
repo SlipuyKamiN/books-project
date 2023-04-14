@@ -2,7 +2,7 @@ import { fetchBooks } from '../fetchBooks';
 import { handleModalWindow } from '../modal';
 
 const mainTitleEl = document.querySelector('.main__title-js');
-const mainWraperEl = document.querySelector('.main__list-wrapper-js');
+const mainWraperEl = document.querySelector('.main__list-js');
 let idBook = 0;
 
 export const showAllCategories = () => {
@@ -22,7 +22,7 @@ const makeMarkupAllCategories1 = categories => {
            ${makeMarkupGategory(category.books)}
            </ul>
            <button class="load-more-js" type="button">see more</button>
-           </li>   
+           </li>
       `;
     })
     .join('');
@@ -50,7 +50,7 @@ export const makeMarkupGategory = category => {
 
 const makeMarkupAllCategories = categories => {
   return `<ul class='all-categories__list'>
-           ${makeMarkupAllCategories1(categories)} 
+           ${makeMarkupAllCategories1(categories)}
          </ul>
     `;
 };
@@ -75,7 +75,7 @@ async function feachAllCategories() {
   }
 }
 
-const handleImgClick = event => {
+export const handleImgClick = event => {
   idBook = event.target.dataset.id;
 
   if (event.target.nodeName !== 'IMG') {
