@@ -19,7 +19,7 @@ const makeMarkupAllCategories = categories => {
       return `
            <li class='all-categories__item'>
            <h3 class='category-books__title'>${category.list_name}</h3>
-            <ul class='categoty-books__list-js card-set'>
+            <ul class='category-books__list-js card-set'>
            ${makeMarkupGategory(category.books)}
            </ul>
            <button class="load-more-js" type="button">see more</button>
@@ -34,7 +34,7 @@ export const makeMarkupGategory = category => {
     .map(book => {
       return `
         <li class='category-books__item card-set__item'>
-         <a href="" class='category-books__link'>
+         <a href="/" class='category-books__link'>
           <img
             class='category-books__img'
             src='${book.book_image}'
@@ -92,8 +92,8 @@ const handleSeeMoreBtnClick = event => {
 };
 
 export const checkLengthBookTitle = title => {
-  if (title.length > 20) {
-    return `${title.slice(0, 19)}...`;
+  if (title.length > 19) {
+    return `${title.slice(0, 18)}...`;
   }
 
   return title;
