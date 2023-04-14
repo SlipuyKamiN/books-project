@@ -100,21 +100,16 @@ body.dark {
 }
 
 /////category section///
- .dark .category-books__title + .category-books__author{
-  color:$text-gray-color;
+.dark .category-books__title + .category-books__author {
+  color: $text-gray-color;
 }
 
-
-.dark .category-books__name {
-  color: $white-color;
-}
-
-.dark .load-more-js{
-  color: $white-color;
-  background-color: $dark-gray-color;
-}
-
+.dark .category-books__name,
+.dark .load-more-js,
 .dark .main__title-js {
- 
   color: $white-color;
+}
+
+.dark .load-more-js {
+  background-color: $dark-gray-color;
 }
