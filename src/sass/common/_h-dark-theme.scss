@@ -1,7 +1,4 @@
-body.dark {
-  background-color: #202024;
-  color: rgba(255, 255, 255, 0.6);
-}
+
 
 .theme__switch-wrapper {
   display: flex;
@@ -98,4 +95,24 @@ input:checked + .slider:before {
   transform: translate(-1px, -3px);
   background: linear-gradient(to bottom, #ffffff 0%, #f7f7f7 100%);
   border-radius: 50%;
+}
+
+
+body.dark {
+  background-color: $dark-gray-color;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+ .dark .category-books__title + .category-books__author{
+  color:$text-gray-color;
+}
+
+
+.dark .category-books__name{
+  color: $white-color;
+}
+
+.dark .load-more-js{
+  color: $white-color;
+  background-color: $dark-gray-color;
 }
