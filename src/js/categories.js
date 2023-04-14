@@ -22,7 +22,7 @@ let previ = '';
 
 function markup(ev) {
   let title = ev.target.textContent;
-  const mainTitleEl = document.querySelector('.main__title');
+  const mainTitleEl = document.querySelector('.main__title-js');
   const titleArr = title.split(' ');
   const titleFirstPart = titleArr.slice(0, titleArr.length - 1).join(' ');
   const titleLastPart = titleArr.slice(titleArr.length - 1).join();
