@@ -2,7 +2,6 @@
   width: 100%;
 }
 
-
 .header-container {
   display: flex;
 
@@ -24,7 +23,6 @@
 }
 
 
-
 //  ЛОГОТИП
 
 .header__logo {
@@ -40,7 +38,6 @@
     padding-bottom: 20px;
   }
 }
-
 
 
 // МЕНЮ ДЛЯ АВТОРИЗОВАНОГО КОРИСТУВАЧА
@@ -81,14 +78,12 @@
   fill: currentColor;
 }
 
-
 .current {
   font-weight: 700;
   background: $yellow-color;
   border-radius: 36px;
   padding: 8px 16px;
 }
-
 
 
 //  КНОПКА БУРГЕР МЕНЮ МЕНЮ
@@ -117,7 +112,6 @@
 .menu-toggle :focus {
   fill: $blue-color
 }
-
 
 
 
@@ -206,7 +200,6 @@
 .icon-triangle-down {
   fill: $white-color;
 }
-
 
 .btn-user:hover,
 .btn-user:focus {
