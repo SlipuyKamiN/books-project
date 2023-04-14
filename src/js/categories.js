@@ -18,8 +18,20 @@ func();
 
 listEl.addEventListener('click', markup);
 
+let previ = '';
+
 function markup(ev) {
   let title = ev.target.textContent;
   const mainTitleEl = document.querySelector('.main__title');
-  mainTitleEl.textContent = `${title}`;
+  const titleArr = title.split(' ');
+  const titleFirstPart = titleArr.slice(0, titleArr.length - 1).join(' ');
+  const titleLastPart = titleArr.slice(titleArr.length - 1).join();
+  console.log(titleFirstPart, titleLastPart);
+  mainTitleEl.innerHTML = `${titleFirstPart}<span class="main__title--color-purple"> ${titleLastPart}</span>`;
+
+  if (previ !== '') {
+    previ.style.textTransform = 'none';
+  }
+  ev.target.style.textTransform = 'uppercase';
+  previ = ev.target;
 }
