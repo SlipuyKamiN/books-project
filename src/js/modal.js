@@ -1,7 +1,6 @@
 import { fetchBooks } from '../js/fetchBooks';
 import renderModal from '../templates/modal.hbs';
 
-
 // Delete after testing
 const openModalEl = document.querySelector('.modal__open-modal-js');
 openModalEl.addEventListener('click', () => { 
