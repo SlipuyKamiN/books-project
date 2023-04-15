@@ -3,28 +3,28 @@ body.dark {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.theme__switch-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-  position: absolute;
-  right: 232px;
-  top: 24px;
-}
+// .theme__switch-wrapper {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   z-index: 100;
+//   position: absolute;
+//   right: 232px;
+//   top: 24px;
+// }
 
-@media screen and (max-width: 768px) {
-  .theme__switch-wrapper {
-    right: 240px;
-  }
-}
+// @media screen and (max-width: 768px) {
+//   .theme__switch-wrapper {
+//     right: 240px;
+//   }
+// }
 
-@media screen and (max-width: 320px) {
-  .theme__switch-wrapper {
-    right: 62px;
-    top: 20px;
-  }
-}
+// @media screen and (max-width: 320px) {
+//   .theme__switch-wrapper {
+//     right: 62px;
+//     top: 20px;
+//   }
+// }
 
 .theme__switch {
   position: relative;
@@ -99,3 +99,6 @@ input:checked + .slider:before {
   background: linear-gradient(to bottom, #ffffff 0%, #f7f7f7 100%);
   border-radius: 50%;
 }
+
+
+

@@ -44,13 +44,14 @@ export const drawCategory = async name => {
 listEl.addEventListener('click', markup);
 
 let previ = '';
+let title = '';
 
 function markup(ev) {
   if (ev.target === allCategoriesBtn) {
     showAllCategories();
     return;
   }
-  let title = ev.target.textContent;
+  title = ev.target.textContent;
   drawCategory(title);
 
   if (previ !== '') {
