@@ -26,10 +26,13 @@ const swiper = new Swiper('.swiper', {
   spaceBetween: 20,
   slidesPerView: 'auto',
   rewind: true,
-  // loop: true,
 
   navigation: {
     nextEl: '.swiper-button-next',
+  },
+
+  plugins: {
+    scrollContainer: true,
   },
 });
 

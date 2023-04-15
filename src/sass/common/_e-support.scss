@@ -12,12 +12,15 @@
   background: $radial-gradient;
 
   @media screen and (min-width: 768px) {
+    max-width: none;
+    width: 335px;
     height: 472px;
     padding: 24px 40px 14px;
   }
 
   @media screen and (min-width: 1440px) {
-    height: 472px;
+    width: 356px;
+    height: 490px;
     padding: 24px 40px;
   }
 }
