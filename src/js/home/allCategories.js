@@ -1,9 +1,12 @@
 import { fetchBooks } from '../fetchBooks';
 import { handleModalWindow } from '../modal';
+import { drawCategory } from '../categories';
+// import { title } from '../categories';
 
 const mainTitleEl = document.querySelector('.main__title-js');
 const mainWraperEl = document.querySelector('.main__list-js');
 let idBook = 0;
+let title = 0;
 
 export const showAllCategories = () => {
   mainTitleEl.innerHTML =
@@ -22,7 +25,9 @@ const makeMarkupAllCategories = categories => {
             <ul class='category-books__list-js card-set'>
            ${makeMarkupGategory(category.books)}
            </ul>
-           <button class="load-more-js" type="button">see more</button>
+           <button class="load-more-js" type="button" data-category="${
+             category.list_name
+           }">see more</button>
            </li>
       `;
     })
@@ -47,9 +52,13 @@ export const makeMarkupGategory = category => {
           </div>
           </a>
           <h3 class='category-books__name' >${checkLengthBookTitle(
-            book.title
+            book.title,
+            18
           )}</h3>
-          <p class='category-books__author'>${book.author}</p>
+          <p class='category-books__author'>${checkLengthBookTitle(
+            book.author,
+            29
+          )}</p>
         </li>
       `;
     })
@@ -90,12 +99,14 @@ const handleImgClick = event => {
 };
 
 const handleSeeMoreBtnClick = event => {
-  event.target.classList.add('visually-hidden');
+  title = event.target.dataset.category;
+  console.log(title);
+  drawCategory(title);
 };
 
-export const checkLengthBookTitle = title => {
-  if (title.length > 19) {
-    return `${title.slice(0, 18)}...`;
+export const checkLengthBookTitle = (title, length) => {
+  if (title.length > length) {
+    return `${title.slice(0, length)}...`;
   }
 
   return title;
