@@ -1,16 +1,18 @@
 @media screen and (max-width: 767.99px) {
-    .shopping-box-tablet{
+    .shopping__item-tablet{
         display: none;
     }
 }
 
 @media screen and (min-width: 768px) {
-    .shopping-box-mobile {
+    .shopping__item-mobile {
             display: none;
         }
 }
 
-
+.shopping-item{
+    height: 100%;
+}
 
 .shopping-main{
     padding: 40px 20px;
@@ -35,7 +37,6 @@
 .shopping-main__title--violet-color{
     color: $blue-color;
 }
-
 
 .shopping__item {
     border: 2px solid rgba(79, 46, 232, 0.4);
@@ -95,6 +96,15 @@
     margin: 0;
 }
 
+.flex-box-mobale {
+    display: flex;
+}
+
+.flex-box-tablet{
+    display: flex;
+    
+}
+
 .shopping__img {
     width: 98px;
     height:139px;
@@ -106,6 +116,10 @@
             height: 165px;
             margin-right: 24px;
             }
+}
+
+.flex-box__text-tablet{
+    
 }
 
 .shopping__title {
@@ -129,11 +143,12 @@
     color: $text-gray-color;
 
     margin-bottom: 24px;
+
+    @media screen and (min-width: 768px) {
+            margin-bottom: 14px;
+        }
 }
 
-.shops-list{
-    display: flex;
-}
 
 .shopping__author{
     font-style: italic;
@@ -141,27 +156,32 @@
     line-height: 1.17;
 
     color: $text-gray-color;
-    margin-top: 4px;
-}
 
-.flex-box {
-    display: flex;
-}
-
-.flex-box__text {
-    display: flex;
-    flex-direction: column;
+    @media screen and (max-width: 767px) {
+            margin-top: 4px;
+        }
 }
 
 .shops-list {
     display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.shops-list__img:hover{
+box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
 }
 
 .shopping__text {
     font-size: 14px;
     line-height: 1.28;
 
-    margin-top: 20px;
+    @media screen and (max-width: 767px) {
+            margin-top: 20px;
+        }
+    @media screen and (min-width: 768px) {
+            
+        }
 }
 
 .visually-hidden {
@@ -177,6 +197,13 @@
     margin: -1px;
 }
 
+.shopping-box-tablet{
+    display: flex;
+    align-items:flex-end;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
 .empty-list{
     display: flex;
     flex-direction: column;
@@ -185,7 +212,8 @@
     margin-top: 80px;
 
     @media screen and (min-width: 768px) {
-            margin-top: 100px;
+        // height: 100%;
+        //     margin-top: 100px;
         }
 }
 
