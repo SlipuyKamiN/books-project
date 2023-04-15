@@ -40,6 +40,14 @@
   }
 }
 
+.shopping-list__page .side-bar {
+  display: none;
+
+  @media screen and (min-width: 1440px) {
+    display: block;
+  }
+}
+
 .side-bar-container,
 .main-container {
   outline: 1px solid blue;
