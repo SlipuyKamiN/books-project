@@ -1,1 +1,59 @@
-<div class="auth__backdrop"><div class="auth__modal">auth modal</div></div>
+<button class="auth__modal-open-js">Authorization modal</button>
+<div class="auth__backdrop is-hidden auth__modal-js">
+  <div class="auth__modal">
+    <form class="form" autocomplete="off">
+      <div class="form__render">
+        <div class="form__field">
+          <input
+            type="text"
+            class="form__input form__input-name"
+            name="name"
+            pattern="[a-zA-Z\u0400-\u04ff]{3,30}"
+            required
+          />
+          <label for="name" class="form__label form__label-name">Name</label>
+        </div>
+      </div>
+
+      <div class="form__field">
+        <input
+          type="email"
+          class="form__input form__input-mail"
+          name="mail"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          required
+        />
+        <label for="mail" class="form__label form__label-mail">Email</label>
+        <svg class="form__icon" width="32" height="32">
+          <use href="./images/icons.svg#icon-auth-mail"></use>
+        </svg>
+      </div>
+
+      <div class="form__field">
+        <input
+          type="password"
+          class="form__input form__input-password"
+          name="password"
+          required
+        />
+        <label for="password" class="form__label form__label-password"
+          >Password</label
+        >
+        <svg class="form__icon" width="32" height="32">
+          <use href="./images/icons.svg#icon-auth-password"></use>
+        </svg>
+      </div>
+
+      <button type="submit" class="form__btn">Sign up</button>
+      <div class="form__btns">
+        <button type="button" class="form__btn-up active">Sign up</button>
+        <button type="button" class="form__btn-in">Sign in</button>
+      </div>
+      <button class="auth__modal-close auth__modal-close-js">
+        <svg class="auth__modal-close-icon" width="32" height="32">
+          <use href="./images/icons.svg#icon-x-close"></use>
+        </svg>
+      </button>
+    </form>
+  </div>
+</div>
