@@ -1,47 +1,100 @@
-html {
-    scroll-behavior: smooth;
-}
 
-#scrollTop {
+.scroll-up {
     position: fixed;
-    bottom: 100px;
-    right: 20px;
-    z-index: 10000;
-
-    // @media screen and (min-width: 768px) {
-    //     bottom: 50px;
-    //     right: 30px;
-    // }
-
-    // @media screen and (min-width: 1280px) {
-    //     bottom: 70px;
-    //     right: 50px;
-    // }
-}
-
-.isShowBtn {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: .4s;
-    opacity: 1;
+    right: 50px;
+    bottom: 50px;
+    z-index: 100;
     width: 64px;
     height: 64px;
+    background-color: $blue-color;
+    cursor: pointer;
+    visibility: hidden;
     border-radius: 50%;
-    // border: 5px solid rgba(79, 46, 232, 0.3);
-    border: 5px solid rgba(214, 206, 240, 0.3);
-    position: fixed;
-    bottom: 40px;
-    right: 30px;
-    background-color: #4F2EE8;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.isShowBtn_hide {
+    box-shadow: inset 0 0 0 4px rgba(204, 201, 220, 0.3);
     opacity: 0;
+    transition: 0.2s;
+    transform: translateY(25px);
 }
 
-.menu-toggle__icon {
-    fill: #FFFFFF;
+ .scroll-up__arrow{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    fill: $white-color;
+ }
+
+// .scroll-up__arrow:hover {
+//     color: #d81919;
+// }
+
+.scroll-up--active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
 }
+
+.scroll-up__svg-path {
+    box-sizing: border-box;
+    fill: none;
+    stroke: $dark-color;
+    stroke-width: 4px;
+    transition: 0.2s;
+}
+
+
+
+
+
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//     весь  попередный код
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// html {
+//     scroll-behavior: smooth;
+// }
+
+// #scrollTop {
+//     position: fixed;
+//     bottom: 100px;
+//     right: 20px;
+//     z-index: 10000;
+
+//     // @media screen and (min-width: 768px) {
+//     //     bottom: 50px;
+//     //     right: 30px;
+//     // }
+
+//     // @media screen and (min-width: 1280px) {
+//     //     bottom: 70px;
+//     //     right: 50px;
+//     // }
+// }
+
+// .isShowBtn {
+//     box-sizing: border-box;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     transition: .4s;
+//     opacity: 1;
+//     width: 64px;
+//     height: 64px;
+//     border-radius: 50%;
+//     // border: 5px solid rgba(79, 46, 232, 0.3);
+//     border: 5px solid rgba(214, 206, 240, 0.3);
+//     position: fixed;
+//     bottom: 40px;
+//     right: 30px;
+//     background-color: #4F2EE8;
+//     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+// }
+
+// .isShowBtn_hide {
+//     opacity: 0;
+// }
+
+// .menu-toggle__icon {
+//     fill: #FFFFFF;
+// }
