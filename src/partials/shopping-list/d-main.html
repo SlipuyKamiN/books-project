@@ -8,7 +8,14 @@
     </p>
     <img
       class="shopping-empty-img"
-      src="./images/shopingImg/mobEmptyList-transformed.png"
+      srcset="
+        ./images/shopingImg/emptyList-265.png 265w,
+        ./images/shopingImg/emptyList-322.png 322w,
+        ./images/shopingImg/emptyList-530.png 530w,
+        ./images/shopingImg/emptyList-644.png 644w
+      "
+      sizes="(min-width: 768px) 322px,(max-width: 767px) 265px, 100vw"
+      src="./images/shopingImg/emptyList-265.png"
       alt="books"
       loading="lazy"
     />

@@ -1,17 +1,25 @@
 @media screen and (max-width: 767.99px) {
-    .shopping__item-tablet{
+    .shopping-tablet{
         display: none;
+    }
+
+    .shopping-mobale {
+        display: flex;
     }
 }
 
 @media screen and (min-width: 768px) {
-    .shopping__item-mobile {
+    .shopping-mobale {
             display: none;
         }
-}
+    
+    .shopping__text-mobale{
+        display: none;
+    }
 
-.shopping-item{
-    height: 100%;
+    .shopping-tablet {
+        display: flex;
+    }
 }
 
 .shopping-main{
@@ -20,7 +28,7 @@
     @media screen and (min-width: 768px) {
             padding: 40px 32px;
         }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1440px) {
             padding: 40px 24px 40px 40px;
     }
 }
@@ -52,7 +60,7 @@
             padding: 24px;
             width: 704px;
         }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1440px) {
             width: 996px;
         }
 }
@@ -96,15 +104,6 @@
     margin: 0;
 }
 
-.flex-box-mobale {
-    display: flex;
-}
-
-.flex-box-tablet{
-    display: flex;
-    
-}
-
 .shopping__img {
     width: 98px;
     height:139px;
@@ -119,7 +118,9 @@
 }
 
 .flex-box__text-tablet{
-    
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .shopping__title {
@@ -168,8 +169,14 @@
     gap: 14px;
 }
 
-.shops-list__img:hover{
-box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
+.shops-list__link:hover,
+.shops-list__link:focus{
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+    mix-blend-mode: luminosity;
+}
+
+.shops-list__img{
+    mix-blend-mode: luminosity;
 }
 
 .shopping__text {
@@ -178,9 +185,6 @@ box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
 
     @media screen and (max-width: 767px) {
             margin-top: 20px;
-        }
-    @media screen and (min-width: 768px) {
-            
         }
 }
 
@@ -212,8 +216,7 @@ box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
     margin-top: 80px;
 
     @media screen and (min-width: 768px) {
-        // height: 100%;
-        //     margin-top: 100px;
+            margin-top: 100px;
         }
 }
 
