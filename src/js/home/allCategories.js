@@ -17,8 +17,8 @@ const makeMarkupAllCategories1 = categories => {
     .map(category => {
       return `
            <li class='all-categories__item'>
-           <h3 class='category-books__title'>${category.list_name}</h3>
-            <ul class='categoty-books__list-js card-set'>
+           <h4 class='category-books__title'>${category.list_name}</h4>
+            <ul class='category-books__list-js card-set'>
            ${makeMarkupGategory(category.books)}
            </ul>
            <button class="load-more-js" type="button">see more</button>
@@ -32,7 +32,8 @@ export const makeMarkupGategory = category => {
   return category
     .map(book => {
       return `
-        <li class='category-books__item card-set__item'>
+        <li class='category-books__item'>
+         <a href="/" class='category-books__link'>
           <img
             class='category-books__img'
             src='${book.book_image}'
@@ -40,7 +41,13 @@ export const makeMarkupGategory = category => {
             data-id="${book._id}"
            loading="lazy"
           />
-          <p class='category-books__name' >${book.title}</p>
+          <div class='category-books__wrapper'>
+          <p class='category-books__text'>quick view</p>
+          </div>
+          </a>
+          <h3 class='category-books__name' >${checkLengthBookTitle(
+            book.title
+          )}</h3>
           <p class='category-books__author'>${book.author}</p>
         </li>
       `;
@@ -61,15 +68,18 @@ async function feachAllCategories() {
     mainWraperEl.innerHTML = makeMarkupAllCategories(categories);
 
     const seeMoreBtnEl = document.querySelectorAll('.load-more-js');
-    const booksListEl = document.querySelectorAll('.categoty-books__list-js');
+    const bookCategoryEl = document.querySelectorAll('.category-books__item');
 
-    seeMoreBtnEl.forEach(el => {
-      el.addEventListener('click', handleSeeMoreBtnClick);
-    });
+    // seeMoreBtnEl.forEach(el => {
+    //   el.addEventListener('click', handleSeeMoreBtnClick);
+    // });
 
-    booksListEl.forEach(el => {
-      el.addEventListener('click', handleImgClick);
-    });
+    // bookCategoryEl.forEach(el => {
+    //   el.addEventListener('click', handleImgClick);
+    // });
+
+    addEventListenerForBook(bookCategoryEl);
+    addEventListenerForBtn(seeMoreBtnEl);
   } catch (error) {
     console.log(error);
   }
@@ -86,4 +96,24 @@ export const handleImgClick = event => {
 };
 const handleSeeMoreBtnClick = event => {
   event.target.classList.add('visually-hidden');
+};
+
+export const checkLengthBookTitle = title => {
+  if (title.length > 19) {
+    return `${title.slice(0, 18)}...`;
+  }
+
+  return title;
+};
+
+export const addEventListenerForBook = book => {
+  book.forEach(el => {
+    el.addEventListener('click', handleImgClick);
+  });
+};
+
+const addEventListenerForBtn = category => {
+  category.forEach(el => {
+    el.addEventListener('click', handleSeeMoreBtnClick);
+  });
 };
