@@ -1,4 +1,4 @@
-
+import throttle from "lodash.throttle";
 
 const offset = 100;
 const scrollUp = document.querySelector(".scroll-up");
@@ -23,14 +23,14 @@ const updateDashoffset = () => {
 
 
 // onScroll
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll", throttle(() => {
     updateDashoffset();
     if (getTop() > offset) {
         scrollUp.classList.add("scroll-up--active");
     } else {
         scrollUp.classList.remove("scroll-up--active");
 }
-});
+}, 150));
 
 
 // click
@@ -40,35 +40,5 @@ scrollUp.addEventListener("click", () => {
         behavior: "smooth"
     });
 });
-
-
-
-
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//     весь  попередный код
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-//     window.onload = () => {
-//     window.onscroll = function (e) {
-//         let winY = window.scrollY;
-//         if (winY > 300) {
-//             progressBar();
-//             scrollbarAnimation();
-//             winY = null;
-//         }
-//     };
-//     const scrollBtn = document.querySelector('.isShowBtn');
-//     window.onscroll = () => {
-//         if (window.scrollY > 400) {
-//             scrollBtn.classList.remove('isShowBtn_hide');
-//         } else if (window.scrollY < 400) {
-//             scrollBtn.classList.add('isShowBtn_hide');
-//         }
-//     };
-//     scrollBtn.onclick = () => {
-//         window.scrollTo(0, 0);
-//     }
-// };
 
 
