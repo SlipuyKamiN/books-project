@@ -58,18 +58,18 @@ export async function handleModalWindow(bookId) {
       closeModalBtn: document.querySelector('.modal__close-btn-js'),
     };
 
-    refs.removeBlock.classList.add('visually-hidden');
+    refs.removeBlock.classList.add('is-hidden');
 
     if (!IsUserLogged) {
-      refs.addBtn.classList.add('visually-hidden');
+      refs.addBtn.classList.add('is-hidden');
     }
 
     const isBookInStorage = bookArray.find(book => book._id === bookData._id);
     const bookIndex = bookArray.indexOf(isBookInStorage);
 
     if (isBookInStorage) {
-      refs.addBtn.classList.add('visually-hidden');
-      refs.removeBlock.classList.remove('visually-hidden');
+      refs.addBtn.classList.add('is-hidden');
+      refs.removeBlock.classList.remove('is-hidden');
     }
 
     window.addEventListener('keydown', handleEscKeyPress);
@@ -89,8 +89,8 @@ export async function handleModalWindow(bookId) {
 
       localStorage.setItem(BOOKS_DATA_KEY, JSON.stringify(bookArray));
 
-      refs.addBtn.classList.add('visually-hidden');
-      refs.removeBlock.classList.remove('visually-hidden');
+      refs.addBtn.classList.add('is-hidden');
+      refs.removeBlock.classList.remove('is-hidden');
     }
 
     function handleRemoveBtnClick() {
@@ -98,8 +98,8 @@ export async function handleModalWindow(bookId) {
 
       localStorage.setItem(BOOKS_DATA_KEY, JSON.stringify(bookArray));
 
-      refs.addBtn.classList.remove('visually-hidden');
-      refs.removeBlock.classList.add('visually-hidden');
+      refs.addBtn.classList.remove('is-hidden');
+      refs.removeBlock.classList.add('is-hidden');
     }
 
     function handleEscKeyPress(evt) {

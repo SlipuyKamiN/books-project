@@ -107,7 +107,6 @@
     }
 }
 
-
 .modal__img {
     margin-bottom: 14px;
 
@@ -182,13 +181,17 @@
     margin-bottom: 40px;
 }
 
-.modal__shop-img {
+.modal__link {
     mix-blend-mode: luminosity;
 
     &:hover,
     &:focus {
         filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
     }
+}
+
+.modal__remove-btn-wrapper {
+    transition: transform $cubic-time, opacity $cubic-time;
 }
 
 .modal__add-btn,
@@ -233,7 +236,7 @@
 }
 
 .modal__add-btn.is-hidden,
-.modal__remove-btn.is-hidden {
+.modal__remove-btn-wrapper.is-hidden {
     position: absolute;
     opacity: 0;
     visibility: hidden;
