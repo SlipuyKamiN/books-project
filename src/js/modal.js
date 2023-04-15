@@ -26,7 +26,6 @@ if (currentStorage) {
 }
 
 export async function handleModalWindow(bookId) {
-  // globalRefs.modal.innerHTML = globalRefs.modal.classList.remove('is-hidden');
 
   try {
     const bookData = await fetchBooks.getBookById(bookId);
@@ -42,6 +41,7 @@ export async function handleModalWindow(bookId) {
     ).url;
 
     globalRefs.modal.innerHTML = globalRefs.modal.classList.remove('is-hidden');
+    document.body.classList.add('modal-open');
 
     globalRefs.modal.innerHTML = renderModal({
       ...bookData,
@@ -82,6 +82,7 @@ export async function handleModalWindow(bookId) {
       closeModal();
       removeListeners();
       clearInterface();
+      document.body.classList.remove('modal-open');
     }
 
     function handleAddBtnClick() {
@@ -108,6 +109,7 @@ export async function handleModalWindow(bookId) {
         closeModal();
         removeListeners();
         clearInterface();
+        document.body.classList.remove('modal-open');
       }
     }
 
@@ -116,6 +118,7 @@ export async function handleModalWindow(bookId) {
         closeModal();
         removeListeners();
         clearInterface();
+        document.body.classList.remove('modal-open');
       }
     }
 
