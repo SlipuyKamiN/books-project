@@ -24,7 +24,8 @@
     "lodash.throttle": "^4.1.1",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
-    "parcel-transformer-hbs": "^1.0.4"
+    "parcel-transformer-hbs": "^1.0.4",
+    "swiper": "^9.2.2"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
