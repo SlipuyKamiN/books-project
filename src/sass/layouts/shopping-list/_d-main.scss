@@ -1,15 +1,31 @@
+@media screen and (max-width: 767.99px) {
+    .shopping__item-tablet{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .shopping__item-mobile {
+            display: none;
+        }
+}
+
+.shopping-item{
+    height: 100%;
+}
+
 .shopping-main{
     padding: 40px 20px;
 
     @media screen and (min-width: 768px) {
             padding: 40px 32px;
         }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1280px) {
             padding: 40px 24px 40px 40px;
     }
 }
 
-.shopping-title{
+.shopping-main__title{
 
     font-weight: 700;
     font-size: 32px;
@@ -18,10 +34,9 @@
     margin-bottom: 40px;
 }
 
-.shopping-title-span{
-    color:#4F2EE8;
+.shopping-main__title--violet-color{
+    color: $blue-color;
 }
-
 
 .shopping__item {
     border: 2px solid rgba(79, 46, 232, 0.4);
@@ -37,7 +52,7 @@
             padding: 24px;
             width: 704px;
         }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1280px) {
             width: 996px;
         }
 }
@@ -57,6 +72,13 @@
     border-radius: 50%;
     padding: 0;
 
+    background-color: $blue-color;
+    border: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     @media screen and (min-width: 768px) {
             top: 24px;
             right: 24px;
@@ -66,11 +88,39 @@
         }
 }
 
+.shopping-button__icon {
+    pointer-events: none;
+}
+
 .shopping__box {
     margin: 0;
 }
 
-.shopping__img {}
+.flex-box-mobale {
+    display: flex;
+}
+
+.flex-box-tablet{
+    display: flex;
+    
+}
+
+.shopping__img {
+    width: 98px;
+    height:139px;
+
+    margin-right: 20px;
+
+    @media screen and (min-width: 768px) {
+            width: 116px;
+            height: 165px;
+            margin-right: 24px;
+            }
+}
+
+.flex-box__text-tablet{
+    
+}
 
 .shopping__title {
     font-weight: 700;
@@ -78,7 +128,7 @@
     line-height: 1.12;
 
     
-    @media screen and (max-width: 375px) {
+    @media screen and (max-width: 767px) {
             width: 144px;
         }
 
@@ -86,26 +136,103 @@
 }
 
 .shopping__titleText {
-    color: #B4AFAF;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.03em;
+
+    color: $text-gray-color;
+
+    margin-bottom: 24px;
+
+    @media screen and (min-width: 768px) {
+            margin-bottom: 14px;
+        }
 }
 
-.flex-box {
-    display: flex;
-}
 
-.flex-box__text {
-    display: flex;
-    flex-direction: column;
+.shopping__author{
+    font-style: italic;
+    font-size: 12px;
+    line-height: 1.17;
+
+    color: $text-gray-color;
+
+    @media screen and (max-width: 767px) {
+            margin-top: 4px;
+        }
 }
 
 .shops-list {
     display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.shops-list__img:hover{
+box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
 }
 
 .shopping__text {
-    margin: 0;
+    font-size: 14px;
+    line-height: 1.28;
+
+    @media screen and (max-width: 767px) {
+            margin-top: 20px;
+        }
+    @media screen and (min-width: 768px) {
+            
+        }
 }
 
-.shopping-button__icon{
-    pointer-events: none;
+.visually-hidden {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+}
+
+.shopping-box-tablet{
+    display: flex;
+    align-items:flex-end;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.empty-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 80px;
+
+    @media screen and (min-width: 768px) {
+        // height: 100%;
+        //     margin-top: 100px;
+        }
+}
+
+.shopping-empty-text{
+    text-align: center;
+    max-width: 349px;
+
+    font-size: 18px;
+    line-height: 1.33;
+
+    margin-bottom: 20px;
+}
+
+.shopping-empty-img{
+    width:265px;
+    height:198px;
+
+    @media screen and (min-width: 768px) {
+            width: 322px;
+            height: 241px;
+        }
 }

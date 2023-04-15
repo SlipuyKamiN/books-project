@@ -3,13 +3,13 @@
   display: flex;
   width: 100%;
 
-  padding: 20px;
+  padding: 20px 0;
 
   @media screen and (min-width: 768px) {
-    padding: 14px 32px;
+    padding: 14px 0px;
   }
 
-  @media screen and (min-width: 1440px) {
-    padding: 14px 24px;
+  @media screen and (min-width: 1280px) {
+    padding: 14px 0px;
   }
 }
