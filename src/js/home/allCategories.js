@@ -10,9 +10,10 @@ export const showAllCategories = () => {
     ' Best Sellers <span class="main__title--color-purple">Books</span>';
   feachAllCategories();
 };
+
 showAllCategories();
 
-const makeMarkupAllCategories1 = categories => {
+const makeMarkupAllCategories = categories => {
   return categories
     .map(category => {
       return `
@@ -55,13 +56,6 @@ export const makeMarkupGategory = category => {
     .join('');
 };
 
-const makeMarkupAllCategories = categories => {
-  return `<ul class='all-categories__list'>
-           ${makeMarkupAllCategories1(categories)}
-         </ul>
-    `;
-};
-
 async function feachAllCategories() {
   try {
     const categories = await fetchBooks.getBestSellers();
@@ -70,14 +64,6 @@ async function feachAllCategories() {
     const seeMoreBtnEl = document.querySelectorAll('.load-more-js');
     const bookCategoryEl = document.querySelectorAll('.category-books__item');
 
-    // seeMoreBtnEl.forEach(el => {
-    //   el.addEventListener('click', handleSeeMoreBtnClick);
-    // });
-
-    // bookCategoryEl.forEach(el => {
-    //   el.addEventListener('click', handleImgClick);
-    // });
-
     addEventListenerForBook(bookCategoryEl);
     addEventListenerForBtn(seeMoreBtnEl);
   } catch (error) {
@@ -85,7 +71,8 @@ async function feachAllCategories() {
   }
 }
 
-export const handleImgClick = event => {
+const handleImgClick = event => {
+  event.preventDefault();
   idBook = event.target.dataset.id;
 
   if (event.target.nodeName !== 'IMG') {
@@ -94,6 +81,7 @@ export const handleImgClick = event => {
 
   handleModalWindow(idBook);
 };
+
 const handleSeeMoreBtnClick = event => {
   event.target.classList.add('visually-hidden');
 };
