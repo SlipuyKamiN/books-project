@@ -26,7 +26,7 @@ const createCategoryList = async () => {
 };
 createCategoryList();
 
-allCategoriesBtn.addEventListener('click', showAllCategories);
+// allCategoriesBtn.addEventListener('click', showAllCategories);
 
 export const drawCategory = async name => {
   const books = await fetchBooks.getBooksByCategory(name);
@@ -37,6 +37,8 @@ export const drawCategory = async name => {
   mainTitle.innerHTML = `${titleFirstPart}<span class="main__title--color-purple"> ${titleLastPart}</span>`;
   mainListEl.innerHTML = markup;
   mainListEl.classList.add('card-set');
+  const bookCategoryEl = document.querySelectorAll('.category-books__item');
+  addEventListenerForBook(bookCategoryEl);
 };
 
 listEl.addEventListener('click', markup);
@@ -44,6 +46,10 @@ listEl.addEventListener('click', markup);
 let previ = '';
 
 function markup(ev) {
+  if (ev.target === allCategoriesBtn) {
+    showAllCategories();
+    return;
+  }
   let title = ev.target.textContent;
   drawCategory(title);
 
