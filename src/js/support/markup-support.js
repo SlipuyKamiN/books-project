@@ -1,7 +1,7 @@
 export const markupCardFund = (
   { title, url, img, img2 },
   position
-) => `<li class="support__list-item">
+) => `<li class="support__list-item swiper-slide">
   <p class="support__number">${position}</p>
   <a class="support__link" href="${url}" target="_blank" rel="noopener noreferrer nofollow">
     <img
@@ -9,7 +9,6 @@ export const markupCardFund = (
       src="${img}"
       alt="${title}"
       width="149"
-      height="55"
       loading="lazy"
     />
   </a>

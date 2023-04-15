@@ -1,7 +1,10 @@
-import { fundArray } from './suupport/fund-array';
-import { markupCardFund } from './suupport/markup-support';
+import { fundArray } from './support/fund-array';
+import { markupCardFund } from './support/markup-support';
+import Swiper from 'swiper';
 
-const supportListEl = document.querySelector('.support__list');
+const supportListEl = document.querySelector('.support__list-js');
+const btnSwiperEl = document.querySelector('.swiper-button-next');
+
 let position = 0;
 
 const addLeadingZero = value => {
@@ -17,3 +20,21 @@ const markupSetFunds = fundArray
   .join('');
 
 supportListEl.innerHTML = markupSetFunds;
+
+const swiper = new Swiper('.swiper', {
+  direction: 'vertical',
+  spaceBetween: 20,
+  slidesPerView: 'auto',
+  rewind: true,
+  // loop: true,
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+  },
+});
+
+swiper.update();
+
+btnSwiperEl.addEventListener('click', () => {
+  swiper.slideNext();
+});
