@@ -6,8 +6,7 @@
   height: 100%;
   background-color: $blue-color;
   opacity: 1;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity $cubic-time, visibility $cubic-time;
 }
 
 .auth__backdrop.is-hidden {
@@ -31,6 +30,11 @@
   background-color: $primary-background-color;
   border: 2px solid $dark-color;
   border-radius: 18px;
+
+  @media screen and (min-width: 1280px) {
+    max-width: 579px;
+    padding: 80px 40px 40px 40px;
+  }
 }
 
 .auth__modal-close {
@@ -46,27 +50,35 @@
   border: none;
   background-color: $primary-background-color;
   cursor: pointer;
+
+  @media screen and (min-width: 1280px) {
+    top: 24px;
+    right: 24px;
+    width: 28px;
+    height: 28px;
+  }
 }
 
 .auth__modal-close-icon {
   fill: $dark-color;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill $cubic-time;
 }
 
-.auth__modal__close:hover .auth__modal__close-icon,
-.auth__modal__close:focus .auth__modal__close-icon {
+.auth__modal-close:hover .auth__modal-close-icon,
+.auth__modal-close:focus .auth__modal-close-icon {
   fill: $blue-color;
 }
 
-.form {
-}
-
-.form-field {
+.form__field {
   position: relative;
   margin-bottom: 24px;
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 28px;
+  }
 }
 
-.form-field input {
+.form__field input {
   margin: 0;
   padding: 0;
   padding-left: 24px;
@@ -74,40 +86,155 @@
   height: 50px;
   border: 2px solid $dark-color;
   border-radius: 40px;
+  background-color: $primary-background-color;
+  transition: border $cubic-time;
+
+  @media screen and (min-width: 1280px) {
+    padding-left: 40px;
+    width: 499px;
+    height: 64px;
+  }
 }
 
-.form-label {
-  font-family: 'DM Sans';
-  font-style: normal;
+.form__field:hover input,
+.form__field:focus input {
+  border: 2px solid $blue-color;
+}
+
+.form__label {
   font-weight: 700;
   font-size: 16px;
   line-height: 1.12;
-
   letter-spacing: -0.01em;
   text-transform: uppercase;
-
   color: $dark-color;
+
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+    line-height: 1.33;
+  }
 }
 
-.form-label {
+.form__label {
   position: absolute;
   top: 50%;
   left: 24px;
   transform: translateY(-50%);
-  transition: transform 250ms linear;
+  transition: transform $cubic-time;
+
+  @media screen and (min-width: 1280px) {
+    left: 40px;
+  }
 }
 
-.form-input:focus + .form-label {
+.form__input:focus + .form__label,
+.form__input:hover + .form__label {
   transform: translateY(-46px);
   color: $blue-color;
+
+  @media screen and (min-width: 1280px) {
+    transform: translateY(-54px);
+  }
 }
 
-.form-btn {
+.checked {
+  transform: translateY(-46px);
+  color: $blue-color;
+
+  @media screen and (min-width: 1280px) {
+    transform: translateY(-54px);
+  }
+}
+
+.form__btn {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
   width: 295px;
   height: 50px;
-  margin-bottom: 10px;
-  background: $dark-color;
+  margin-bottom: 14px;
+  background-color: $dark-color;
   border: 2px solid $dark-color;
   border-radius: 40px;
   color: $white-gray-color;
+  cursor: pointer;
+  transition: background-color $cubic-time, border $cubic-time;
+
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+    line-height: 1.33;
+    width: 499px;
+    height: 64px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+  }
+}
+
+.form__btn:hover,
+.form__btn:focus {
+  background-color: $blue-color;
+  border: 3px solid $blue-color;
+}
+
+.form__btns {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.form__btn-up {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.01em;
+  color: #11111180;
+  text-transform: uppercase;
+  border: none;
+  background-color: $primary-background-color;
+  cursor: pointer;
+
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+.form__btn-in {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.01em;
+  color: #11111180;
+  text-transform: uppercase;
+  border: none;
+  background-color: $primary-background-color;
+  cursor: pointer;
+
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+.active {
+  text-decoration-line: underline;
+  color: $blue-color;
+}
+
+.form__icon {
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  fill: $dark-color;
+
+  @media screen and (min-width: 1280px) {
+    right: 30px;
+    width: 28px;
+    height: 28px;
+  }
 }
