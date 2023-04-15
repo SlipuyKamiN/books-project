@@ -43,24 +43,21 @@
 // МЕНЮ ДЛЯ АВТОРИЗОВАНОГО КОРИСТУВАЧА
 
 .menu {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-
-  color: $dark-color;
-
-  @media screen and (min-width: 320px) and (max-width: 767px) {
     display: none;
-  }
-
+ 
   @media screen and (min-width: 768px) {
     margin-left: 32px;
+    display: flex;
+      align-items: center;
+      gap: 24px;
+    
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+    
+      color: $dark-color;
   }
 
   @media screen and (min-width: 1440px) {
@@ -131,56 +128,51 @@
 
 //  КНОПКИ  "sign-up" ТА  "user"
 
-.btn-sign-up {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 90px;
-  width: 184px;
-  height: 48px;
-  background-color: $blue-color;
-  border: 1.5px solid $dark-color;
-  border-radius: 18px;
-  color: $white-color;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
-
-  @media screen and (min-width: 320px) and (max-width: 767px) {
-    display: none;
-  }
+.auth__modal-open-js {
+display: none;
+        @media screen and (min-width: 768px) {
+          display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 90px;
+            width: 184px;
+            height: 48px;
+            background-color: $blue-color;
+            border: 1.5px solid $dark-color;
+            border-radius: 18px;
+            color: $white-color;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 18px;
+        }
 }
 
-.btn-sign-up:hover,
-.btn-sign-up:focus {
+.auth__modal-open-js:hover,
+.auth__modal-open-js:focus {
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.30);
 }
 
 .btn-user {
+  display: none;
+@media screen and (min-width: 768px) {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  gap: 5px;
-
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 29px;
-  letter-spacing: -0.02em;
-
-  color: $white-color;
-  border: 1px solid #000000;
-  background-color: $blue-color;
-
-  width: 184px;
-  height: 45px;
-
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  border-radius: 36px;
-
-  @media screen and (min-width: 320px) and (max-width: 767px) {
-    display: none;
-  }
-}
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
+  
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 29px;
+    letter-spacing: -0.02em;
+  
+    color: $white-color;
+    border: 1px solid $blue-color;
+    border-radius: 36px;
+    background-color: $blue-color;
+  
+    width: 184px;
+    height: 45px;
+}}
 
 .fone-icon-user {
   display: flex;
@@ -205,3 +197,5 @@
 .btn-user:focus {
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.30);
 }
+
+
