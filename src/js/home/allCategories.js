@@ -18,12 +18,12 @@ const makeMarkupAllCategories = categories => {
     .map(category => {
       return `
            <li class='all-categories__item'>
-           <h3 class='category-books__title'>${category.list_name}</h3>
+           <h4 class='category-books__title'>${category.list_name}</h4>
             <ul class='category-books__list-js card-set'>
            ${makeMarkupGategory(category.books)}
            </ul>
            <button class="load-more-js" type="button">see more</button>
-           </li>   
+           </li>
       `;
     })
     .join('');
@@ -33,7 +33,7 @@ export const makeMarkupGategory = category => {
   return category
     .map(book => {
       return `
-        <li class='category-books__item card-set__item'>
+        <li class='category-books__item'>
          <a href="/" class='category-books__link'>
           <img
             class='category-books__img'
@@ -46,9 +46,9 @@ export const makeMarkupGategory = category => {
           <p class='category-books__text'>quick view</p>
           </div>
           </a>
-          <p class='category-books__name' >${checkLengthBookTitle(
+          <h3 class='category-books__name' >${checkLengthBookTitle(
             book.title
-          )}</p>
+          )}</h3>
           <p class='category-books__author'>${book.author}</p>
         </li>
       `;
@@ -62,15 +62,18 @@ async function feachAllCategories() {
     mainWraperEl.innerHTML = makeMarkupAllCategories(categories);
 
     const seeMoreBtnEl = document.querySelectorAll('.load-more-js');
-    const bookslinkEl = document.querySelectorAll('.category-books__link');
+    const bookCategoryEl = document.querySelectorAll('.category-books__item');
 
-    seeMoreBtnEl.forEach(el => {
-      el.addEventListener('click', handleSeeMoreBtnClick);
-    });
+    // seeMoreBtnEl.forEach(el => {
+    //   el.addEventListener('click', handleSeeMoreBtnClick);
+    // });
 
-    bookslinkEl.forEach(el => {
-      el.addEventListener('click', handleImgClick);
-    });
+    // bookCategoryEl.forEach(el => {
+    //   el.addEventListener('click', handleImgClick);
+    // });
+
+    addEventListenerForBook(bookCategoryEl);
+    addEventListenerForBtn(seeMoreBtnEl);
   } catch (error) {
     console.log(error);
   }
@@ -83,7 +86,6 @@ const handleImgClick = event => {
   if (event.target.nodeName !== 'IMG') {
     return;
   }
-
   handleModalWindow(idBook);
 };
 
@@ -97,4 +99,16 @@ export const checkLengthBookTitle = title => {
   }
 
   return title;
+};
+
+export const addEventListenerForBook = book => {
+  book.forEach(el => {
+    el.addEventListener('click', handleImgClick);
+  });
+};
+
+const addEventListenerForBtn = category => {
+  category.forEach(el => {
+    el.addEventListener('click', handleSeeMoreBtnClick);
+  });
 };

@@ -5,3 +5,6 @@ import './js/scroll-up';
 import './js/darkTheme';
 import './js/categories';
 import './js/home/allCategories';
+import './js/support';
+
+import './js/header';
