@@ -3,7 +3,7 @@
     position: fixed;
     right: 50px;
     bottom: 50px;
-    z-index: 100;
+    z-index: 4;
     width: 64px;
     height: 64px;
     background-color: $blue-color;
@@ -45,56 +45,3 @@
 
 
 
-
-
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//     весь  попередный код
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-// html {
-//     scroll-behavior: smooth;
-// }
-
-// #scrollTop {
-//     position: fixed;
-//     bottom: 100px;
-//     right: 20px;
-//     z-index: 10000;
-
-//     // @media screen and (min-width: 768px) {
-//     //     bottom: 50px;
-//     //     right: 30px;
-//     // }
-
-//     // @media screen and (min-width: 1280px) {
-//     //     bottom: 70px;
-//     //     right: 50px;
-//     // }
-// }
-
-// .isShowBtn {
-//     box-sizing: border-box;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     transition: .4s;
-//     opacity: 1;
-//     width: 64px;
-//     height: 64px;
-//     border-radius: 50%;
-//     // border: 5px solid rgba(79, 46, 232, 0.3);
-//     border: 5px solid rgba(214, 206, 240, 0.3);
-//     position: fixed;
-//     bottom: 40px;
-//     right: 30px;
-//     background-color: #4F2EE8;
-//     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-// }
-
-// .isShowBtn_hide {
-//     opacity: 0;
-// }
-
-// .menu-toggle__icon {
-//     fill: #FFFFFF;
-// }
