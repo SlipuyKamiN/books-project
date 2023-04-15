@@ -3,15 +3,16 @@ const menuShoppingEl = document.querySelector('.menu__shopping');
 
 const setCurrentPage = () => {
   const currentPageName = window.location.pathname;
-  console.log(currentPageName);
+  // console.log(currentPageName);
 
-  if (currentPageName === '/index.html') {
-    console.log('Ми на домашній сторінці');
+  if (
+    currentPageName === '/index.html' ||
+    currentPageName === '/books-project/index.html'
+  ) {
     menuHomeEl.classList.add('current');
     return;
   }
   menuShoppingEl.classList.add('current');
-  console.log('Ми на shopping-list');
 };
 
 setCurrentPage();
