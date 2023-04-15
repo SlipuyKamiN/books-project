@@ -23,7 +23,7 @@ const makeMarkupAllCategories = categories => {
            ${makeMarkupGategory(category.books)}
            </ul>
            <button class="load-more-js" type="button">see more</button>
-           </li>   
+           </li>
       `;
     })
     .join('');
@@ -86,7 +86,6 @@ const handleImgClick = event => {
   if (event.target.nodeName !== 'IMG') {
     return;
   }
-
   handleModalWindow(idBook);
 };
 
