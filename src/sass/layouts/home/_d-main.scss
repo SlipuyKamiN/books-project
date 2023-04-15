@@ -78,6 +78,7 @@
   top: 415px;
   padding: 26px 0;
   opacity: 0;
+  pointer-events: none;
 
   background: $yellow-color;
   border-radius: 0px 0px 8px 8px;
@@ -95,8 +96,8 @@
   }
 }
 
-.category-books__item__link:hover .category-books__wrapper,
-.category-books__item__link:focus .category-books__wrapper {
+.category-books__link:hover .category-books__wrapper,
+.category-books__link:focus .category-books__wrapper {
   opacity: 1;
 }
 
@@ -152,18 +153,19 @@
   border: 2px solid $blue-color;
   border-radius: 40px;
 
-  transition: background-color $cubic-time;
+  transition: background-color $cubic-time, color $cubic-time;
 }
 
 .load-more-js:hover,
 .load-more-js:focus {
-  background-color: $radial-gradient;
+  background-color: $blue-color;
+  color: $white-color;
 }
 
 .card-set {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 25px;
 
