@@ -33,7 +33,7 @@ function addDarkTheme() {
 function removeDarkTheme() {
   document.body.classList.remove('dark');
   document.body.style.backgroundColor = '#f6f6f6';
-  document.querySelector('header').style.backgroundColor = '#FFFFFF';
+  // document.querySelector('header').style.backgroundColor = '#FFFFFF';
 
   bookNameArray.forEach(book => {
     book.style.color = 'rgba(17, 17, 17, 0.6)';
