@@ -8,7 +8,7 @@
     </a>
 
     <!-- МЕНЮ ДЛЯ  АВТОРИЗОВАНОГО  КОРИСТУВАЧА -->
-    <ul class="menu list">
+    <ul class="menu list is-hidden">
       <li><a class="menu__home link" href="./index.html">Home</a></li>
       <li>
         <a class="menu__shopping link" href="./shopping-list.html"
@@ -28,24 +28,32 @@
         </label>
       </div>
 
-      <button class="auth__modal-open-js" type="button">
+      <button class="auth__modal-open auth__modal-open-js" type="button">
         Sign up
         <svg class="" width="20px" height="20px">
           <use href="./images/icons.svg#icon-arrow-narrow-right"></use>
         </svg>
       </button>
 
-      <!-- <button class = "btn-user" type="button">
-      <span class = "fone-icon-user">
-        <svg class="icon-use" width="19px" height="19px">
-          <use href="./images/icons.svg#icon-user"></use>
-        </svg>
-      </span>
-    User
-        <svg class="icon-triangle-down" width="23" height="26">
-          <use href="./images/icons.svg#icon-triangle-down"></use>
-        </svg>
-   </button> -->
+      <div class="authorised-btns__wrapper is-hidden">
+        <button class="btn-user user-btn-js" type="button">
+          <span class="fone-icon-user">
+            <svg class="icon-user" width="19px" height="19px">
+              <use href="./images/icons.svg#icon-user"></use>
+            </svg>
+          </span>
+          User
+          <svg class="icon-triangle-down" width="23px" height="26px">
+            <use href="./images/icons.svg#icon-triangle-down"></use>
+          </svg>
+        </button>
+        <button class="log-out-btn log-out-btn-js is-hidden" type="button">
+          Log out
+          <svg class="" width="20px" height="20px">
+            <use href="./images/icons.svg#icon-arrow-narrow-right"></use>
+          </svg>
+        </button>
+      </div>
 
       <!-- КНОПКА БУРГЕР МЕНЮ МЕНЮ  -->
       <button
