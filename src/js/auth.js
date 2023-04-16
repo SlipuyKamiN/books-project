@@ -28,24 +28,25 @@ const submitBtn = document.querySelector('.form__btn');
 const modalWindow = document.querySelector('div.auth__modal-js');
 const authUserMenu = document.querySelector('.menu');
 const signUpBtn = document.querySelector('.auth__modal-open-js');
-const userBtn = document.querySelector('.btn-user');
+const userBtn = document.querySelector('.authorised-btns__wrapper');
+const logOutBtn = document.querySelector('.log-out-btn-js');
 
 //Status check (user is signed in or not)
 
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, user => {
     if (user) {
-      const uid = user.uid;
       databaseUser = user;
-      authUserMenu.style.display = 'flex';
-      userBtn.style.display = 'flex';
       userBtn.querySelector('span').nextSibling.textContent = user.displayName;
-      signUpBtn.style.display = 'none';
-    } else {
-      authUserMenu.style.display = 'none';
-      userBtn.style.display = 'none';
-      signUpBtn.style.display = 'flex';
-    }
+      signUpBtn.classList.add('is-hidden');
+      userBtn.classList.remove('is-hidden');
+      authUserMenu.classList.remove('is-hidden');
+      logOutBtn.classList.add('is-hidden');
+      } else {
+        authUserMenu.classList.add('is-hidden');
+        userBtn.classList.add('is-hidden');
+        signUpBtn.classList.remove('is-hidden');
+        }
   });
 };
 
@@ -100,6 +101,7 @@ const LogInUser = async (email, password) => {
 const handleSignOut = async () => {
   try {
     await signOut(auth);
+    document.location.href = "./index.html";
   } catch (error) {
     const errorCode = error.code;
     Notiflix.Notify.failure(
@@ -108,7 +110,7 @@ const handleSignOut = async () => {
   }
 };
 
-userBtn.addEventListener('click', handleSignOut);
+logOutBtn.addEventListener('click', handleSignOut);
 
 //On form submit
 
