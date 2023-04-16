@@ -17,6 +17,7 @@ const firebaseConfig = {
   storageBucket: 'powerhouse-book.appspot.com',
   messagingSenderId: '973042323439',
   appId: '1:973042323439:web:80208c7a84163eaba8701a',
+  databaseURL: "https://powerhouse-book-default-rtdb.firebaseio.com",
 };
 
 const app = initializeApp(firebaseConfig);
