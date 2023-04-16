@@ -7,3 +7,4 @@ import './js/darkTheme';
 import './js/shopping-list/getShoppingList';
 import './js/header';
 import './js/support';
+import './js/auth';

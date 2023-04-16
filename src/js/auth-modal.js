@@ -1,17 +1,16 @@
+import debounce from 'lodash.debounce';
+
 const refs = {
   openAuthorizationBtn: document.querySelector('button.auth__modal-open-js'),
   closeAuthorizationBtn: document.querySelector('button.auth__modal-close-js'),
   modalAuthorization: document.querySelector('div.auth__modal-js'),
-  buttonSignUp: document.querySelector('.form__btn-up'),
-  buttonSignIn: document.querySelector('.form__btn-in'),
-  buttonSubmit: document.querySelector('.form__btn'),
+  buttonSignUp: document.querySelector('.form__btn-sign-up'),
+  buttonSignIn: document.querySelector('.form__btn-sign-in'),
+  buttonSubmit: document.querySelector('.form__btn-submit'),
   formInputs: document.querySelector('div.form__render'),
   inputName: document.querySelector('.form__input-name'),
-  labelName: document.querySelector('.form__label-name'),
   inputMail: document.querySelector('.form__input-mail'),
-  labelMail: document.querySelector('.form__label-mail'),
   inputPassword: document.querySelector('.form__input-password'),
-  labelPassword: document.querySelector('.form__label-password'),
 };
 
 refs.openAuthorizationBtn.addEventListener('click', toggleModal);
@@ -47,30 +46,14 @@ function onButtonSignUp() {
         </div>`;
 }
 
-refs.inputName.addEventListener('input', onInputName);
-refs.inputMail.addEventListener('input', onInputMail);
-refs.inputPassword.addEventListener('input', onInputPassword);
+refs.inputName.addEventListener('input', debounce(onInput, 300));
+refs.inputMail.addEventListener('input', debounce(onInput, 300));
+refs.inputPassword.addEventListener('input', debounce(onInput, 300));
 
-function onInputName() {
-  if (refs.inputName.value) {
-    refs.labelName.classList.add('checked');
+function onInput(e) {
+  if (e.target.value) {
+    e.target.nextElementSibling.classList.add('checked');
   } else {
-    refs.labelName.classList.remove('checked');
-  }
-}
-
-function onInputMail() {
-  if (refs.inputMail.value) {
-    refs.labelMail.classList.add('checked');
-  } else {
-    refs.labelMail.classList.remove('checked');
-  }
-}
-
-function onInputPassword() {
-  if (refs.inputPassword.value) {
-    refs.labelPassword.classList.add('checked');
-  } else {
-    refs.labelPassword.classList.remove('checked');
+    e.target.nextElementSibling.classList.remove('checked');
   }
 }
