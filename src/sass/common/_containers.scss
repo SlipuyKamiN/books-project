@@ -1,7 +1,7 @@
 .header-container {
-  outline: 1px solid blue;
+  // outline: 1px solid blue;
   margin: 0 auto;
-  width: 375px;
+  // width: 375px;
   padding: 0 20px;
 
   @media screen and (min-width: 768px) {
@@ -40,6 +40,14 @@
   }
 }
 
+.shopping-list__page .side-bar {
+  display: none;
+
+  @media screen and (min-width: 1440px) {
+    display: block;
+  }
+}
+
 .side-bar-container,
 .main-container {
   outline: 1px solid blue;
@@ -56,6 +64,12 @@
   @media screen and (min-width: 1440px) {
     width: 100%;
     padding: 0px 24px;
+  }
+}
+
+.side-bar-container {
+  @media screen and (min-width: 768px) and (max-width: 1439.9px) {
+    display: flex;
   }
 }
 

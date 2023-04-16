@@ -1,0 +1,47 @@
+
+.scroll-up {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    z-index: 4;
+    width: 64px;
+    height: 64px;
+    background-color: $blue-color;
+    cursor: pointer;
+    visibility: hidden;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 4px rgba(204, 201, 220, 0.3);
+    opacity: 0;
+    transition: 0.2s;
+    transform: translateY(25px);
+}
+
+ .scroll-up__arrow{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    fill: $white-color;
+ }
+
+// .scroll-up__arrow:hover {
+//     color: #d81919;
+// }
+
+.scroll-up--active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-up__svg-path {
+    box-sizing: border-box;
+    fill: none;
+    stroke: $dark-color;
+    stroke-width: 4px;
+    transition: 0.2s;
+}
+
+
+
+
+

@@ -1,10 +1,11 @@
-<button class="auth__modal-open-js">Authorization modal</button>
+<!-- <button class="auth__modal-open-js">Authorization modal</button> -->
 <div class="auth__backdrop is-hidden auth__modal-js">
   <div class="auth__modal">
     <form class="form" autocomplete="off">
       <div class="form__render">
         <div class="form__field">
           <input
+            id="name"
             type="text"
             class="form__input form__input-name"
             name="name"
@@ -17,6 +18,7 @@
 
       <div class="form__field">
         <input
+          id="email"
           type="email"
           class="form__input form__input-mail"
           name="mail"
@@ -31,6 +33,7 @@
 
       <div class="form__field">
         <input
+          id="password"
           type="password"
           class="form__input form__input-password"
           name="password"
@@ -49,7 +52,7 @@
         <button type="button" class="form__btn-sign-up active">Sign up</button>
         <button type="button" class="form__btn-sign-in">Sign in</button>
       </div>
-      <button class="auth__modal-close auth__modal-close-js">
+      <button class="auth__modal-close auth__modal-close-js" type="button">
         <svg class="auth__modal-close-icon" width="32" height="32">
           <use href="./images/icons.svg#icon-x-close"></use>
         </svg>
