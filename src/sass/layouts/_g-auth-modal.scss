@@ -7,15 +7,17 @@
   background-color: $blue-color;
   opacity: 1;
   transition: opacity $cubic-time;
+  overflow-y: scroll;
 }
 
 .auth__backdrop.is-hidden {
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
 }
 
 .auth__backdrop.is-hidden .auth__modal {
-  display: none;
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
   transform: translate(-50%, -50%) scale(0);
