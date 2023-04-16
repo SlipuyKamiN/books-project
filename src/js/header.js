@@ -1,5 +1,10 @@
 const menuHomeEl = document.querySelector('.menu__home');
 const menuShoppingEl = document.querySelector('.menu__shopping');
+const authorisedUserBtn = document.querySelector('.user-btn-js');
+const logOutBtn = document.querySelector('.log-out-btn-js');
+
+console.log(authorisedUserBtn);
+console.log(logOutBtn);
 
 const setCurrentPage = () => {
   const currentPageName = window.location.pathname;
@@ -16,3 +21,9 @@ const setCurrentPage = () => {
 };
 
 setCurrentPage();
+
+const handleUserBtnClick = () => {
+  logOutBtn.classList.toggle('is-hidden');
+};
+
+authorisedUserBtn.addEventListener('click', handleUserBtnClick);
