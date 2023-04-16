@@ -8,6 +8,7 @@
   opacity: 1;
   transition: opacity $cubic-time;
   overflow-y: scroll;
+  z-index: 6;
 }
 
 .auth__backdrop.is-hidden {

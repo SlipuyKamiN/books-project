@@ -1,3 +1,5 @@
+import debounce from 'lodash.debounce';
+
 const refs = {
   openAuthorizationBtn: document.querySelector('button.auth__modal-open-js'),
   closeAuthorizationBtn: document.querySelector('button.auth__modal-close-js'),
@@ -44,9 +46,9 @@ function onButtonSignUp() {
         </div>`;
 }
 
-refs.inputName.addEventListener('input', onInput);
-refs.inputMail.addEventListener('input', onInput);
-refs.inputPassword.addEventListener('input', onInput);
+refs.inputName.addEventListener('input', debounce(onInput, 300));
+refs.inputMail.addEventListener('input', debounce(onInput, 300));
+refs.inputPassword.addEventListener('input', debounce(onInput, 300));
 
 function onInput(e) {
   if (e.target.value) {
