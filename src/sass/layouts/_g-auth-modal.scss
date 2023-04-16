@@ -14,7 +14,8 @@
   pointer-events: none;
 }
 
-.auth__backdrop.is-hidden .modal {
+.auth__backdrop.is-hidden .auth__modal {
+  display: none;
   opacity: 0;
   pointer-events: none;
   transform: translate(-50%, -50%) scale(0);
