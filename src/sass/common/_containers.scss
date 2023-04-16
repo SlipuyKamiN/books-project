@@ -28,7 +28,7 @@
 .side-bar {
   outline: 1px solid tomato;
   width: 100%;
-  padding: 20px 0;
+  padding-top: 40px;
 
   @media screen and (min-width: 768px) {
     padding: 40px 0px;
@@ -76,7 +76,7 @@
 .main {
   outline: 1px solid tomato;
   width: 100%;
-  padding: 20px 0;
+  padding-top: 40px;
 
   @media screen and (min-width: 768px) {
     padding: 40px 0px;
