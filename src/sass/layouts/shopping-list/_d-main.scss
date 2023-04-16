@@ -31,8 +31,21 @@
   margin-bottom: 40px;
 }
 
+<<<<<<< Updated upstream
 .shopping-main__title--violet-color {
   color: $blue-color;
+=======
+.shopping-main__title{
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.19;
+
+    margin-bottom: 40px;
+}
+
+.shopping-main__title--violet-color{
+    color: $blue-color;
+>>>>>>> Stashed changes
 }
 
 .shopping__item {
@@ -147,7 +160,21 @@
   font-size: 12px;
   line-height: 1.17;
 
+<<<<<<< Updated upstream
   color: $text-gray-color;
+=======
+.shopping__author{
+    font-style: italic;
+    font-size: 12px;
+    line-height: 1.17;
+
+    color: $text-gray-color;
+
+    @media screen and (max-width: 767px) {
+            margin-top: 4px;
+            max-width: 98px;
+        }
+>>>>>>> Stashed changes
 }
 
 .shops-list {
