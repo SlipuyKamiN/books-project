@@ -18,6 +18,7 @@ refs.closeAuthorizationBtn.addEventListener('click', toggleModal);
 
 function toggleModal() {
   refs.modalAuthorization.classList.toggle('is-hidden');
+  document.body.classList.toggle('modal-open');
 }
 
 refs.buttonSignIn.addEventListener('click', onButtonSignIn);
@@ -55,5 +56,20 @@ function onInput(e) {
     e.target.nextElementSibling.classList.add('checked');
   } else {
     e.target.nextElementSibling.classList.remove('checked');
+  }
+}
+
+window.addEventListener('keydown', handleEscKeyPress);
+window.addEventListener('click', handleBackDropClick);
+
+function handleEscKeyPress(e) {
+  if (e.code === 'Escape') {
+    refs.modalAuthorization.classList.add('is-hidden');
+  }
+}
+
+function handleBackDropClick(e) {
+  if (e.target === refs.modalAuthorization) {
+    refs.modalAuthorization.classList.add('is-hidden');
   }
 }
