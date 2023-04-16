@@ -36,7 +36,6 @@ const logOutBtn = document.querySelector('.log-out-btn-js');
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, user => {
     if (user) {
-      databaseUser = user;
       userBtn.querySelector('span').nextSibling.textContent = user.displayName;
       signUpBtn.classList.add('is-hidden');
       userBtn.classList.remove('is-hidden');
