@@ -31,7 +31,7 @@
   border: 2px solid $dark-color;
   border-radius: 18px;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     max-width: 579px;
     padding: 80px 40px 40px 40px;
   }
@@ -51,7 +51,7 @@
   background-color: $primary-background-color;
   cursor: pointer;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     top: 24px;
     right: 24px;
     width: 28px;
@@ -73,7 +73,7 @@
   position: relative;
   margin-bottom: 24px;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     margin-bottom: 28px;
   }
 }
@@ -89,7 +89,7 @@
   background-color: $primary-background-color;
   transition: border $cubic-time;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     padding-left: 40px;
     width: 499px;
     height: 64px;
@@ -109,7 +109,7 @@
   text-transform: uppercase;
   color: $dark-color;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     font-size: 18px;
     line-height: 1.33;
   }
@@ -122,7 +122,7 @@
   transform: translateY(-50%);
   transition: transform $cubic-time;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     left: 40px;
   }
 }
@@ -132,7 +132,7 @@
   transform: translateY(-46px);
   color: $blue-color;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     transform: translateY(-54px);
   }
 }
@@ -141,12 +141,12 @@
   transform: translateY(-46px);
   color: $blue-color;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     transform: translateY(-54px);
   }
 }
 
-.form__btn {
+.form__btn-submit {
   font-weight: 700;
   font-size: 16px;
   line-height: 1.12;
@@ -162,7 +162,7 @@
   cursor: pointer;
   transition: background-color $cubic-time, border $cubic-time;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     font-size: 18px;
     line-height: 1.33;
     width: 499px;
@@ -172,8 +172,8 @@
   }
 }
 
-.form__btn:hover,
-.form__btn:focus {
+.form__btn-submit:hover,
+.form__btn-submit:focus {
   background-color: $blue-color;
   border: 3px solid $blue-color;
 }
@@ -184,7 +184,7 @@
   gap: 5px;
 }
 
-.form__btn-up {
+.form__btn-sign-up {
   font-weight: 700;
   font-size: 14px;
   line-height: 1.29;
@@ -195,13 +195,13 @@
   background-color: $primary-background-color;
   cursor: pointer;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     font-size: 18px;
     line-height: 1.33;
   }
 }
 
-.form__btn-in {
+.form__btn-sign-in {
   font-weight: 700;
   font-size: 14px;
   line-height: 1.29;
@@ -212,7 +212,7 @@
   background-color: $primary-background-color;
   cursor: pointer;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     font-size: 18px;
     line-height: 1.33;
   }
@@ -232,10 +232,9 @@
   height: 18px;
   fill: $dark-color;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     right: 30px;
     width: 28px;
     height: 28px;
   }
 }
-// coment
