@@ -18,6 +18,8 @@ function createCardMarkup(dataBooks) {
     emptyList.classList.add('visually-hidden');
     shoppingList.classList.remove('visually-hidden');
 
+    // const data = 0;
+
     const amazonUrl = dataBooks
       .find(obj => obj.buy_links.some(link => link.name === 'Amazon'))
       .buy_links.find(link => link.name === 'Amazon').url;
