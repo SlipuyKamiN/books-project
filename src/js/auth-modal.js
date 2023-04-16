@@ -19,12 +19,15 @@ refs.closeAuthorizationBtn.addEventListener('click', closeModal);
 function openModal() {
   refs.modalAuthorization.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
+  window.addEventListener('keydown', handleEscKeyPress);
+  window.addEventListener('click', handleBackDropClick);
 }
 
 function closeModal() {
   refs.modalAuthorization.classList.add('is-hidden');
   document.body.classList.remove('modal-open');
-  removeListeners();
+  window.removeEventListener('keydown', handleEscKeyPress);
+  window.removeEventListener('click', handleBackDropClick);
 }
 
 refs.buttonSignIn.addEventListener('click', onButtonSignIn);
@@ -64,9 +67,6 @@ function onInput(e) {
     e.target.nextElementSibling.classList.remove('checked');
   }
 }
-
-window.addEventListener('keydown', handleEscKeyPress);
-window.addEventListener('click', handleBackDropClick);
 
 function handleEscKeyPress(e) {
   if (e.code === 'Escape') {
