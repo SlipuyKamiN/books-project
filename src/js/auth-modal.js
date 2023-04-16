@@ -13,12 +13,18 @@ const refs = {
   inputPassword: document.querySelector('.form__input-password'),
 };
 
-refs.openAuthorizationBtn.addEventListener('click', toggleModal);
-refs.closeAuthorizationBtn.addEventListener('click', toggleModal);
+refs.openAuthorizationBtn.addEventListener('click', openModal);
+refs.closeAuthorizationBtn.addEventListener('click', closeModal);
 
-function toggleModal() {
-  refs.modalAuthorization.classList.toggle('is-hidden');
-  document.body.classList.toggle('modal-open');
+function openModal() {
+  refs.modalAuthorization.classList.remove('is-hidden');
+  document.body.classList.add('modal-open');
+}
+
+function closeModal() {
+  refs.modalAuthorization.classList.add('is-hidden');
+  document.body.classList.remove('modal-open');
+  removeListeners();
 }
 
 refs.buttonSignIn.addEventListener('click', onButtonSignIn);
@@ -64,12 +70,12 @@ window.addEventListener('click', handleBackDropClick);
 
 function handleEscKeyPress(e) {
   if (e.code === 'Escape') {
-    refs.modalAuthorization.classList.add('is-hidden');
+    closeModal();
   }
 }
 
 function handleBackDropClick(e) {
   if (e.target === refs.modalAuthorization) {
-    refs.modalAuthorization.classList.add('is-hidden');
+    closeModal();
   }
 }
