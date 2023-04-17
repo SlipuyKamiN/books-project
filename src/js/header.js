@@ -58,10 +58,6 @@ const authModalOpenEl = document.querySelector(".auth__modal-open-js.mobile");
   if (modalBoxEl.classList.contains('is-hidden')) {
     modalBoxEl.classList.remove('is-hidden');
     iconHrefEl.setAttribute('href', `${openCloseIcon}#icon-x-close`);
-    authModalOpenEl.style.display = "flex";
-    authModalOpenEl.style.marginTop = "40px";
-    authModalOpenEl.style.marginLeft = "20px";
-
     return;
   } else {
     modalBoxEl.classList.add('is-hidden');
