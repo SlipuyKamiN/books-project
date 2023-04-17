@@ -13,11 +13,21 @@ const refs = {
   inputPassword: document.querySelector('.form__input-password'),
 };
 
-refs.openAuthorizationBtn.addEventListener('click', toggleModal);
-refs.closeAuthorizationBtn.addEventListener('click', toggleModal);
+refs.openAuthorizationBtn.addEventListener('click', openModal);
+refs.closeAuthorizationBtn.addEventListener('click', closeModal);
 
-function toggleModal() {
-  refs.modalAuthorization.classList.toggle('is-hidden');
+function openModal() {
+  refs.modalAuthorization.classList.remove('is-hidden');
+  document.body.classList.add('modal-open');
+  window.addEventListener('keydown', handleEscKeyPress);
+  window.addEventListener('click', handleBackDropClick);
+}
+
+function closeModal() {
+  refs.modalAuthorization.classList.add('is-hidden');
+  document.body.classList.remove('modal-open');
+  window.removeEventListener('keydown', handleEscKeyPress);
+  window.removeEventListener('click', handleBackDropClick);
 }
 
 refs.buttonSignIn.addEventListener('click', onButtonSignIn);
@@ -55,5 +65,17 @@ function onInput(e) {
     e.target.nextElementSibling.classList.add('checked');
   } else {
     e.target.nextElementSibling.classList.remove('checked');
+  }
+}
+
+function handleEscKeyPress(e) {
+  if (e.code === 'Escape') {
+    closeModal();
+  }
+}
+
+function handleBackDropClick(e) {
+  if (e.target === refs.modalAuthorization) {
+    closeModal();
   }
 }

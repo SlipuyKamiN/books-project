@@ -1,10 +1,9 @@
-import transformer from 'parcel-transformer-hbs';
+// import transformer from 'parcel-transformer-hbs';
 import { fetchBooks } from '../js/fetchBooks';
 import { makeMarkupGategory, showAllCategories } from './home/allCategories';
-import { handleImgClick } from './home/allCategories';
-import { handleModalWindow } from './modal';
+// import { handleImgClick } from './home/allCategories';
+// import { handleModalWindow } from './modal';
 import { addEventListenerForBook } from './home/allCategories';
-// import { checkLengthBookTitle } from './home/allCategories';
 import { addEventListenerForBook } from './home/allCategories';
 import { showAllCategories } from './home/allCategories';
 
@@ -13,13 +12,15 @@ const mainListEl = document.querySelector('.main__list-js');
 const mainTitle = document.querySelector('.main__title-js');
 const allCategoriesBtn = document.querySelector('.all-categories-btn');
 
+allCategoriesBtn.classList.add('selected-categories');
+
 const createCategoryList = async () => {
   const categoriesList = await fetchBooks.getCategoriesList();
 
   const makeNewButtons = categoriesList
     .map(
       category =>
-        `<li class= 'categories-list__button'> <button>${category.list_name}</button> </li>`
+        `<li class= 'categories-list__item '> <button class= 'categories-list__button'>${category.list_name}</button> </li>`
     )
     .join('');
   listEl.insertAdjacentHTML('beforeend', makeNewButtons);
@@ -39,6 +40,7 @@ export const drawCategory = async name => {
   mainListEl.classList.add('card-set');
   const bookCategoryEl = document.querySelectorAll('.category-books__item');
   addEventListenerForBook(bookCategoryEl);
+  allCategoriesBtn.classList.remove('selected-categories');
 };
 
 listEl.addEventListener('click', markup);
@@ -54,6 +56,8 @@ function markup(ev) {
   clearSelectedCategories();
 
   if (ev.target === allCategoriesBtn) {
+    allCategoriesBtn.classList.add('selected-categories');
+    previ.classList.remove('selected-categories');
     showAllCategories();
     return;
   }
@@ -61,10 +65,11 @@ function markup(ev) {
   drawCategory(title);
 
   if (previ !== '') {
-    previ.style.textTransform = 'none';
+    previ.classList.remove('selected-categories');
   }
-  ev.target.style.textTransform = 'uppercase';
+  ev.target.classList.add('selected-categories');
   previ = ev.target;
+  console.log(ev.target.nodeName);
 }
 
 const clearSelectedCategories = () => {
