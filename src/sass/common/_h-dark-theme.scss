@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 100;
+  z-index: 3;
   right: 232px;
   top: 24px;
 }
@@ -96,11 +96,15 @@ input:checked + .slider:before {
 ////header///
 .dark .header-container{
   background-color: $dark-color;
+  
+    border: 1.5px solid $white-color;
+    border-radius: 0px 0px 8px 8px;
 }
 
 
 ///body////
-body.dark {
+body.dark,
+.dark .auth__modal {
   background-color: $dark-gray-color;
   color: rgba(255, 255, 255, 0.6);
 }
@@ -115,18 +119,27 @@ body.dark {
 .dark .main__title-js,
 .dark .shopping__title,
 .dark .modal__close-btn,
-.dark .menu__shopping.link
+.dark .menu__shopping.link,
+.dark .modal__close-btn,
+.dark .shopping-main__title,
 .dark .shopping__text,
-.dark .modal__close-btn {
+.dark .menu__home,
+.dark .form__label,
+.dark .auth__modal-close-icon
+ {
   color: $white-color;
 }
 
-.dark .load-more-js {
+.dark .load-more-js,
+.dark .form__input,
+.dark .form__btn-sign-up,
+.dark .form__btn-sign-in,
+.dark .auth__modal-close {
   background-color: $dark-gray-color;
 }
 
 .dark .categories-list__button {
-  color :rgba(255, 255, 255, 0.6);
+  color :$primary-background-color;
 }
 
 .dark .categories-list__button.selected-categories {
@@ -136,7 +149,7 @@ body.dark {
 
 
 .dark .icon-burger{
-  fill:#ffffff;
+  fill:$white-color;
 }
 
 .dark .menu-toggle :hover,
@@ -144,11 +157,44 @@ body.dark {
   fill: #EAC645;
 }
 
-.dark .modal{
-  background-color: rgba(32, 32, 36, 1);
-  border: 2px solid rgba(255, 255, 255, 1);
+
+.dark .modal,
+.dark .auth__modal{
+  background-color: $dark-gray-color;
+  border: 2px solid $white-color;
   color: $white-color;
 }
 
+// .dark.shops-list__link {
+//   mix-blend-mode: overlay; /* change blend mode to overlay */
+
+//   &:hover,
+//   &:focus {
+//       filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+//   }
+// }
 
 
+.dark .header__logo.link{
+  color: #F3F3F3;
+}
+
+.dark .form__field input,
+.dark .form__btn-submit{
+  border: 2px solid $white-color;
+  border-radius: 40px;
+}
+
+.dark .form__btn-submit{
+  background-color: $primary-background-color;
+  color: $dark-color;
+}
+.dark .form__btn-sign-in{
+  color: #f6f6f680;
+}
+
+
+.dark .auth__modal-close-icon,
+.dark .form__icon {
+  fill: $white-color;
+}
