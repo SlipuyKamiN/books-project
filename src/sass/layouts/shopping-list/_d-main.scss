@@ -116,8 +116,8 @@
   margin-bottom: 4px;
 
   @media screen and (min-width: 768px) {
-    width: 116px;
-    height: 165px;
+    width: none;
+    height: none;
     margin-right: 24px;
     margin-bottom: 0;
   }
@@ -154,13 +154,6 @@
     margin-bottom: 14px;
   }
 }
-
-// .shopping__author {
-//   font-style: italic;
-//   font-size: 12px;
-//   line-height: 1.17;
-//   color: $text-gray-color;
-// }
 
 .shopping__author{
     font-style: italic;
