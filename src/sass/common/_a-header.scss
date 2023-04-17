@@ -4,6 +4,7 @@
 
 .header-container {
   display: flex;
+  position: relative;
 
   border: 1.5px solid $dark-color;
   border-radius: 0px 0px 8px 8px;
@@ -11,8 +12,6 @@
 
   padding-left: 20px;
   padding-right: 20px;
-
-
 
   @media screen and (min-width: 768px) {
     padding-left: 32px;
@@ -25,10 +24,10 @@
   }
 }
 
-.mob-header{
+.mob-header {
   @media screen and (min-width: 375px) {
-      width: 375px;
-    }
+    width: 375px;
+  }
 }
 
 //  ЛОГОТИП
@@ -265,16 +264,6 @@
 
 // МОДАЛЬНЕ ВІКНО МЕНЮ
 
-.modal-box{
-  position: relative;
-  // top: 0;
-  // left: 0;
-
-  //   margin: 0 auto;
-outline: 5px solid palevioletred;
-}
-
-
 .modalll.is-hidden {
   opacity: 0;
   visibility: hidden;
@@ -282,23 +271,19 @@ outline: 5px solid palevioletred;
 }
 
 .modalll {
-  position: fixed;
-
-  transform: translateX(-50%);
+  position: absolute;
 
   top: 64;
+  left: -1px;
 
-  left: 50%;
-
-  // width: 100vw;
-  width: 375px;
-  height: 100vh;
+  width: 376px;
+  height: calc(100vh - 65px);
 
   overflow: hidden;
 
   padding: 20px;
 
-  z-index: 10001;
+  z-index: 7;
 
   background-image: radial-gradient(
     183.6% 183.01% at 59.76% -23.42%,
@@ -306,13 +291,15 @@ outline: 5px solid palevioletred;
     #ffffff 100%
   );
   transition: opacity 150ms linear, visibility 150ms linear;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 }
-
-
 
 // КНОПКИ  МОДАЛЬНОГО МЕНЮ
 
-.drop-auth__modal-open{
+.drop-auth__modal-open {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -330,6 +317,10 @@ outline: 5px solid palevioletred;
   line-height: 18px;
 
   transition: opacity $cubic-time, visibility $cubic-time;
+
+  &.is-hidden {
+    display: none;
+  }
 }
 
 .drop-auth__modal-open:hover,
@@ -337,13 +328,12 @@ outline: 5px solid palevioletred;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
 }
 
-.drop-btn-user{
-display: flex;
+.drop-btn-user {
+  display: flex;
 
   align-items: center;
   justify-content: space-around;
   gap: 5px;
-
 
   font-weight: 700;
   font-size: 22px;
@@ -358,6 +348,12 @@ display: flex;
   height: 45px;
 
   margin-bottom: 126px;
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 .drop-btn-user:hover,
@@ -381,20 +377,27 @@ display: flex;
 
   color: $white-color;
   transition: opacity $cubic-time, visibility $cubic-time;
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 .drop-menu__home,
-.drop-menu__shopping
-{
-    border-radius: 36px;
-    padding: 8px 16px;
+.drop-menu__shopping {
+  border-radius: 36px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
 
 .drop-menu__home:hover,
 .drop-menu__home:focus,
 .drop-menu__shopping:hover,
-.drop-menu__shopping:focus
-{
+.drop-menu__shopping:focus {
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -419,6 +422,12 @@ display: flex;
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 .drop-log-out-btn:hover,
@@ -426,15 +435,12 @@ display: flex;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
 }
 
-
 // КНИГИ
 .modal__books-list {
-  outline: 2px dashed rgb(0, 255, 140);
   position: absolute;
   top: 60%;
   left: -10%;
 
-  // transform: translateX(-50%);
   // display: block;
   display: flex;
   align-items: center;
@@ -450,9 +456,6 @@ display: flex;
 }
 
 .modal__books-item {
-  outline: 3px solid rgb(173, 212, 55);
-  // position: absolute;
-  // flex-basis: calc((100% - 3px) / 4);
   max-width: 90px;
   margin: 0;
   padding: 0;
@@ -461,4 +464,3 @@ display: flex;
     max-width: none;
   }
 }
-

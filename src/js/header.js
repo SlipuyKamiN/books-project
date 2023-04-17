@@ -1,8 +1,5 @@
 import openCloseIcon from '../images/icons.svg';
 
-
-
-
 // ВИДІЛЕННЯ ЖОВТИМ НАЗВУ ПОТОЧНОЇ СТОРІНКИ (меню в хедері)
 const menuHomeEl = document.querySelector('.menu__home');
 const menuShoppingEl = document.querySelector('.menu__shopping');
@@ -22,34 +19,29 @@ const setCurrentPage = () => {
 
 setCurrentPage();
 
-
-
 //   ВІДКРИТТЯ/ЗАКРИТТЯ МОДАЛКИ ДЛЯ МОБ. ВЕРСІЇ
 
-const modalBoxEl = document.querySelector(".data-modal");
-const openModalBtnEl = document.querySelector(".js-open-menu");
-const iconHrefEl = document.querySelector(".icon-href");
-
+const modalBoxEl = document.querySelector('.data-modal');
+const openModalBtnEl = document.querySelector('.js-open-menu');
+const iconHrefEl = document.querySelector('.icon-href');
 
 // const mobbEl = document.querySelector('.mob-header');
 
-  openModalBtnEl.addEventListener("click", toggleModal);
+openModalBtnEl.addEventListener('click', toggleModal);
 
-  function toggleModal() {
+function toggleModal() {
   if (modalBoxEl.classList.contains('is-hidden')) {
     modalBoxEl.classList.remove('is-hidden');
     iconHrefEl.setAttribute('href', `${openCloseIcon}#icon-x-close`);
-    // mobbEl.classList.remove("mob-header");
+    document.body.classList.add('modal-open');
 
     return;
   } else {
     modalBoxEl.classList.add('is-hidden');
     iconHrefEl.setAttribute('href', `${openCloseIcon}#icon-burger`);
-    // mobbEl.classList.add("mob-header");
+    document.body.classList.remove('modal-open');
   }
 }
-
-
 
 // ВИДІЛЕННЯ ЖОВТИМ, НАЗВУ ПОТОЧНОЇ СТОРІНКИ (меню в МОДАЛЦІ)
 
@@ -57,7 +49,7 @@ const dropMenuHomeEl = document.querySelector('.drop-menu__home');
 const dropMenuShoppingEl = document.querySelector('.drop-menu__shopping');
 
 const dropSetCurrentPage = () => {
-const dropCurrentPageName = window.location.pathname;
+  const dropCurrentPageName = window.location.pathname;
 
   if (
     dropCurrentPageName === '/index.html' ||
@@ -70,5 +62,3 @@ const dropCurrentPageName = window.location.pathname;
 };
 
 dropSetCurrentPage();
-
-
