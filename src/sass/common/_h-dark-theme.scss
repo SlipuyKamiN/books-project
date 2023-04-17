@@ -1,30 +1,27 @@
-body.dark {
-  background-color: #202024;
-  color: rgba(255, 255, 255, 0.6);
+
+.theme__switch-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  right: 232px;
+  top: 24px;
 }
 
-// .theme__switch-wrapper {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   z-index: 100;
-//   position: absolute;
-//   right: 232px;
-//   top: 24px;
-// }
 
-// @media screen and (max-width: 768px) {
-//   .theme__switch-wrapper {
-//     right: 240px;
-//   }
-// }
 
-// @media screen and (max-width: 320px) {
-//   .theme__switch-wrapper {
-//     right: 62px;
-//     top: 20px;
-//   }
-// }
+@media screen and (max-width: 768px) {
+  .theme__switch-wrapper {
+    right: 240px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .theme__switch-wrapper {
+    right: 62px;
+    top: 20px;
+  }
+}
 
 .theme__switch {
   position: relative;
@@ -81,11 +78,7 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  background: linear-gradient(
-    to bottom,
-    rgba(79, 46, 232, 1),
-    rgba(104, 104, 104, 1)
-  );
+  background: linear-gradient(to bottom, rgba(79, 46, 232, 1), rgba(104, 104, 104, 1) );
   box-shadow: inset 1px 1px rgba(0, 0, 0, 0.1),
     inset -1px -1px rgba(0, 0, 0, 0.1), 0 0 4px rgba(79, 46, 232, 1);
 }
@@ -98,6 +91,63 @@ input:checked + .slider:before {
   transform: translate(-1px, -3px);
   background: linear-gradient(to bottom, #ffffff 0%, #f7f7f7 100%);
   border-radius: 50%;
+}
+
+////header///
+.dark .header-container{
+  background-color: $dark-color;
+}
+
+
+///body////
+body.dark {
+  background-color: $dark-gray-color;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/////category section///
+.dark .category-books__title + .category-books__author {
+  color: $text-gray-color;
+}
+
+.dark .category-books__name,
+.dark .load-more-js,
+.dark .main__title-js,
+.dark .shopping__title,
+.dark .modal__close-btn,
+.dark .menu__shopping.link
+.dark .shopping__text,
+.dark .modal__close-btn {
+  color: $white-color;
+}
+
+.dark .load-more-js {
+  background-color: $dark-gray-color;
+}
+
+.dark .categories-list__button {
+  color :rgba(255, 255, 255, 0.6);
+}
+
+.dark .categories-list__button.selected-categories {
+  color : #EAC645;
+}
+
+
+
+.dark .icon-burger{
+  fill:#ffffff;
+}
+
+.dark .menu-toggle :hover,
+.menu-toggle :focus {
+  fill: #EAC645;
+}
+
+.dark .modal{
+  background-color: rgba(32, 32, 36, 1);
+  border: 2px solid rgba(255, 255, 255, 1);
+  color: $white-color;
 }
 
 
