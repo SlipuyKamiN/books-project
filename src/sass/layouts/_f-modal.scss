@@ -9,12 +9,12 @@
     overflow-y: scroll;
 
     transition: opacity $cubic-time, visibility $cubic-time;
-}
 
-.backdrop.is-hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+    &.backdrop.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
 }
 
 .modal {
@@ -33,11 +33,12 @@
     border: 2px solid $dark-color;
     border-radius: 18px;
 
-    transition: transform $cubic-time, opacity $cubic-time;
+    transition: transform $cubic-time, opacity $cubic-time, visibility $cubic-time, scale $cubic-time;
 
-    .backdrop.is-hidden & {
+    &.is-hidden {
         opacity: 0;
-        transform: translate(-50%, -50%) scale(0.6);
+        transform: translate(-50%, -50%) scale(0.4);
+        visibility: 0;
     }
   
     @media screen and (min-width: 375px) {
