@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 import { fetchBooks } from '../fetchBooks';
 import { handleModalWindow } from '../modal';
 import { drawCategory } from '../categories';
@@ -19,10 +20,24 @@ const currentWindowWidth = () => {
   }
 };
 
-export const showAllCategories = () => {
-  mainTitleEl.innerHTML =
-    ' Best Sellers <span class="main__title--color-purple">Books</span>';
-  feachAllCategories();
+const validationQuery = query => {
+  if (query.length === 0) {
+    Notiflix.Notify.failure(
+      'Sorry, there was an error on the server. Please try again.'
+    );
+    return;
+  }
+
+  for (let i = 0; i < query.length; i += 1) {
+    const element = query[i];
+    if (element.books.length === 0) {
+      const fff = document.querySelector('.category-books__title');
+      console.log(fff);
+      Notiflix.Notify.info(
+        `Sorry, but no books found by category ${element.list_name}.`
+      );
+    }
+  }
 };
 
 const makeMarkupAllCategories = categories => {
@@ -77,6 +92,7 @@ export const makeMarkupGategory = category => {
 async function feachAllCategories() {
   try {
     const categories = await fetchBooks.getBestSellers();
+    validationQuery(categories);
     mainWraperEl.innerHTML = makeMarkupAllCategories(categories);
 
     const seeMoreBtnEl = document.querySelectorAll('.load-more-js');
@@ -88,6 +104,12 @@ async function feachAllCategories() {
     console.log(error);
   }
 }
+
+export const showAllCategories = () => {
+  mainTitleEl.innerHTML =
+    ' Best Sellers <span class="main__title--color-purple">Books</span>';
+  feachAllCategories();
+};
 
 const handleImgClick = event => {
   event.preventDefault();
