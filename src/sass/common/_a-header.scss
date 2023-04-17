@@ -12,6 +12,8 @@
   padding-left: 20px;
   padding-right: 20px;
 
+
+
   @media screen and (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
@@ -21,6 +23,12 @@
     padding-left: 24px;
     padding-right: 24px;
   }
+}
+
+.mob-header{
+  @media screen and (min-width: 375px) {
+      width: 375px;
+    }
 }
 
 //  ЛОГОТИП
@@ -257,6 +265,16 @@
 
 // МОДАЛЬНЕ ВІКНО МЕНЮ
 
+.modal-box{
+  position: relative;
+  // top: 0;
+  // left: 0;
+
+  //   margin: 0 auto;
+outline: 5px solid palevioletred;
+}
+
+
 .modalll.is-hidden {
   opacity: 0;
   visibility: hidden;
@@ -266,11 +284,19 @@
 .modalll {
   position: fixed;
 
-  top: 64;
-  left: 0;
+  transform: translateX(-50%);
 
-  width: 100vw;
+  top: 64;
+
+  left: 50%;
+
+  // width: 100vw;
+  width: 375px;
   height: 100vh;
+
+  overflow: hidden;
+
+  padding: 20px;
 
   z-index: 10001;
 
@@ -293,13 +319,7 @@
   gap: 90px;
   width: 184px;
   height: 48px;
-
-  // position: absolute;
-  // top: 40px;
-  // left: 20px;
-
-margin-left: 20px;
-margin-top: 40px;
+  margin-top: 20px;
 
   background-color: $blue-color;
   border: 1.5px solid $dark-color;
@@ -324,8 +344,6 @@ display: flex;
   justify-content: space-around;
   gap: 5px;
 
-  margin-left: 20px;
-  margin-top: 40px;
 
   font-weight: 700;
   font-size: 22px;
@@ -338,6 +356,8 @@ display: flex;
   background-color: transparent;
 
   height: 45px;
+
+  margin-bottom: 126px;
 }
 
 .drop-btn-user:hover,
@@ -361,8 +381,6 @@ display: flex;
 
   color: $white-color;
   transition: opacity $cubic-time, visibility $cubic-time;
-
-  margin-top: 183px;
 }
 
 .drop-menu__home,
@@ -385,7 +403,7 @@ display: flex;
   position: absolute;
 
   left: 20px;
-  bottom: 20%;
+  bottom: 10%;
 
   z-index: 10000;
   display: flex;
