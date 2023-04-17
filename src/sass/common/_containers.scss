@@ -1,7 +1,6 @@
 .header-container {
   // outline: 1px solid blue;
   margin: 0 auto;
-  // width: 375px;
   padding: 0 20px;
 
   @media screen and (min-width: 768px) {
@@ -28,13 +27,14 @@
 .side-bar {
   outline: 1px solid tomato;
   width: 100%;
-  padding: 20px 0;
+  padding-top: 40px;
 
   @media screen and (min-width: 768px) {
-    padding: 40px 0px;
+    padding-bottom: 60px;
   }
 
   @media screen and (min-width: 1440px) {
+    padding-bottom: 0px;
     flex-shrink: 0;
     width: 380px;
   }
@@ -48,7 +48,28 @@
   }
 }
 
-.side-bar-container,
+.side-bar-container {
+  outline: 1px solid blue;
+  margin: 0 auto;
+  padding: 0px 20px;
+  max-width: 375px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    max-width: none;
+    width: 768px;
+    padding: 0px 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: block;
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 0px;
+  }
+}
+
 .main-container {
   outline: 1px solid blue;
   margin: 0 auto;
@@ -63,20 +84,15 @@
 
   @media screen and (min-width: 1440px) {
     width: 100%;
-    padding: 0px 24px;
-  }
-}
-
-.side-bar-container {
-  @media screen and (min-width: 768px) and (max-width: 1439.9px) {
-    display: flex;
+    padding-left: 40px;
+    padding-right: 24px;
   }
 }
 
 .main {
   outline: 1px solid tomato;
   width: 100%;
-  padding: 20px 0;
+  padding-top: 40px;
 
   @media screen and (min-width: 768px) {
     padding: 40px 0px;

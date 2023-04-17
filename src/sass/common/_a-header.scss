@@ -7,6 +7,7 @@
 
   border: 1.5px solid $dark-color;
   border-radius: 0px 0px 8px 8px;
+  background-color: $white-color;
 
   padding-left: 20px;
   padding-right: 20px;
@@ -21,7 +22,6 @@
     padding-right: 24px;
   }
 }
-
 
 //  ЛОГОТИП
 
@@ -39,29 +39,35 @@
   }
 }
 
-
 // МЕНЮ ДЛЯ АВТОРИЗОВАНОГО КОРИСТУВАЧА
 
 .menu {
-    display: none;
- 
+  display: none;
+
+  margin-left: 32px;
+  align-items: center;
+  gap: 24px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+
+  color: $dark-color;
+  transition: opacity $cubic-time, visibility $cubic-time;
   @media screen and (min-width: 768px) {
-    margin-left: 32px;
     display: flex;
-      align-items: center;
-      gap: 24px;
-    
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 18px;
-      letter-spacing: -0.04em;
-      text-transform: uppercase;
-    
-      color: $dark-color;
   }
 
   @media screen and (min-width: 1440px) {
     margin-left: 99px;
+  }
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
 }
 
@@ -81,7 +87,6 @@
   border-radius: 36px;
   padding: 8px 16px;
 }
-
 
 //  КНОПКА БУРГЕР МЕНЮ МЕНЮ
 
@@ -107,10 +112,8 @@
 
 .menu-toggle :hover,
 .menu-toggle :focus {
-  fill: $blue-color
+  fill: $blue-color;
 }
-
-
 
 // ПЕРЕМИКАЧ ТЕМНОІ ТЕМИ ТА  КНОПКИ  "sign-up", "user"
 
@@ -128,56 +131,81 @@
 
 //  КНОПКИ  "sign-up" ТА  "user"
 
-.auth__modal-open-js {
-display: none;
-        @media screen and (min-width: 768px) {
-          display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 90px;
-            width: 184px;
-            height: 48px;
-            background-color: $blue-color;
-            border: 1.5px solid $dark-color;
-            border-radius: 18px;
-            color: $white-color;
-            font-weight: 500;
-            font-size: 14px;
-            line-height: 18px;
-        }
+.auth__modal-open {
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+  width: 184px;
+  height: 48px;
+  background-color: $blue-color;
+  border: 1.5px solid $dark-color;
+  border-radius: 18px;
+  color: $white-color;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+
+  transition: opacity $cubic-time, visibility $cubic-time;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+
+  &.is-hidden {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 .auth__modal-open-js:hover,
 .auth__modal-open-js:focus {
-  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.30);
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
+}
+
+.authorised-btns__wrapper {
+  position: relative;
+
+  &.is-hidden {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 .btn-user {
   display: none;
-@media screen and (min-width: 768px) {
-  display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 5px;
-  
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 29px;
-    letter-spacing: -0.02em;
-  
-    color: $white-color;
-    border: 1px solid $blue-color;
-    border-radius: 36px;
-    background-color: $blue-color;
-  
-    width: 184px;
-    height: 45px;
-}}
+
+  align-items: center;
+  justify-content: space-around;
+  gap: 5px;
+
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 29px;
+  letter-spacing: -0.02em;
+
+  color: $white-color;
+  border: 1px solid $blue-color;
+  border-radius: 36px;
+  background-color: $blue-color;
+
+  height: 45px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+}
 
 .fone-icon-user {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 
   background-color: $primary-background-color;
   width: 37px;
@@ -185,7 +213,7 @@ display: none;
   border-radius: 50%;
 }
 
-.icon-use {
+.icon-user {
   fill: $blue-color;
 }
 
@@ -195,10 +223,13 @@ display: none;
 
 .btn-user:hover,
 .btn-user:focus {
-  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.30);
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
 }
 
+.log-out-btn {
+  position: absolute;
 
+<<<<<<< HEAD
 
 
 
@@ -362,3 +393,25 @@ width: 94.18px;
   left: 363.98px;
   top: 760.29px;
 }
+=======
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+  width: 184px;
+  height: 48px;
+  background-color: $white-color;
+  border: 1.5px solid $dark-color;
+  border-radius: 18px;
+  color: $dark-color;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.log-out-btn.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+>>>>>>> main
