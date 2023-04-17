@@ -226,11 +226,33 @@
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
 }
 
+// ==============
+
 .log-out-btn {
   position: absolute;
 
-<<<<<<< HEAD
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+  width: 184px;
+  height: 48px;
+  background-color: $white-color;
+  border: 1.5px solid $dark-color;
+  border-radius: 18px;
+  color: $dark-color;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
 
+.log-out-btn.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+// =========================
 
 
 // МОДАЛЬНЕ ВІКНО МЕНЮ
@@ -393,25 +415,21 @@ width: 94.18px;
   left: 363.98px;
   top: 760.29px;
 }
-=======
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 90px;
-  width: 184px;
-  height: 48px;
-  background-color: $white-color;
-  border: 1.5px solid $dark-color;
-  border-radius: 18px;
-  color: $dark-color;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
-}
 
-.log-out-btn.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
->>>>>>> main
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// //////////////////////////////////////////////////
+
+

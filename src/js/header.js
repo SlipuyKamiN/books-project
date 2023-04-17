@@ -19,7 +19,6 @@ const setCurrentPage = () => {
 
 setCurrentPage();
 
-<<<<<<< HEAD
 
 
 
@@ -94,10 +93,8 @@ const iconXCloseEl = document.querySelector(".icon-x-close");
 //     </svg>
 //   </button>`;
 //     }
-=======
 const handleUserBtnClick = () => {
   logOutBtn.classList.toggle('is-hidden');
 };
 
 authorisedUserBtn.addEventListener('click', handleUserBtnClick);
->>>>>>> main
