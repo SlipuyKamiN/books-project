@@ -1,25 +1,70 @@
-import transformer from 'parcel-transformer-hbs';
+// import transformer from 'parcel-transformer-hbs';
 import { fetchBooks } from '../js/fetchBooks';
+import { makeMarkupGategory, showAllCategories } from './home/allCategories';
+// import { handleImgClick } from './home/allCategories';
+// import { handleModalWindow } from './modal';
+import { addEventListenerForBook } from './home/allCategories';
+import { addEventListenerForBook } from './home/allCategories';
+import { showAllCategories } from './home/allCategories';
 
 const listEl = document.querySelector('.categories-list-js');
+const mainListEl = document.querySelector('.main__list-js');
+const mainTitle = document.querySelector('.main__title-js');
+const allCategoriesBtn = document.querySelector('.all-categories-btn');
 
-const func = async () => {
+allCategoriesBtn.classList.add('selected-categories');
+
+const createCategoryList = async () => {
   const categoriesList = await fetchBooks.getCategoriesList();
 
   const makeNewButtons = categoriesList
     .map(
       category =>
-        `<li class= 'categories-list__button'> <button> ${category.list_name}</button> </li>`
+        `<li class= 'categories-list__item '> <button class= 'categories-list__button'>${category.list_name}</button> </li>`
     )
     .join('');
   listEl.insertAdjacentHTML('beforeend', makeNewButtons);
 };
-func();
+createCategoryList();
+
+// allCategoriesBtn.addEventListener('click', showAllCategories);
+
+export const drawCategory = async name => {
+  const books = await fetchBooks.getBooksByCategory(name);
+  const markup = makeMarkupGategory(books);
+  const titleArr = name.split(' ');
+  const titleFirstPart = titleArr.slice(0, titleArr.length - 1).join(' ');
+  const titleLastPart = titleArr.slice(titleArr.length - 1).join();
+  mainTitle.innerHTML = `${titleFirstPart}<span class="main__title--color-purple"> ${titleLastPart}</span>`;
+  mainListEl.innerHTML = markup;
+  mainListEl.classList.add('card-set');
+  const bookCategoryEl = document.querySelectorAll('.category-books__item');
+  addEventListenerForBook(bookCategoryEl);
+  allCategoriesBtn.classList.remove('selected-categories');
+};
 
 listEl.addEventListener('click', markup);
 
+let previ = '';
+let title = '';
+
 function markup(ev) {
-  let title = ev.target.textContent;
-  const mainTitleEl = document.querySelector('.main__title');
-  mainTitleEl.textContent = `${title}`;
+  if (ev.target.nodeName !== 'BUTTON') {
+    return;
+  }
+  if (ev.target === allCategoriesBtn) {
+    allCategoriesBtn.classList.add('selected-categories');
+    previ.classList.remove('selected-categories');
+    showAllCategories();
+    return;
+  }
+  title = ev.target.textContent;
+  drawCategory(title);
+
+  if (previ !== '') {
+    previ.classList.remove('selected-categories');
+  }
+  ev.target.classList.add('selected-categories');
+  previ = ev.target;
+  console.log(ev.target.nodeName);
 }

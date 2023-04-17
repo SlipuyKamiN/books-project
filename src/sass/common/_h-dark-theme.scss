@@ -1,5 +1,4 @@
 
-/////switcher///////
 .theme__switch-wrapper {
   display: flex;
   align-items: center;
@@ -10,18 +9,18 @@
   top: 24px;
 }
 
-@media screen and (max-width: 768px) {
-  .theme__switch-wrapper {
-    right: 240px;
-  }
-}
+// @media screen and (max-width: 768px) {
+//   .theme__switch-wrapper {
+//     right: 240px;
+//   }
+// }
 
-@media screen and (max-width: 320px) {
-  .theme__switch-wrapper {
-    right: 62px;
-    top: 20px;
-  }
-}
+// @media screen and (max-width: 320px) {
+//   .theme__switch-wrapper {
+//     right: 62px;
+//     top: 20px;
+//   }
+// }
 
 .theme__switch {
   position: relative;
@@ -92,6 +91,9 @@ input:checked + .slider:before {
   background: linear-gradient(to bottom, #ffffff 0%, #f7f7f7 100%);
   border-radius: 50%;
 }
+
+
+
 
 ///body////
 body.dark {

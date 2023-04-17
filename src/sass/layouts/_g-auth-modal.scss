@@ -1,0 +1,245 @@
+.auth__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $blue-color;
+  opacity: 1;
+  transition: opacity $cubic-time;
+  overflow-y: scroll;
+  z-index: 6;
+}
+
+.auth__backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.auth__backdrop.is-hidden .auth__modal {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.auth__modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 335px;
+  transform: translate(-50%, -50%) scale(1);
+  padding: 40px 20px;
+  background-color: $primary-background-color;
+  border: 2px solid $dark-color;
+  border-radius: 18px;
+  transition: transform $cubic-time;
+
+  @media screen and (min-width: 768px) {
+    max-width: 579px;
+    padding: 80px 40px 40px 40px;
+  }
+}
+
+.auth__modal-close {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  background-color: $primary-background-color;
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    top: 24px;
+    right: 24px;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.auth__modal-close-icon {
+  fill: $dark-color;
+  transition: fill $cubic-time;
+}
+
+.auth__modal-close:hover .auth__modal-close-icon,
+.auth__modal-close:focus .auth__modal-close-icon {
+  fill: $blue-color;
+}
+
+.form__field {
+  position: relative;
+  margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 28px;
+  }
+}
+
+.form__field input {
+  margin: 0;
+  padding: 0;
+  padding-left: 24px;
+  width: 295px;
+  height: 50px;
+  border: 2px solid $dark-color;
+  border-radius: 40px;
+  background-color: $primary-background-color;
+  transition: border $cubic-time;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 40px;
+    width: 499px;
+    height: 64px;
+  }
+}
+
+.form__field:hover input,
+.form__field:focus input {
+  border: 2px solid $blue-color;
+}
+
+.form__label {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: $dark-color;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  transform: translateY(-50%);
+  transition: transform $cubic-time;
+
+  @media screen and (min-width: 768px) {
+    left: 40px;
+  }
+}
+
+.form__input:focus + .form__label,
+.form__input:hover + .form__label {
+  transform: translateY(-46px);
+  color: $blue-color;
+
+  @media screen and (min-width: 768px) {
+    transform: translateY(-54px);
+  }
+}
+
+.checked {
+  transform: translateY(-46px);
+  color: $blue-color;
+
+  @media screen and (min-width: 768px) {
+    transform: translateY(-54px);
+  }
+}
+
+.form__btn-submit {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  width: 295px;
+  height: 50px;
+  margin-bottom: 14px;
+  background-color: $dark-color;
+  border: 2px solid $dark-color;
+  border-radius: 40px;
+  color: $white-gray-color;
+  cursor: pointer;
+  transition: background-color $cubic-time, border $cubic-time;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.33;
+    width: 499px;
+    height: 64px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+  }
+}
+
+.form__btn-submit:hover,
+.form__btn-submit:focus {
+  background-color: $blue-color;
+  border: 3px solid $blue-color;
+}
+
+.form__btns {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.form__btn-sign-up {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.01em;
+  color: #11111180;
+  text-transform: uppercase;
+  border: none;
+  background-color: $primary-background-color;
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+.form__btn-sign-in {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.01em;
+  color: #11111180;
+  text-transform: uppercase;
+  border: none;
+  background-color: $primary-background-color;
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+.active {
+  text-decoration-line: underline;
+  color: $blue-color;
+}
+
+.form__icon {
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  fill: $dark-color;
+
+  @media screen and (min-width: 768px) {
+    right: 30px;
+    width: 28px;
+    height: 28px;
+  }
+}

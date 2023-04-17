@@ -6,8 +6,9 @@ body {
   color: #111111;
   background-color: $primary-background-color;
 
-  body.modal-open {
+  &.modal-open {
     overflow: hidden;
+    height: 100vh;
   }
 }
 /* Стили для обнуления верхних отступов у элементов */
@@ -32,6 +33,7 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 /* Свойства для корректного отображения картинок */
 img {
@@ -49,8 +51,6 @@ html {
   scroll-behavior: smooth;
 }
 
-.main-wrapper {
-  @media screen and (min-width: 1280px) {
-    display: flex;
-  }
+button {
+  cursor: pointer;
 }

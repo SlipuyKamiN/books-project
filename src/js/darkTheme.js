@@ -29,8 +29,11 @@ function addDarkTheme() {
 
 function removeDarkTheme() {
   document.body.classList.remove('dark');
-  books.forEach(book => {
-    book.style.color = '$text-gray-color';
+  document.body.style.backgroundColor = '#f6f6f6';
+  document.querySelector('header').style.backgroundColor = '#FFFFFF';
+
+  bookNameArray.forEach(book => {
+    book.style.color = 'rgba(17, 17, 17, 0.6)';
   });
 }
 
