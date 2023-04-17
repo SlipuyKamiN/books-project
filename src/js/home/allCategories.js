@@ -100,7 +100,8 @@ const handleImgClick = event => {
 
 const handleSeeMoreBtnClick = event => {
   title = event.target.dataset.category;
-  console.log(title);
+
+  setCurrentCategory(title);
   drawCategory(title);
 };
 
@@ -122,4 +123,19 @@ const addEventListenerForBtn = category => {
   category.forEach(el => {
     el.addEventListener('click', handleSeeMoreBtnClick);
   });
+};
+
+const setCurrentCategory = title => {
+  const categoriesListChildren = document.querySelector(
+    '.categories-list-js'
+  ).children;
+  for (let i = 0; i < categoriesListChildren.length; i += 1) {
+    const category = categoriesListChildren[i];
+
+    category.firstElementChild.classList.remove('selected-categories');
+
+    if (category.textContent.trim() === title.trim()) {
+      category.firstElementChild.classList.add('selected-categories');
+    }
+  }
 };
