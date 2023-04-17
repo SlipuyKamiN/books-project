@@ -4,6 +4,7 @@
 
 .header-container {
   display: flex;
+  position: relative;
 
   border: 1.5px solid $dark-color;
   border-radius: 0px 0px 8px 8px;
@@ -20,6 +21,12 @@
   @media screen and (min-width: 1440px) {
     padding-left: 24px;
     padding-right: 24px;
+  }
+}
+
+.mob-header {
+  @media screen and (min-width: 375px) {
+    width: 375px;
   }
 }
 
@@ -86,6 +93,7 @@
   background: $yellow-color;
   border-radius: 36px;
   padding: 8px 16px;
+  color: $dark-color;
 }
 
 //  КНОПКА БУРГЕР МЕНЮ МЕНЮ
@@ -226,6 +234,8 @@
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
 }
 
+// ==============
+
 .log-out-btn {
   position: absolute;
 
@@ -248,4 +258,209 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+
+// =========================
+
+// МОДАЛЬНЕ ВІКНО МЕНЮ
+
+.modalll.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modalll {
+  position: absolute;
+
+  top: 64;
+  left: -1px;
+
+  width: 376px;
+  height: calc(100vh - 65px);
+
+  overflow: hidden;
+
+  padding: 20px;
+
+  z-index: 7;
+
+  background-image: radial-gradient(
+    183.6% 183.01% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #ffffff 100%
+  );
+  transition: opacity 150ms linear, visibility 150ms linear;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+// КНОПКИ  МОДАЛЬНОГО МЕНЮ
+
+.drop-auth__modal-open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+  width: 184px;
+  height: 48px;
+  margin-top: 20px;
+
+  background-color: $blue-color;
+  border: 1.5px solid $dark-color;
+  border-radius: 18px;
+  color: $white-color;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+
+  transition: opacity $cubic-time, visibility $cubic-time;
+
+  &.is-hidden {
+    display: none;
+  }
+}
+
+.drop-auth__modal-open:hover,
+.drop-auth__modal-open:focus {
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
+}
+
+.drop-btn-user {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-around;
+  gap: 5px;
+
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 29px;
+  letter-spacing: -0.02em;
+
+  color: $white-color;
+  border: 1px solid transparent;
+  border-radius: 36px;
+  background-color: transparent;
+
+  height: 45px;
+
+  margin-bottom: 126px;
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.drop-btn-user:hover,
+.drop-btn-user:focus {
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
+}
+
+// МОБІЛЬНЕ ДРОП МЕНЮ
+.drop-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+
+  color: $white-color;
+  transition: opacity $cubic-time, visibility $cubic-time;
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.drop-menu__home,
+.drop-menu__shopping {
+  border-radius: 36px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.drop-menu__home:hover,
+.drop-menu__home:focus,
+.drop-menu__shopping:hover,
+.drop-menu__shopping:focus {
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
+}
+
+//  КНОПКА  Log out-
+.drop-log-out-btn {
+  position: absolute;
+
+  left: 20px;
+  bottom: 10%;
+
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 118px;
+  height: 48px;
+  background-color: $white-color;
+  border: 1.5px solid $dark-color;
+  border-radius: 18px;
+  color: $dark-color;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.drop-log-out-btn:hover,
+.drop-log-out-btn:focus {
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
+}
+
+// КНИГИ
+.modal__books-list {
+  position: absolute;
+  top: 60%;
+  left: -10%;
+
+  // display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 10px;
+  margin: 0;
+
+  width: 130%;
+  transform: rotate(-15deg);
+  // height: 439px;
+}
+
+.modal__books-item {
+  max-width: 90px;
+  margin: 0;
+  padding: 0;
+  transform: rotate(15deg);
+  img {
+    max-width: none;
+  }
 }

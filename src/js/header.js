@@ -1,11 +1,11 @@
+import openCloseIcon from '../images/icons.svg';
+
+// ВИДІЛЕННЯ ЖОВТИМ НАЗВУ ПОТОЧНОЇ СТОРІНКИ (меню в хедері)
 const menuHomeEl = document.querySelector('.menu__home');
 const menuShoppingEl = document.querySelector('.menu__shopping');
-const authorisedUserBtn = document.querySelector('.user-btn-js');
-const logOutBtn = document.querySelector('.log-out-btn-js');
 
 const setCurrentPage = () => {
   const currentPageName = window.location.pathname;
-  // console.log(currentPageName);
 
   if (
     currentPageName === '/index.html' ||
@@ -19,8 +19,46 @@ const setCurrentPage = () => {
 
 setCurrentPage();
 
-const handleUserBtnClick = () => {
-  logOutBtn.classList.toggle('is-hidden');
+//   ВІДКРИТТЯ/ЗАКРИТТЯ МОДАЛКИ ДЛЯ МОБ. ВЕРСІЇ
+
+const modalBoxEl = document.querySelector('.data-modal');
+const openModalBtnEl = document.querySelector('.js-open-menu');
+const iconHrefEl = document.querySelector('.icon-href');
+
+// const mobbEl = document.querySelector('.mob-header');
+
+openModalBtnEl.addEventListener('click', toggleModal);
+
+function toggleModal() {
+  if (modalBoxEl.classList.contains('is-hidden')) {
+    modalBoxEl.classList.remove('is-hidden');
+    iconHrefEl.setAttribute('href', `${openCloseIcon}#icon-x-close`);
+    document.body.classList.add('modal-open');
+
+    return;
+  } else {
+    modalBoxEl.classList.add('is-hidden');
+    iconHrefEl.setAttribute('href', `${openCloseIcon}#icon-burger`);
+    document.body.classList.remove('modal-open');
+  }
+}
+
+// ВИДІЛЕННЯ ЖОВТИМ, НАЗВУ ПОТОЧНОЇ СТОРІНКИ (меню в МОДАЛЦІ)
+
+const dropMenuHomeEl = document.querySelector('.drop-menu__home');
+const dropMenuShoppingEl = document.querySelector('.drop-menu__shopping');
+
+const dropSetCurrentPage = () => {
+  const dropCurrentPageName = window.location.pathname;
+
+  if (
+    dropCurrentPageName === '/index.html' ||
+    dropCurrentPageName === '/books-project/index.html'
+  ) {
+    dropMenuHomeEl.classList.add('current');
+    return;
+  }
+  dropMenuShoppingEl.classList.add('current');
 };
 
-authorisedUserBtn.addEventListener('click', handleUserBtnClick);
+dropSetCurrentPage();
