@@ -35,20 +35,39 @@ const openModalBtnEl = document.querySelector(".js-open-menu");
 
 const iconHrefEl = document.querySelector(".icon-href");
 
+const authModalOpenEl = document.querySelector(".auth__modal-open-js.mobile");
+
 
   openModalBtnEl.addEventListener("click", toggleModal);
+
+//   function toggleModal() {
+//   if (modalBoxEl.classList.contains('is-hidden')) {
+//     modalBoxEl.classList.remove('is-hidden');
+//     iconHrefEl.setAttribute('href', `${openCloseIcon}#icon-x-close`);
+
+    
+//     return;
+//   } else {
+//     modalBoxEl.classList.add('is-hidden');
+//     iconHrefEl.setAttribute('href', `${openCloseIcon}#icon-burger`);
+//   }
+// }
+
 
   function toggleModal() {
   if (modalBoxEl.classList.contains('is-hidden')) {
     modalBoxEl.classList.remove('is-hidden');
     iconHrefEl.setAttribute('href', `${openCloseIcon}#icon-x-close`);
+    authModalOpenEl.style.display = "flex";
+    authModalOpenEl.style.marginTop = "40px";
+    authModalOpenEl.style.marginLeft = "20px";
+
     return;
   } else {
     modalBoxEl.classList.add('is-hidden');
     iconHrefEl.setAttribute('href', `${openCloseIcon}#icon-burger`);
   }
 }
-
 
 
 
