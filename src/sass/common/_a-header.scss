@@ -254,7 +254,6 @@
 
 // =========================
 
-
 // МОДАЛЬНЕ ВІКНО МЕНЮ
 
 // .backdroppp{
@@ -272,19 +271,18 @@
 // transition: opacity 150ms linear, visibility 150ms linear;
 // }
 
-    // .backdroppp.is-hidden .modalll {
-    //   opacity: 0;
-    //   transform: translateX(-50%), translateY(-70%);
-    // }
+// .backdroppp.is-hidden .modalll {
+//   opacity: 0;
+//   transform: translateX(-50%), translateY(-70%);
+// }
 
+.modalll.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
 
-  .modalll.is-hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-
-.modalll{
+.modalll {
   position: fixed;
 
   top: 64;
@@ -295,158 +293,148 @@
 
   z-index: 10001;
 
-background-image: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
-transition: opacity 150ms linear, visibility 150ms linear;
-
+  background-image: radial-gradient(
+    183.6% 183.01% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #ffffff 100%
+  );
+  transition: opacity 150ms linear, visibility 150ms linear;
 
   // transform: translateX(64px) translateY(100%);
   // transform: translateY(100%);
-    // transition: transform 250ms ease-in-out;
-// transition: opacity .25s cubic-bezier(.4, 0, .2, 1), visibility .25s cubic-bezier(.4, 0, .2, 1), transform .25s cubic-bezier(.4, 0, .2, 1);
+  // transition: transform 250ms ease-in-out;
+  // transition: opacity .25s cubic-bezier(.4, 0, .2, 1), visibility .25s cubic-bezier(.4, 0, .2, 1), transform .25s cubic-bezier(.4, 0, .2, 1);
 }
 
-    
-
-    // КНИГИ
+// КНИГИ
 .modal__books-list {
   outline: 2px dashed rgb(0, 255, 140);
-position: absolute;
-top: 50%;
-left: 50%;
+  position: absolute;
+  top: 40%;
+  left: -10%;
 
-transform: translateX(-50%);
-        display: block;
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
-        // flex-wrap: wrap;
-        // gap: 30px;
-        // margin: 0;
+  // transform: translateX(-50%);
+  // display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 10px;
+  margin: 0;
 
-        width: 450px;
-        height: 439px;
+  width: 130%;
+  transform: rotate(-15deg);
+  // height: 439px;
 }
 
-
-.modal__books-item{
-    outline: 3px solid rgb(173, 212, 55);
-    position: absolute;
-    // flex-basis: calc((100% - 3px) / 4);
-      // margin: 0;
-      // padding: 0;
-
+.modal__books-item {
+  outline: 3px solid rgb(173, 212, 55);
+  // position: absolute;
+  // flex-basis: calc((100% - 3px) / 4);
+  max-width: 90px;
+  margin: 0;
+  padding: 0;
+  transform: rotate(15deg);
+  img {
+    max-width: none;
+  }
 }
 
-.modal__books-item:nth-child(1) {
- width: 89.15px;
-  height: 133.54px;
-  // left: -65px;
-  left: -5%;
-  top: 20%;
-}
+// .modal__books-item:nth-child(1) {
+//   width: 89.15px;
+//   height: 133.54px;
+//   // left: -65px;
+//   left: -5%;
+//   margin-top: 20%;
+// }
 
-.modal__books-item:nth-child(2){
-width: 83.7px;
-  height: 133.54px;
-  // left: 53.88px;
-  // top: 527.15px;
-  left: 15%;
-  top:17%;
-}
-.modal__books-item:nth-child(3) {
-  width: 89.36px;
-    height: 133.54px;
-    // left: 168.98px;
-      left: 35%;
-  top: 14%;
-}
+// .modal__books-item:nth-child(2) {
+//   width: 83.7px;
+//   height: 133.54px;
+//   // left: 53.88px;
+//   // margin-top: 527.15px;
+//   left: 15%;
+//   margin-top: 17%;
+// }
+// .modal__books-item:nth-child(3) {
+//   width: 89.36px;
+//   height: 133.54px;
+//   // left: 168.98px;
+//   left: 35%;
+//   margin-top: 14%;
+// }
 
-.modal__books-item:nth-child(4) {
-  width: 87.69px;
-    height: 133.54px;
-    // left: 283.36px;
-      left: 55%;
-  top: 11%;
-}
+// .modal__books-item:nth-child(4) {
+//   width: 87.69px;
+//   height: 133.54px;
+//   // left: 283.36px;
+//   left: 55%;
+//   margin-top: 11%;
+// }
 
-.modal__books-item:nth-child(5) {
-  width: 86.08px;
-  height: 133.54px;
-  // left: -23.91px;
-    left: 3%;
-  top: 51%;
-}
+// // .modal__books-item:nth-child(5) {
+// //   width: 86.08px;
+// //   height: 133.54px;
+// //   // left: -23.91px;
+// //   left: 3%;
+// //   margin-top: 51%;
+// // }
 
-.modal__books-item:nth-child(6) {
-  width: 89.95px;
-    height: 133.54px;
-    // left: 91.07px;
-      left: 23%;
-    top: 48%;
-}
+// // .modal__books-item:nth-child(6) {
+// //   width: 89.95px;
+// //   height: 133.54px;
+// //   // left: 91.07px;
+// //   left: 23%;
+// //   margin-top: 48%;
+// // }
 
-.modal__books-item:nth-child(7) {
-  width: 87.77px;
-    height: 133.54px;
-    // left: 209.29px;
-        left: 43%;
-    top: 45%;
-}
+// // .modal__books-item:nth-child(7) {
+// //   width: 87.77px;
+// //   height: 133.54px;
+// //   // left: 209.29px;
+// //   left: 43%;
+// //   margin-top: 45%;
+// // }
 
-.modal__books-item:nth-child(8) {
-position: absolute;
-  width: 90.16px;
-  height: 133.54px;
-  // left: 322.11px;
-      left: 63%;
-  top: 42%;
-}
+// // .modal__books-item:nth-child(8) {
+// //   position: absolute;
+// //   width: 90.16px;
+// //   height: 133.54px;
+// //   // left: 322.11px;
+// //   left: 63%;
+// //   margin-top: 42%;
+// // }
 
-.modal__books-item:nth-child(9) {
-width: 89.95px;
-  height: 133.54px;
-  // left: 14.06px;
-  left: 11%;
-  top: 82%;
-}
+// // .modal__books-item:nth-child(9) {
+// //   width: 89.95px;
+// //   height: 133.54px;
+// //   // left: 14.06px;
+// //   left: 11%;
+// //   margin-top: 82%;
+// // }
 
-.modal__books-item:nth-child(10) {
-width: 98.16px;
-  height: 133.54px;
-  // left: 125.91px;
-  left: 31%;
-  top: 79%;
-}
+// // .modal__books-item:nth-child(10) {
+// //   width: 98.16px;
+// //   height: 133.54px;
+// //   // left: 125.91px;
+// //   left: 31%;
+// //   margin-top: 79%;
+// // }
 
-.modal__books-item:nth-child(11) {
-width: 94.18px;
-  height: 133.54px;
-  // left: 245.7px;
-left: 51%;
-  top: 76%;
-}
+// // .modal__books-item:nth-child(11) {
+// //   width: 94.18px;
+// //   height: 133.54px;
+// //   // left: 245.7px;
+// //   left: 51%;
+// //   margin-top: 76%;
+// // }
 
-.modal__books-item:nth-child(12) {
-  width: 84.03px;
-  height: 133.54px;
-left: 71%;
-  top: 73%;
-}
+// // .modal__books-item:nth-child(12) {
+// //   width: 84.03px;
+// //   height: 133.54px;
+// //   left: 71%;
+// //   margin-top: 73%;
+// // }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //////////////////////////////////////////////////
-
-
+// // //////////////////////////////////////////////////
