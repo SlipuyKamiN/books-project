@@ -155,12 +155,12 @@
   }
 }
 
-.shopping__author {
-  font-style: italic;
-  font-size: 12px;
-  line-height: 1.17;
-  color: $text-gray-color;
-}
+// .shopping__author {
+//   font-style: italic;
+//   font-size: 12px;
+//   line-height: 1.17;
+//   color: $text-gray-color;
+// }
 
 .shopping__author{
     font-style: italic;
@@ -179,16 +179,18 @@
   display: flex;
   align-items: center;
   gap: 14px;
+  margin-left: auto;
 }
 
-.shops-list__link:hover,
-.shops-list__link:focus {
+.shops-list__img:hover,
+.shops-list__img:focus {
   filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
   mix-blend-mode: luminosity;
 }
 
 .shops-list__img {
   mix-blend-mode: luminosity;
+  transition: filter $cubic-time;
 }
 
 .shopping__text {
@@ -212,7 +214,6 @@
 .shopping-box-tablet {
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
   margin-top: auto;
 }
 

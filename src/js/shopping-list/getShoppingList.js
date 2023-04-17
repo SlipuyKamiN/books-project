@@ -69,7 +69,11 @@ try {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                      <img class='shops-list__img' src="${require('../../images/modal/image-1@1x.png')}" width="48" height="15" />
+                      <img class='shops-list__img' srcset="
+          ${require('../../images/modal/image-1@1x.png')} 48w,
+          ${require('../../images/modal/image-1@2x.png')} 96w,
+        "
+        sizes="48px" src="${require('../../images/modal/image-1@1x.png')}" width="48" height="15" />
                       </a>
                     </li>
                     <li>
@@ -79,7 +83,11 @@ try {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                      <img class='shops-list__img' src="${require('../../images/modal/image-2@1x.png')}" width="28" height="27" />
+                      <img class='shops-list__img' srcset="
+          ${require('../../images/modal/image-2@1x.png')} 28w,
+          ${require('../../images/modal/image-2@2x.png')} 56w,
+        "
+        sizes="28px" src="${require('../../images/modal/image-2@1x.png')}" width="28" height="27" />
                       </a>
                     </li>
                     <li>
@@ -89,7 +97,11 @@ try {
                         rel="noopener noreferrer"
                         target="_blank"
                       >
-                      <img class='shops-list__img' src="${require('../../images/modal/image-3@1x.png')}" width="32" height="30" />
+                      <img class='shops-list__img' srcset="
+          ${require('../../images/modal/image-3@1x.png')} 32w,
+          ${require('../../images/modal/image-3@2x.png')} 64w,
+        "
+        sizes="32px" src="${require('../../images/modal/image-3@1x.png')}" width="32" height="30" />
                       </a>
                     </li>
                   </ul>
@@ -126,7 +138,11 @@ try {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                        <img class='shops-list__img' src="${require('../../images/modal/image-1@1x.png')}" width="48" height="15" />
+                        <img class='shops-list__img' srcset="
+                        ${require('../../images/modal/image-1@1x.png')} 48w,
+                        ${require('../../images/modal/image-1@2x.png')} 96w,
+                        "
+                        sizes="48px" src="${require('../../images/modal/image-1@1x.png')}" width="48" height="15" />
                         </a>
                       </li>
                       <li>
@@ -136,7 +152,11 @@ try {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                        <img class='shops-list__img' src="${require('../../images/modal/image-2@1x.png')}" width="28" height="27" />
+                        <img class='shops-list__img' srcset="
+                        ${require('../../images/modal/image-2@1x.png')} 28w,
+                        ${require('../../images/modal/image-2@2x.png')} 56w,
+                        "
+                        sizes="28px" src="${require('../../images/modal/image-2@1x.png')}" width="28" height="27" />
                         </a>
                       </li>
                       <li>
@@ -146,8 +166,11 @@ try {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                        <img class='shops-list__img' src="${require('../../images/modal/image-3@1x.png')}" width="32" height="30" />
-                        </a>
+                        <img class='shops-list__img' srcset="
+                        ${require('../../images/modal/image-3@1x.png')} 32w,
+                        ${require('../../images/modal/image-3@2x.png')} 64w,
+                        "
+                        sizes="32px" src="${require('../../images/modal/image-3@1x.png')}" width="32" height="30" />
                       </li>
                     </ul>
                   </div>
