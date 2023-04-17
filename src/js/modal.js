@@ -2,24 +2,12 @@ import { fetchBooks } from '../js/fetchBooks';
 import renderModal from '../templates/modal.hbs';
 
 const globalRefs = {
+  backdrop: document.querySelector('.backdrop-js'),
   modal: document.querySelector('.modal-js'),
 };
 
 const BOOKS_DATA_KEY = 'books-data';
 const USER_DATA_KEY = 'user-data';
-
-
-// for testing //
-
-localStorage.setItem(USER_DATA_KEY, JSON.stringify({
-  id: 12345,
-  name: "wild crutch",
-  mail: "wild.crutch@mail.com",
-}));
-
-// for testing //
-
-
 const bookArray = [];
 const currentStorage = JSON.parse(localStorage.getItem(BOOKS_DATA_KEY));
 
@@ -54,7 +42,8 @@ export async function handleModalWindow(bookId) {
       book => book.name === 'Barnes and Noble'
     ).url;
 
-    globalRefs.modal.innerHTML = globalRefs.modal.classList.remove('is-hidden');
+    globalRefs.modal.classList.remove('is-hidden');
+    globalRefs.backdrop.classList.remove('is-hidden');
     document.body.classList.add('modal-open');
 
     globalRefs.modal.innerHTML = renderModal({
@@ -81,7 +70,7 @@ export async function handleModalWindow(bookId) {
     const isBookInStorage = bookArray.find(book => book._id === bookData._id);
     const bookIndex = bookArray.indexOf(isBookInStorage);
 
-    if (isBookInStorage) {
+    if (isBookInStorage && IsUserLogged) {
       refs.addBtn.classList.add('is-hidden');
       refs.removeBlock.classList.remove('is-hidden');
     }
@@ -128,7 +117,7 @@ export async function handleModalWindow(bookId) {
     }
 
     function handleBackDropClick(evt) {
-      if (evt.target === globalRefs.modal) {
+      if (evt.target === globalRefs.backdrop) {
         closeModal();
         removeListeners();
         clearInterface();
@@ -138,6 +127,7 @@ export async function handleModalWindow(bookId) {
 
     function closeModal() {
       globalRefs.modal.classList.add('is-hidden');
+      globalRefs.backdrop.classList.add('is-hidden');
     }
 
     function removeListeners() {
