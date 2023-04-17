@@ -94,10 +94,16 @@ input:checked + .slider:before {
 }
 
 ////header///
-.dark .header-container{
+.dark .header-container,
+.dark .shopping__item{
   background-color: $dark-color;
   
     border: 1.5px solid $white-color;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.dark .shopping__item{
+  border: 1.5px solid #2A1D67;
     border-radius: 0px 0px 8px 8px;
 }
 
@@ -125,7 +131,10 @@ body.dark,
 .dark .shopping__text,
 .dark .menu__home,
 .dark .form__label,
-.dark .auth__modal-close-icon
+.dark .auth__modal-close-icon,
+.dark .form__input-name,
+.dark .form__input-mail,
+.dark .form__input-password
  {
   color: $white-color;
 }
@@ -148,12 +157,14 @@ body.dark,
 
 
 
-.dark .icon-burger{
+.dark .icon-burger,
+.dark .auth__modal-close-icon,
+.dark .form__icon{
   fill:$white-color;
 }
 
 .dark .menu-toggle :hover,
-.menu-toggle :focus {
+.dark.menu-toggle :focus {
   fill: #EAC645;
 }
 
@@ -165,24 +176,9 @@ body.dark,
   color: $white-color;
 }
 
-// .dark.shops-list__link {
-//   mix-blend-mode: overlay; /* change blend mode to overlay */
-
-//   &:hover,
-//   &:focus {
-//       filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
-//   }
-// }
-
-
-.dark .header__logo.link{
-  color: #F3F3F3;
-}
-
 .dark .form__field input,
 .dark .form__btn-submit{
   border: 2px solid $white-color;
-  border-radius: 40px;
 }
 
 .dark .form__btn-submit{
@@ -194,7 +190,3 @@ body.dark,
 }
 
 
-.dark .auth__modal-close-icon,
-.dark .form__icon {
-  fill: $white-color;
-}
