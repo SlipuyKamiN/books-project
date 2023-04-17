@@ -199,3 +199,166 @@ display: none;
 }
 
 
+
+
+
+// МОДАЛЬНЕ ВІКНО МЕНЮ
+
+// .backdroppp{
+// position: fixed;
+// top: 64;
+// left: 0;
+
+// width: 100%;
+// height: 100%;
+
+// background-color: rgba(25, 28, 38, 0.4);
+// backdrop-filter: blur(2px);
+// z-index: 1000;
+
+// transition: opacity 150ms linear, visibility 150ms linear;
+// }
+
+    // .backdroppp.is-hidden .modalll {
+    //   opacity: 0;
+    //   transform: translateX(-50%), translateY(-70%);
+    // }
+
+
+  .modalll.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+.modalll{
+  position: fixed;
+
+  top: 64;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 10001;
+
+background-image: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
+transition: opacity 150ms linear, visibility 150ms linear;
+
+
+  // transform: translateX(64px) translateY(100%);
+  // transform: translateY(100%);
+    // transition: transform 250ms ease-in-out;
+// transition: opacity .25s cubic-bezier(.4, 0, .2, 1), visibility .25s cubic-bezier(.4, 0, .2, 1), transform .25s cubic-bezier(.4, 0, .2, 1);
+}
+
+    
+
+    // КНИГИ
+.modal__books-list {
+  outline: 2px dashed rgb(0, 255, 140);
+// position: relative;
+        display: block;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        // flex-wrap: wrap;
+        // gap: 30px;
+        // margin: 0;
+
+        width: 450px;
+        height: 439px;
+}
+
+
+.modal__books-item{
+    outline: 3px solid rgb(173, 212, 55);
+    position: absolute;
+    // flex-basis: calc((100% - 3px) / 4);
+      // margin: 0;
+      // padding: 0;
+
+}
+
+.modal__books-item:nth-child(1) {
+ width: 89.15px;
+  height: 133.54px;
+  left: -65px;
+  top: 559px;
+}
+
+.modal__books-item:nth-child(2){
+width: 83.7px;
+  height: 133.54px;
+  left: 53.88px;
+  top: 527.15px;
+}
+.modal__books-item:nth-child(3) {
+  width: 89.36px;
+    height: 133.54px;
+    left: 168.98px;
+    top: 496.31px;
+}
+
+.modal__books-item:nth-child(4) {
+  width: 87.69px;
+    height: 133.54px;
+    left: 283.36px;
+    top: 465.66px;
+}
+
+.modal__books-item:nth-child(5) {
+  width: 86.08px;
+  height: 133.54px;
+  left: -23.91px;
+  top: 706.11px;}
+
+.modal__books-item:nth-child(6) {
+  width: 89.95px;
+    height: 133.54px;
+    left: 91.07px;
+    top: 675.3px;
+}
+
+.modal__books-item:nth-child(7) {
+  width: 87.77px;
+    height: 133.54px;
+    left: 209.29px;
+    top: 643.62px;
+}
+
+.modal__books-item:nth-child(8) {
+position: absolute;
+  width: 90.16px;
+  height: 133.54px;
+  left: 322.11px;
+  top: 613.39px;
+}
+
+.modal__books-item:nth-child(9) {
+width: 89.95px;
+  height: 133.54px;
+  left: 14.06px;
+  top: 854.05px;
+}
+
+.modal__books-item:nth-child(10) {
+width: 98.16px;
+  height: 133.54px;
+  left: 125.91px;
+  top: 824.08px;
+}
+
+.modal__books-item:nth-child(11) {
+width: 94.18px;
+  height: 133.54px;
+  left: 245.7px;
+  top: 791.98px;
+}
+
+.modal__books-item:nth-child(12) {
+  width: 84.03px;
+  height: 133.54px;
+  left: 363.98px;
+  top: 760.29px;
+}
