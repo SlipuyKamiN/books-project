@@ -5,7 +5,6 @@
 
   .shopping-mobale {
     display: flex;
-    margin-bottom: 20px;
   }
 }
 
@@ -189,7 +188,9 @@
 .shopping__text {
   font-size: 14px;
   line-height: 1.28;
-  
+  @media screen and (max-width: 767px) {
+      margin-top: 20px;
+    }
 }
 
 .visually-hidden {
