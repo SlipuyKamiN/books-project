@@ -6,7 +6,7 @@
   height: 100%;
   background-color: $blue-color;
   opacity: 1;
-  transition: opacity $cubic-time;
+  transition: opacity $cubic-time, visibility $cubic-time;
   overflow-y: scroll;
   z-index: 6;
 }
@@ -34,7 +34,7 @@
   background-color: $primary-background-color;
   border: 2px solid $dark-color;
   border-radius: 18px;
-  transition: transform $cubic-time;
+  transition: transform $cubic-time, opacity $cubic-time, visibility $cubic-time;
 
   @media screen and (min-width: 768px) {
     max-width: 579px;
