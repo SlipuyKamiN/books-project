@@ -61,7 +61,7 @@ function createCardMarkup(dataBooks) {
                     <ul class="shops-list">
                     <li>
                       <a
-                        class="shops-list__link"
+                        class="shops-list__link amazon"
                         href="${amazonUrl}"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -116,7 +116,7 @@ function createCardMarkup(dataBooks) {
                     <ul class="shops-list">
                       <li>
                         <a
-                          class="shops-list__link"
+                          class="shops-list__link amazon"
                           href="${amazonUrl}"
                           target="_blank"
                           rel="noopener noreferrer"
