@@ -54,6 +54,8 @@ function onButtonSignUp() {
           />
           <label for="name" class="form__label form__label-name">Name</label>
         </div>`;
+  refs.inputName = document.querySelector('.form__input-name');
+  refs.inputName.addEventListener('input', debounce(onInput, 300));
 }
 
 refs.inputName.addEventListener('input', debounce(onInput, 300));
