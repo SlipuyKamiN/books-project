@@ -6,7 +6,20 @@ const globalRefs = {
 };
 
 const BOOKS_DATA_KEY = 'books-data';
-const IsUserLogged = true; // change to real object from autorization block
+const USER_DATA_KEY = 'user-data';
+
+
+// for testing //
+
+localStorage.setItem(USER_DATA_KEY, JSON.stringify({
+  id: 12345,
+  name: "wild crutch",
+  mail: "wild.crutch@mail.com",
+}));
+
+// for testing //
+
+
 const bookArray = [];
 const currentStorage = JSON.parse(localStorage.getItem(BOOKS_DATA_KEY));
 
@@ -29,6 +42,7 @@ export async function handleModalWindow(bookId) {
 
   try {
     const bookData = await fetchBooks.getBookById(bookId);
+    const IsUserLogged = JSON.parse(localStorage.getItem(USER_DATA_KEY)); 
    
     const amazonUrl = bookData.buy_links.find(
       book => book.name === 'Amazon'

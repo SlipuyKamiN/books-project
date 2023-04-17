@@ -1,20 +1,44 @@
+import Notiflix from 'notiflix';
 import { fetchBooks } from '../fetchBooks';
 import { handleModalWindow } from '../modal';
 import { drawCategory } from '../categories';
-// import { title } from '../categories';
 
 const mainTitleEl = document.querySelector('.main__title-js');
 const mainWraperEl = document.querySelector('.main__list-js');
+let currentRenderWidth = window.innerWidth;
+let amountRenderBooks = 0;
 let idBook = 0;
 let title = 0;
 
-export const showAllCategories = () => {
-  mainTitleEl.innerHTML =
-    ' Best Sellers <span class="main__title--color-purple">Books</span>';
-  feachAllCategories();
+const currentWindowWidth = () => {
+  if (currentRenderWidth < 768) {
+    amountRenderBooks = 1;
+  } else if (currentRenderWidth >= 768 && currentRenderWidth < 1440) {
+    amountRenderBooks = 3;
+  } else {
+    amountRenderBooks = 5;
+  }
 };
 
-showAllCategories();
+const validationQuery = query => {
+  if (query.length === 0) {
+    Notiflix.Notify.failure(
+      'Sorry, there was an error on the server. Please try again.'
+    );
+    return;
+  }
+
+  for (let i = 0; i < query.length; i += 1) {
+    const element = query[i];
+    if (element.books.length === 0) {
+      const fff = document.querySelector('.category-books__title');
+      console.log(fff);
+      Notiflix.Notify.info(
+        `Sorry, but no books found by category ${element.list_name}.`
+      );
+    }
+  }
+};
 
 const makeMarkupAllCategories = categories => {
   return categories
@@ -35,32 +59,32 @@ const makeMarkupAllCategories = categories => {
 };
 
 export const makeMarkupGategory = category => {
-  return category
+  return trimArrayBooks(category)
     .map(book => {
       return `
-        <li class='category-books__item'>
-         <a href="/" class='category-books__link'>
-          <img
-            class='category-books__img'
-            src='${book.book_image}'
-            alt='book'
-            data-id="${book._id}"
-           loading="lazy"
-          />
-          <div class='category-books__wrapper'>
-          <p class='category-books__text'>quick view</p>
-          </div>
-          </a>
-          <h3 class='category-books__name' >${checkLengthBookTitle(
-            book.title,
-            18
-          )}</h3>
-          <p class='category-books__author'>${checkLengthBookTitle(
-            book.author,
-            29
-          )}</p>
-        </li>
-      `;
+      <li class='category-books__item'>
+       <a href="/" class='category-books__link'>
+        <img
+          class='category-books__img'
+          src='${book.book_image}'
+          alt='book'
+          data-id="${book._id}"
+         loading="lazy"
+        />
+        <div class='category-books__wrapper'>
+        <p class='category-books__text'>quick view</p>
+        </div>
+        </a>
+        <h3 class='category-books__name' >${checkLengthBookTitle(
+          book.title,
+          18
+        )}</h3>
+        <p class='category-books__author'>${checkLengthBookTitle(
+          book.author,
+          29
+        )}</p>
+      </li>
+    `;
     })
     .join('');
 };
@@ -68,18 +92,11 @@ export const makeMarkupGategory = category => {
 async function feachAllCategories() {
   try {
     const categories = await fetchBooks.getBestSellers();
+    validationQuery(categories);
     mainWraperEl.innerHTML = makeMarkupAllCategories(categories);
 
     const seeMoreBtnEl = document.querySelectorAll('.load-more-js');
     const bookCategoryEl = document.querySelectorAll('.category-books__item');
-
-    // seeMoreBtnEl.forEach(el => {
-    //   el.addEventListener('click', handleSeeMoreBtnClick);
-    // });
-
-    // bookCategoryEl.forEach(el => {
-    //   el.addEventListener('click', handleImgClick);
-    // });
 
     addEventListenerForBook(bookCategoryEl);
     addEventListenerForBtn(seeMoreBtnEl);
@@ -87,6 +104,12 @@ async function feachAllCategories() {
     console.log(error);
   }
 }
+
+export const showAllCategories = () => {
+  mainTitleEl.innerHTML =
+    ' Best Sellers <span class="main__title--color-purple">Books</span>';
+  feachAllCategories();
+};
 
 const handleImgClick = event => {
   event.preventDefault();
@@ -139,3 +162,17 @@ const setCurrentCategory = title => {
     }
   }
 };
+
+const trimArrayBooks = category => {
+  if (amountRenderBooks === 1) {
+    category.splice(1, 4);
+  } else if (amountRenderBooks === 3) {
+    category.splice(3, 2);
+  } else {
+    category;
+  }
+  return category;
+};
+
+currentWindowWidth();
+showAllCategories();
