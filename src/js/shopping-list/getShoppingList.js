@@ -3,7 +3,6 @@ const emptyList = document.querySelector('.empty-list');
 
 let dataBooks = localStorage.getItem('books-data');
 dataBooks = JSON.parse(dataBooks);
-console.log(dataBooks);
 
 const cardMarkup = createCardMarkup(dataBooks);
 
@@ -18,20 +17,21 @@ function createCardMarkup(dataBooks) {
     emptyList.classList.add('visually-hidden');
     shoppingList.classList.remove('visually-hidden');
 
-    // const data = 0;
-
-    const amazonUrl = dataBooks
-      .find(obj => obj.buy_links.some(link => link.name === 'Amazon'))
-      .buy_links.find(link => link.name === 'Amazon').url;
-    const appleBooksUrl = dataBooks
-      .find(obj => obj.buy_links.some(link => link.name === 'Apple Books'))
-      .buy_links.find(link => link.name === 'Apple Books').url;
-    const barnesAndNobleUrl = dataBooks
-      .find(obj => obj.buy_links.some(link => link.name === 'Barnes and Noble'))
-      .buy_links.find(link => link.name === 'Barnes and Noble').url;
-
     return dataBooks
       .map(book => {
+        const amazonUrl = book.buy_links.find(
+          link => link.name === 'Amazon'
+        ).url;
+        console.log(amazonUrl);
+        const appleBooksUrl = book.buy_links.find(
+          link => link.name === 'Apple Books'
+        ).url;
+        console.log(appleBooksUrl);
+        const barnesAndNobleUrl = book.buy_links.find(
+          link => link.name === 'Barnes and Noble'
+        ).url;
+        console.log(barnesAndNobleUrl);
+
         return `<li class="shopping__item shopping__item-mobile" data-id=${
           book._id
         }>

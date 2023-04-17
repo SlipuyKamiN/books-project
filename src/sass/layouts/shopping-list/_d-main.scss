@@ -31,10 +31,11 @@
   margin-bottom: 40px;
 }
 
-<<<<<<< Updated upstream
+
 .shopping-main__title--violet-color {
   color: $blue-color;
-=======
+}
+
 .shopping-main__title{
     font-weight: 700;
     font-size: 32px;
@@ -45,7 +46,6 @@
 
 .shopping-main__title--violet-color{
     color: $blue-color;
->>>>>>> Stashed changes
 }
 
 .shopping__item {
@@ -109,8 +109,8 @@
 
 .shopping__img {
   flex-shrink: 0;
-  width: 98px;
-  height: 139px;
+  max-width: 98px;
+  max-height: 139px;
 
   margin-right: 20px;
   margin-bottom: 4px;
@@ -135,7 +135,7 @@
   line-height: 1.12;
 
   @media screen and (max-width: 767px) {
-    width: 144px;
+    max-width: 144px;
   }
 
   margin-bottom: 4px;
@@ -159,10 +159,9 @@
   font-style: italic;
   font-size: 12px;
   line-height: 1.17;
-
-<<<<<<< Updated upstream
   color: $text-gray-color;
-=======
+}
+
 .shopping__author{
     font-style: italic;
     font-size: 12px;
@@ -174,7 +173,6 @@
             margin-top: 4px;
             max-width: 98px;
         }
->>>>>>> Stashed changes
 }
 
 .shops-list {
