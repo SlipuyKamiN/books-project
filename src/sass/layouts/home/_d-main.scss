@@ -120,22 +120,6 @@
   position: relative;
 }
 
-.category-books__item:not(:first-child) {
-  display: none;
-
-  @media screen and (min-width: 768px) {
-    display: block;
-  }
-}
-
-.category-books__item:nth-last-child(-n + 2) {
-  display: none;
-
-  @media screen and (min-width: 1440px) {
-    display: block;
-  }
-}
-
 .load-more-js {
   width: 124px;
   height: 46px;

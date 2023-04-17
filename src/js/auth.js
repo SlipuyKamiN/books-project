@@ -9,6 +9,7 @@ import {
 } from 'firebase/auth';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite'; //access to databes from app
 import Notiflix from 'notiflix';
+Notiflix.Notify.init({ position: 'center-top' });
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCJZfRrsHQkGY832RTQdNJAXqiStLwTuCM',
@@ -41,10 +42,15 @@ const monitorAuthState = async () => {
       userBtn.classList.remove('is-hidden');
       authUserMenu.classList.remove('is-hidden');
       logOutBtn.classList.add('is-hidden');
+      localStorage.setItem('user-data', JSON.stringify({
+        id: user.uid,
+        name: user.displayName,
+        mail: user.email}));  
     } else {
       authUserMenu.classList.add('is-hidden');
       userBtn.classList.add('is-hidden');
       signUpBtn.classList.remove('is-hidden');
+      localStorage.removeItem('user-data');    
     }
   });
 };
@@ -71,7 +77,9 @@ const CreateUser = async (name, email, password) => {
     userBtn.querySelector('span').nextSibling.textContent = user.displayName;
   } catch (error) {
     const errorCode = error.code;
-    Notiflix.Notify.failure(errorCode || 'Something went wrong');
+    Notiflix.Notify.failure(
+      mapAuthCodeToMessage(errorCode) || 'Something went wrong'
+    );
   }
 };
 
@@ -147,6 +155,12 @@ function mapAuthCodeToMessage(authCode) {
 
     case 'auth/user-not-found':
       return 'User not found. Please check the data';
+
+      case 'auth/email-already-in-use':
+        return 'The provided email is already in use.';
+
+        case 'auth/weak-password':
+          return 'Your password must be at least 8 characters long'
 
     default:
       return `Error code: ${authCode}. Please check the data`;
