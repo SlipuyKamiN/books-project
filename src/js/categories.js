@@ -47,6 +47,12 @@ let previ = '';
 let title = '';
 
 function markup(ev) {
+  if (ev.target.nodeName !== 'BUTTON') {
+    return;
+  }
+
+  clearSelectedCategories();
+
   if (ev.target === allCategoriesBtn) {
     showAllCategories();
     return;
@@ -60,3 +66,11 @@ function markup(ev) {
   ev.target.style.textTransform = 'uppercase';
   previ = ev.target;
 }
+
+const clearSelectedCategories = () => {
+  for (let i = 0; i < listEl.children.length; i += 1) {
+    const category = listEl.children[i];
+
+    category.firstElementChild.classList.remove('selected-categories');
+  }
+};
