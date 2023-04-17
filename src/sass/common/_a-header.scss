@@ -310,7 +310,11 @@ transition: opacity 150ms linear, visibility 150ms linear;
     // КНИГИ
 .modal__books-list {
   outline: 2px dashed rgb(0, 255, 140);
-// position: relative;
+position: absolute;
+top: 50%;
+left: 50%;
+
+transform: translateX(-50%);
         display: block;
         // display: flex;
         // align-items: center;
@@ -336,84 +340,97 @@ transition: opacity 150ms linear, visibility 150ms linear;
 .modal__books-item:nth-child(1) {
  width: 89.15px;
   height: 133.54px;
-  left: -65px;
-  top: 559px;
+  // left: -65px;
+  left: -5%;
+  top: 20%;
 }
 
 .modal__books-item:nth-child(2){
 width: 83.7px;
   height: 133.54px;
-  left: 53.88px;
-  top: 527.15px;
+  // left: 53.88px;
+  // top: 527.15px;
+  left: 15%;
+  top:17%;
 }
 .modal__books-item:nth-child(3) {
   width: 89.36px;
     height: 133.54px;
-    left: 168.98px;
-    top: 496.31px;
+    // left: 168.98px;
+      left: 35%;
+  top: 14%;
 }
 
 .modal__books-item:nth-child(4) {
   width: 87.69px;
     height: 133.54px;
-    left: 283.36px;
-    top: 465.66px;
+    // left: 283.36px;
+      left: 55%;
+  top: 11%;
 }
 
 .modal__books-item:nth-child(5) {
   width: 86.08px;
   height: 133.54px;
-  left: -23.91px;
-  top: 706.11px;}
+  // left: -23.91px;
+    left: 3%;
+  top: 51%;
+}
 
 .modal__books-item:nth-child(6) {
   width: 89.95px;
     height: 133.54px;
-    left: 91.07px;
-    top: 675.3px;
+    // left: 91.07px;
+      left: 23%;
+    top: 48%;
 }
 
 .modal__books-item:nth-child(7) {
   width: 87.77px;
     height: 133.54px;
-    left: 209.29px;
-    top: 643.62px;
+    // left: 209.29px;
+        left: 43%;
+    top: 45%;
 }
 
 .modal__books-item:nth-child(8) {
 position: absolute;
   width: 90.16px;
   height: 133.54px;
-  left: 322.11px;
-  top: 613.39px;
+  // left: 322.11px;
+      left: 63%;
+  top: 42%;
 }
 
 .modal__books-item:nth-child(9) {
 width: 89.95px;
   height: 133.54px;
-  left: 14.06px;
-  top: 854.05px;
+  // left: 14.06px;
+  left: 11%;
+  top: 82%;
 }
 
 .modal__books-item:nth-child(10) {
 width: 98.16px;
   height: 133.54px;
-  left: 125.91px;
-  top: 824.08px;
+  // left: 125.91px;
+  left: 31%;
+  top: 79%;
 }
 
 .modal__books-item:nth-child(11) {
 width: 94.18px;
   height: 133.54px;
-  left: 245.7px;
-  top: 791.98px;
+  // left: 245.7px;
+left: 51%;
+  top: 76%;
 }
 
 .modal__books-item:nth-child(12) {
   width: 84.03px;
   height: 133.54px;
-  left: 363.98px;
-  top: 760.29px;
+left: 71%;
+  top: 73%;
 }
 
 
