@@ -41,22 +41,71 @@
 
 
 
+// const modeSwitch = document.querySelector('.mode-switch');
+// const body = document.querySelector('body');
+
+
+// const savedMode = localStorage.getItem('selectedMode');
+// if (savedMode) {
+//   body.classList = savedMode;
+//   modeSwitch.checked = savedMode === 'dark' ? true : false;
+// } else {
+//   body.classList = 'light';
+// }
+
+// modeSwitch.addEventListener('change', function() {
+//   const selectedMode = this.checked ? 'dark' : 'light';
+//   body.classList = selectedMode;
+
+  
+//   localStorage.setItem('selectedMode', selectedMode);
+// });
+// import openDayNightIcon from '../images/icons.svg';
+
+// function useLogoIcon() {
+//   if (modalBoxEl.classList.contains('is-hidden')) {
+//     modalBoxEl.classList.remove('is-hidden');
+//     iconHrefEl.setAttribute('href', `${useDayIcon}#icon-logo`);
+//     return;
+//   } else {
+//     modalBoxEl.classList.add('is-hidden');
+//     iconHrefEl.setAttribute('href', `${useDarkIcon}#icon-full-logo--dark-theme`);
+//   }
+// }
+
+// const modeSwitch = document.querySelector('.mode-switch');
+// const body = document.querySelector('body');
+
+// const savedMode = localStorage.getItem('selectedMode');
+// if (savedMode) {
+//   body.classList = savedMode;
+//   modeSwitch.checked = savedMode === 'dark' ? true : false;
+// } else {
+//   body.classList = 'light';
+// }
+
 const modeSwitch = document.querySelector('.mode-switch');
 const body = document.querySelector('body');
-
+const logoIcon = document.querySelector('.header__logo-icon use');
 
 const savedMode = localStorage.getItem('selectedMode');
 if (savedMode) {
-  body.classList = savedMode;
-  modeSwitch.checked = savedMode === 'dark' ? true : false;
+body.classList = savedMode;
+modeSwitch.checked = savedMode === 'dark' ? true : false;
 } else {
-  body.classList = 'light';
+body.classList = 'light';
 }
 
 modeSwitch.addEventListener('change', function() {
-  const selectedMode = this.checked ? 'dark' : 'light';
-  body.classList = selectedMode;
+const selectedMode = this.checked ? 'dark' : 'light';
+body.classList = selectedMode;
 
-  
-  localStorage.setItem('selectedMode', selectedMode);
+// change the logo icon based on the selected mode
+if (selectedMode === 'dark') {
+logoIcon.setAttribute('href', './images/icons.svg#icon-full-logo--dark-theme');
+} else {
+logoIcon.setAttribute('href', './images/icons.svg#icon-full-logo');
+}
+
+localStorage.setItem('selectedMode', selectedMode);
 });

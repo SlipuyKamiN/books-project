@@ -190,3 +190,9 @@ body.dark,
 }
 
 
+.dark .modal__item.amazon,
+.dark .shops-list__link.amazon {
+
+  filter: grayscale(100%) invert(50%) brightness(150%); 
+  }
+ 
