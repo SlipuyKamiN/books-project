@@ -57,19 +57,19 @@ function markup(ev) {
 
   if (ev.target === allCategoriesBtn) {
     allCategoriesBtn.classList.add('selected-categories');
-    previ.classList.remove('selected-categories');
+    // previ.classList.remove('selected-categories');
     showAllCategories();
     return;
   }
   title = ev.target.textContent;
   drawCategory(title);
 
-  if (previ !== '') {
-    previ.classList.remove('selected-categories');
-  }
+  // if (previ !== '') {
+  //   previ.classList.remove('selected-categories');
+  // }
   ev.target.classList.add('selected-categories');
-  previ = ev.target;
-  console.log(ev.target.nodeName);
+  // previ = ev.target;
+  // console.log(ev.target.nodeName);
 }
 
 const clearSelectedCategories = () => {
