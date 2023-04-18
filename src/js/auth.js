@@ -31,6 +31,10 @@ const authUserMenu = document.querySelector('.menu');
 const signUpBtn = document.querySelector('.auth__modal-open-js');
 const userBtn = document.querySelector('.authorised-btns__wrapper');
 const logOutBtn = document.querySelector('.log-out-btn-js');
+const dropAuthUserMenu = document.querySelector('.drop-menu');
+const dropSignUpBtn = document.querySelector('.brop-auth__modal-open-js');
+const dropUserBtn = document.querySelector('.user-btn-js');
+const dropLogOutBtn = document.querySelector('.log-out-btn-js');
 
 //Status check (user is signed in or not)
 
@@ -42,6 +46,12 @@ const monitorAuthState = async () => {
       userBtn.classList.remove('is-hidden');
       authUserMenu.classList.remove('is-hidden');
       logOutBtn.classList.add('is-hidden');
+
+      dropUserBtn.querySelector('span').nextSibling.textContent = user.displayName;
+      dropSignUpBtn.classList.add('is-hidden');
+      dropUserBtn.classList.remove('is-hidden');
+      dropAuthUserMenu.classList.remove('is-hidden');
+      // dropLogOutBtn.classList.add('is-hidden');//del
       localStorage.setItem('user-data', JSON.stringify({
         id: user.uid,
         name: user.displayName,
@@ -50,6 +60,10 @@ const monitorAuthState = async () => {
       authUserMenu.classList.add('is-hidden');
       userBtn.classList.add('is-hidden');
       signUpBtn.classList.remove('is-hidden');
+
+      dropSignUpBtn.classList.remove('is-hidden');
+      dropAuthUserMenu.classList.add('is-hidden');
+      dropUserBtn.classList.add('is-hidden');
       localStorage.removeItem('user-data');    
     }
   });
