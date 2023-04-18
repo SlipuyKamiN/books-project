@@ -6,6 +6,7 @@ import { makeMarkupGategory, showAllCategories } from './home/allCategories';
 import { addEventListenerForBook } from './home/allCategories';
 import { addEventListenerForBook } from './home/allCategories';
 import { showAllCategories } from './home/allCategories';
+import { Spiner } from './spiner-loader';
 
 const listEl = document.querySelector('.categories-list-js');
 const mainListEl = document.querySelector('.main__list-js');
@@ -13,6 +14,8 @@ const mainTitle = document.querySelector('.main__title-js');
 const allCategoriesBtn = document.querySelector('.all-categories-btn');
 
 allCategoriesBtn.classList.add('selected-categories');
+
+const spiner = new Spiner();
 
 const createCategoryList = async () => {
   const categoriesList = await fetchBooks.getCategoriesList();
@@ -41,6 +44,8 @@ export const drawCategory = async name => {
   const bookCategoryEl = document.querySelectorAll('.category-books__item');
   addEventListenerForBook(bookCategoryEl);
   allCategoriesBtn.classList.remove('selected-categories');
+
+  spiner.hide();
 };
 
 listEl.addEventListener('click', markup);
@@ -52,6 +57,8 @@ function markup(ev) {
   if (ev.target.nodeName !== 'BUTTON') {
     return;
   }
+
+  spiner.show();
 
   clearSelectedCategories();
 

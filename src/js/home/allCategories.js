@@ -2,6 +2,7 @@ import Notiflix from 'notiflix';
 import { fetchBooks } from '../fetchBooks';
 import { handleModalWindow } from '../modal';
 import { drawCategory } from '../categories';
+import { Spiner } from '../spiner-loader';
 
 const mainTitleEl = document.querySelector('.main__title-js');
 const mainWraperEl = document.querySelector('.main__list-js');
@@ -9,6 +10,8 @@ let currentRenderWidth = window.innerWidth;
 let amountRenderBooks = 0;
 let idBook = 0;
 let title = 0;
+
+const spiner = new Spiner();
 
 const currentWindowWidth = () => {
   if (currentRenderWidth < 768) {
@@ -89,6 +92,8 @@ export const makeMarkupGategory = category => {
     .join('');
 };
 
+spiner.show();
+
 async function feachAllCategories() {
   try {
     const categories = await fetchBooks.getBestSellers();
@@ -100,6 +105,8 @@ async function feachAllCategories() {
 
     addEventListenerForBook(bookCategoryEl);
     addEventListenerForBtn(seeMoreBtnEl);
+
+    spiner.hide();
   } catch (error) {
     console.log(error);
   }
@@ -122,6 +129,7 @@ const handleImgClick = event => {
 };
 
 const handleSeeMoreBtnClick = event => {
+  spiner.show();
   title = event.target.dataset.category;
 
   setCurrentCategory(title);

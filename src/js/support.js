@@ -30,10 +30,6 @@ const swiper = new Swiper('.swiper', {
   navigation: {
     nextEl: '.swiper-button-next',
   },
-
-  plugins: {
-    scrollContainer: true,
-  },
 });
 
 swiper.update();
