@@ -4,8 +4,7 @@
   }
 
   .shopping-mobale {
-    display: flex;
-    margin-bottom: 20px;
+    display: block;
   }
 }
 
@@ -18,8 +17,8 @@
     display: none;
   }
 
-  .shopping-tablet {
-    display: flex;
+  .flex-box-tablet{
+display: flex;
   }
 }
 
@@ -31,8 +30,21 @@
   margin-bottom: 40px;
 }
 
+
 .shopping-main__title--violet-color {
   color: $blue-color;
+}
+
+.shopping-main__title{
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.19;
+
+    margin-bottom: 40px;
+}
+
+.shopping-main__title--violet-color{
+    color: $blue-color;
 }
 
 .shopping__item {
@@ -90,21 +102,25 @@
   pointer-events: none;
 }
 
+.flex-box-mobale{
+  display: flex;
+}
+
 .shopping__box {
   margin: 0;
 }
 
 .shopping__img {
   flex-shrink: 0;
-  width: 98px;
-  height: 139px;
+  max-width: 98px;
+  max-height: 139px;
 
   margin-right: 20px;
   margin-bottom: 4px;
 
   @media screen and (min-width: 768px) {
-    width: 116px;
-    height: 165px;
+    width: none;
+    height: none;
     margin-right: 24px;
     margin-bottom: 0;
   }
@@ -122,7 +138,7 @@
   line-height: 1.12;
 
   @media screen and (max-width: 767px) {
-    width: 144px;
+    max-width: 144px;
   }
 
   margin-bottom: 4px;
@@ -142,28 +158,34 @@
   }
 }
 
-.shopping__author {
-  font-style: italic;
-  font-size: 12px;
-  line-height: 1.17;
+.shopping__author{
+    font-style: italic;
+    font-size: 12px;
+    line-height: 1.17;
 
-  color: $text-gray-color;
+    color: $text-gray-color;
+
+    @media screen and (max-width: 767px) {
+            max-width: 98px;
+        }
 }
 
 .shops-list {
   display: flex;
   align-items: center;
   gap: 14px;
+  margin-left: auto;
 }
 
-.shops-list__link:hover,
-.shops-list__link:focus {
+.shops-list__img:hover,
+.shops-list__img:focus {
   filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
   mix-blend-mode: luminosity;
 }
 
 .shops-list__img {
   mix-blend-mode: luminosity;
+  transition: filter $cubic-time;
 }
 
 .shopping__text {
@@ -188,7 +210,6 @@
 .shopping-box-tablet {
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
   margin-top: auto;
 }
 
