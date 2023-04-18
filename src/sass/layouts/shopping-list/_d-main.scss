@@ -17,8 +17,8 @@
     display: none;
   }
 
-  .flex-box-tablet{
-display: flex;
+  .flex-box-tablet {
+    display: flex;
   }
 }
 
@@ -28,23 +28,15 @@ display: flex;
   line-height: 1.19;
 
   margin-bottom: 40px;
-}
 
+  @media screen and (min-width: 768px) {
+    font-size: 48px;
+    line-height: 1.08;
+  }
+}
 
 .shopping-main__title--violet-color {
   color: $blue-color;
-}
-
-.shopping-main__title{
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 1.19;
-
-    margin-bottom: 40px;
-}
-
-.shopping-main__title--violet-color{
-    color: $blue-color;
 }
 
 .shopping__item {
@@ -102,7 +94,7 @@ display: flex;
   pointer-events: none;
 }
 
-.flex-box-mobale{
+.flex-box-mobale {
   display: flex;
 }
 
@@ -158,16 +150,16 @@ display: flex;
   }
 }
 
-.shopping__author{
-    font-style: italic;
-    font-size: 12px;
-    line-height: 1.17;
+.shopping__author {
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.17;
 
-    color: $text-gray-color;
+  color: $text-gray-color;
 
-    @media screen and (max-width: 767px) {
-            max-width: 98px;
-        }
+  @media screen and (max-width: 767px) {
+    max-width: 98px;
+  }
 }
 
 .shops-list {
@@ -191,7 +183,6 @@ display: flex;
 .shopping__text {
   font-size: 14px;
   line-height: 1.28;
-  
 }
 
 .visually-hidden {
