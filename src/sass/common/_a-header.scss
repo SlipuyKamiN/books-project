@@ -1,8 +1,4 @@
-.header {
-  width: 100%;
-}
-
-.header-container {
+.header-wrapper {
   display: flex;
   position: relative;
 
@@ -11,19 +7,6 @@
   background-color: $white-color;
   transition: background-color $cubic-time, color $cubic-time,
     border-color $cubic-time;
-
-  padding-left: 20px;
-  padding-right: 20px;
-
-  @media screen and (min-width: 768px) {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
 }
 
 .mob-header {
@@ -254,6 +237,10 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
 
 .log-out-btn.is-hidden {
@@ -279,7 +266,7 @@
   left: -1px;
 
   width: 376px;
-  height: calc(100vh - 65px);
+  height: 100vh;
 
   overflow: hidden;
 
@@ -408,7 +395,7 @@
   position: absolute;
 
   left: 20px;
-  bottom: 10%;
+  bottom: 15%;
 
   z-index: 10000;
   display: flex;
