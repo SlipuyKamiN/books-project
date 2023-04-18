@@ -3,6 +3,7 @@ import { fetchBooks } from '../fetchBooks';
 import { handleModalWindow } from '../modal';
 import { drawCategory } from '../categories';
 import { Spiner } from '../spiner-loader';
+import debounce from 'lodash.debounce';
 
 const mainTitleEl = document.querySelector('.main__title-js');
 const mainWraperEl = document.querySelector('.main__list-js');
@@ -12,6 +13,21 @@ let idBook = 0;
 let title = 0;
 
 const spiner = new Spiner();
+
+window.addEventListener('resize', debounce(handleWindowResize, 50));
+
+function handleWindowResize(event) {
+  const width = event.target.outerWidth;
+  console.log(currentRenderWidth);
+  if (
+    (width > 767 && currentRenderWidth < 768) ||
+    (width > 1439 && currentRenderWidth < 1440) ||
+    (width < 1440 && currentRenderWidth > 1439) ||
+    (width < 768 && currentRenderWidth > 767)
+  ) {
+    location.reload();
+  }
+}
 
 const currentWindowWidth = () => {
   if (currentRenderWidth < 768) {
