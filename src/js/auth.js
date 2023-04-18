@@ -32,9 +32,9 @@ const signUpBtn = document.querySelector('.auth__modal-open-js');
 const userBtn = document.querySelector('.authorised-btns__wrapper');
 const logOutBtn = document.querySelector('.log-out-btn-js');
 const dropAuthUserMenu = document.querySelector('.drop-menu');
-const dropSignUpBtn = document.querySelector('.brop-auth__modal-open-js');
-const dropUserBtn = document.querySelector('.user-btn-js');
-const dropLogOutBtn = document.querySelector('.log-out-btn-js');
+const dropSignUpBtn = document.querySelector('.drop-auth__modal-open-js');
+const dropUserBtn = document.querySelector('.drop-btn-user');
+const dropLogOutBtn = document.querySelector('.drop-log-out-btn');
 
 //Status check (user is signed in or not)
 
@@ -51,7 +51,7 @@ const monitorAuthState = async () => {
       dropSignUpBtn.classList.add('is-hidden');
       dropUserBtn.classList.remove('is-hidden');
       dropAuthUserMenu.classList.remove('is-hidden');
-      // dropLogOutBtn.classList.add('is-hidden');//del
+      dropLogOutBtn.classList.remove('is-hidden');
       localStorage.setItem('user-data', JSON.stringify({
         id: user.uid,
         name: user.displayName,
@@ -132,6 +132,7 @@ const handleSignOut = async () => {
 };
 
 logOutBtn.addEventListener('click', handleSignOut);
+dropLogOutBtn.addEventListener('click', handleSignOut);
 
 //On form submit
 
