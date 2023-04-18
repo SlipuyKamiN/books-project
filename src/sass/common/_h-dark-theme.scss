@@ -5,6 +5,7 @@
   z-index: 3;
   right: 232px;
   top: 24px;
+  border-radius: 34px;
 }
 
 @media screen and (max-width: 768px) {
@@ -20,12 +21,47 @@
   }
 }
 
+.theme__switch-wrapper  {
+
+  animation: pulseSwitch 3s ease-in-out infinite;
+}
+
+@keyframes pulseSwitch {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.dark .theme__switch-wrapper  {
+  animation: pulseSwitch 3s ease-in-out infinite;
+}
+
+@keyframes pulseSwitch {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
 .theme__switch {
   position: relative;
   display: inline-block;
   width: 40px;
   height: 20px;
-  // margin: 0 10px;
+ 
 }
 
 .theme__switch input {
@@ -195,3 +231,5 @@ body.dark,
 .dark .shops-list__link.amazon {
   filter: grayscale(100%) invert(50%) brightness(150%);
 }
+
+
