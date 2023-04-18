@@ -4,8 +4,7 @@
   }
 
   .shopping-mobale {
-    display: flex;
-    // margin-bottom: 20px;
+    display: block;
   }
 }
 
@@ -18,8 +17,12 @@
     display: none;
   }
 
+  .flex-box-tablet{
+display: flex;
+  }
+  
   .shopping-tablet {
-    display: flex;
+    
   }
 }
 
@@ -103,6 +106,10 @@
   pointer-events: none;
 }
 
+.flex-box-mobale{
+  display: flex;
+}
+
 .shopping__box {
   margin: 0;
 }
@@ -166,10 +173,6 @@
             max-width: 98px;
         }
 }
-
-// .shopping-mobale-margin{
-//   margin-bottom: 20px;
-// }
 
 .shops-list {
   display: flex;

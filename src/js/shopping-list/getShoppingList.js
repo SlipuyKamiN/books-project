@@ -39,7 +39,7 @@ function createCardMarkup(dataBooks) {
         ).url;
 
         const descriptionlength = book.description.length > 0;
-        const style = descriptionlength ? 'margin-top: 20px' : '';
+        const style = descriptionlength ? 'margin-bottom: 20px' : '';
 
         return `<li class="shopping__item shopping__item-mobile" data-id=${
           book._id
@@ -49,8 +49,8 @@ function createCardMarkup(dataBooks) {
     <path d="M6 2H10M2 4H14M12.6667 4L12.1991 11.0129C12.129 12.065 12.0939 12.5911 11.8667 12.99C11.6666 13.3412 11.3648 13.6235 11.0011 13.7998C10.588 14 10.0607 14 9.00623 14H6.99377C5.93927 14 5.41202 14 4.99889 13.7998C4.63517 13.6235 4.33339 13.3412 4.13332 12.99C3.90607 12.5911 3.871 12.065 3.80086 11.0129L3.33333 4M6.66667 7V10.3333M9.33333 7V10.3333" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
             </button>
-      <div class='shopping-mobale'
-            <div class="flex-box-mobale">
+      <div class='shopping-mobale' >
+            <div class="flex-box-mobale" style='${style}'>
                 <figure class="shopping__box">
                   <picture>
                     <img
@@ -115,13 +115,13 @@ function createCardMarkup(dataBooks) {
                   </div>
                   </div>
                 </div>
-                <p  class='shopping__text shopping__text-mobale' style='${style}'>${
-          book.description
-        }</p>
+                <p  class='shopping__text shopping__text-mobale' >${
+                  book.description
+                }</p>
             </div>
       </div>
 
-      <div class='shopping-tablet'
+      <div class='shopping-tablet'>
         <div class='flex-box-tablet'>
                     <img
                       src="${book.book_image}"
