@@ -5,6 +5,7 @@ body {
 
   color: #111111;
   background-color: $primary-background-color;
+  transition: background-color $cubic-time;
 
   &.modal-open {
     overflow: hidden;

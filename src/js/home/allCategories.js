@@ -30,17 +30,6 @@ const validationQuery = query => {
     );
     return;
   }
-
-  for (let i = 0; i < query.length; i += 1) {
-    const element = query[i];
-    if (element.books.length === 0) {
-      const fff = document.querySelector('.category-books__title');
-      console.log(fff);
-      Notiflix.Notify.info(
-        `Sorry, but no books found by category ${element.list_name}.`
-      );
-    }
-  }
 };
 
 const makeMarkupAllCategories = categories => {
@@ -48,7 +37,7 @@ const makeMarkupAllCategories = categories => {
     .map(category => {
       return `
            <li class='all-categories__item'>
-           <h4 class='category-books__title'>${category.list_name}</h4>
+           <p class='category-books__title'>${category.list_name}</p>
             <ul class='category-books__list-js card-set'>
            ${makeMarkupGategory(category.books)}
            </ul>
@@ -80,7 +69,7 @@ export const makeMarkupGategory = category => {
         </a>
         <h3 class='category-books__name' >${checkLengthBookTitle(
           book.title,
-          18
+          17
         )}</h3>
         <p class='category-books__author'>${checkLengthBookTitle(
           book.author,

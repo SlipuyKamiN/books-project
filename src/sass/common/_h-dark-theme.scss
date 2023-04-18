@@ -5,6 +5,7 @@
   z-index: 3;
   right: 232px;
   top: 24px;
+  border-radius: 34px;
 }
 
 @media screen and (max-width: 768px) {
@@ -20,12 +21,43 @@
   }
 }
 
+.theme__switch-wrapper {
+  animation: pulseSwitch 3s ease-in-out infinite;
+}
+
+@keyframes pulseSwitch {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.dark .theme__switch-wrapper {
+  animation: pulseSwitch 3s ease-in-out infinite;
+}
+
+@keyframes pulseSwitch {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .theme__switch {
   position: relative;
   display: inline-block;
   width: 40px;
   height: 20px;
-  // margin: 0 10px;
 }
 
 .theme__switch input {
@@ -95,7 +127,7 @@ input:checked + .slider:before {
 }
 
 ////header///
-.dark .header-container,
+.dark .header-wrapper,
 .dark .shopping__item {
   background-color: $dark-color;
 
@@ -118,6 +150,7 @@ body.dark,
 /////category section///
 .dark .category-books__title + .category-books__author {
   color: $text-gray-color;
+  transition: color $cubic-time;
 }
 
 .dark .category-books__name,
@@ -137,6 +170,7 @@ body.dark,
 .dark .form__input-password,
 .dark .modal__remobe-btn-message {
   color: $white-color;
+  transition: color $cubic-time;
 }
 
 .dark .load-more-js,
@@ -171,6 +205,8 @@ body.dark,
   background-color: $dark-gray-color;
   border: 2px solid $white-color;
   color: $white-color;
+  transition: color $cubic-time, backgroung-color $cubic-time,
+    border-color $cubic-time;
 }
 
 .dark .form__field input,
