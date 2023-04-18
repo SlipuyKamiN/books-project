@@ -9,14 +9,38 @@ try {
   console.log(error);
 }
 
-if (Array.isArray(dataBooks)) {
-  const cardMarkup = createCardMarkup(dataBooks);
-  shoppingList.insertAdjacentHTML('beforeend', cardMarkup);
-  shoppingList.addEventListener('click', removeCardMarkup);
-} else {
-  shoppingList.classList.add('visually-hidden');
-  emptyList.classList.remove('visually-hidden');
-}
+const renderShoppingList = dataBooks => {
+  if (Array.isArray(dataBooks)) {
+    const cardMarkup = createCardMarkup(dataBooks);
+    shoppingList.insertAdjacentHTML('beforeend', cardMarkup);
+    shoppingList.addEventListener('click', removeCardMarkup);
+  } else {
+    shoppingList.classList.add('visually-hidden');
+    emptyList.classList.remove('visually-hidden');
+  }
+};
+
+// pagination
+const renderPage = selectedPage => {
+  // console.log(dataBooks);
+  selectedPage = Number(selectedPage);
+  let firstBookOnPage = null;
+
+  selectedPage === 1
+    ? (firstBookOnPage = selectedPage - 1)
+    : (firstBookOnPage = (selectedPage - 1) * 3);
+
+  const booksPerPage = dataBooks.slice(firstBookOnPage, firstBookOnPage + 3);
+  // console.dir(booksPerPage);
+  renderShoppingList(booksPerPage);
+};
+
+// const handleSelectPageBtn = event => {
+//   const selectedPage = event.target.textContent;
+// };
+
+renderPage('1');
+// pagination
 
 function createCardMarkup(dataBooks) {
   if (!dataBooks || dataBooks.length === 0) {
