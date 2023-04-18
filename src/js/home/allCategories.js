@@ -49,7 +49,7 @@ const makeMarkupAllCategories = categories => {
     .map(category => {
       return `
            <li class='all-categories__item'>
-           <h4 class='category-books__title'>${category.list_name}</h4>
+           <p class='category-books__title'>${category.list_name}</p>
             <ul class='category-books__list-js card-set'>
            ${makeMarkupGategory(category.books)}
            </ul>
