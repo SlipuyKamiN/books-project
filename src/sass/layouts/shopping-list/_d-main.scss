@@ -5,6 +5,7 @@
 
   .shopping-mobale {
     display: flex;
+    // margin-bottom: 20px;
   }
 }
 
@@ -162,10 +163,13 @@
     color: $text-gray-color;
 
     @media screen and (max-width: 767px) {
-            margin-top: 4px;
             max-width: 98px;
         }
 }
+
+// .shopping-mobale-margin{
+//   margin-bottom: 20px;
+// }
 
 .shops-list {
   display: flex;
@@ -188,9 +192,7 @@
 .shopping__text {
   font-size: 14px;
   line-height: 1.28;
-  @media screen and (max-width: 767px) {
-      margin-top: 20px;
-    }
+  
 }
 
 .visually-hidden {

@@ -38,6 +38,9 @@ function createCardMarkup(dataBooks) {
           link => link.name === 'Barnes and Noble'
         ).url;
 
+        const descriptionlength = book.description.length > 0;
+        const style = descriptionlength ? 'margin-top: 20px' : '';
+
         return `<li class="shopping__item shopping__item-mobile" data-id=${
           book._id
         }>
@@ -112,9 +115,9 @@ function createCardMarkup(dataBooks) {
                   </div>
                   </div>
                 </div>
-                <p class='shopping__text shopping__text-mobale'>${
-                  book.description
-                }</p>
+                <p  class='shopping__text shopping__text-mobale' style='${style}'>${
+          book.description
+        }</p>
             </div>
       </div>
 
