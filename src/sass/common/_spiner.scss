@@ -9,8 +9,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f2f1f196;
-  // filter: blur(4px);
+  background-color: rgba($color: $dark-gray-color, $alpha: 0.2);
+  backdrop-filter: blur(2px);
 
   transition: opacity $cubic-time, visibility $cubic-time;
 
