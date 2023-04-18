@@ -1,8 +1,8 @@
 <header class="header">
-  <div class="header-container container">
+  <div class="header-container container mob-header">
     <!-- ЛОГОТИП -->
     <a class="header__logo link" href="./index.html">
-      <svg class="header__logo-icon" width="68" height="28">
+      <svg class="header__logo-icon" width="86" height="28">
         <use href="./images/icons.svg#icon-full-logo"></use>
       </svg>
     </a>
@@ -35,6 +35,7 @@
         </svg>
       </button>
 
+      <!-- User --- Log out-->
       <div class="authorised-btns__wrapper is-hidden">
         <button class="btn-user user-btn-js" type="button">
           <span class="fone-icon-user">
@@ -54,17 +55,107 @@
           </svg>
         </button>
       </div>
+      <!--  -->
 
-      <!-- КНОПКА БУРГЕР МЕНЮ МЕНЮ  -->
+      <!-- КНОПКА БУРГЕР МЕНЮ /ЗАКРИТТЯ  -->
+
       <button
         class="menu-toggle js-open-menu"
         aria-expanded="false"
         aria-controls="mobile-menu"
       >
         <svg class="icon-burger" width="28" height="28">
-          <use href="./images/icons.svg#icon-burger"></use>
+          <use class="icon-href" href="./images/icons.svg#icon-burger"></use>
         </svg>
       </button>
+    </div>
+
+    <!-- МОДАЛЬНЕ  ВІКНО МЕНЮ  -->
+
+    <div class="modalll is-hidden data-modal">
+      <!-- кнопка   Sign up -->
+      <button
+        class="drop-auth__modal-open brop-auth__modal-open-js"
+        type="button"
+      >
+        Sign up
+        <svg class="" width="20px" height="20px">
+          <use href="./images/icons.svg#icon-arrow-narrow-right"></use>
+        </svg>
+      </button>
+
+      <!-- кнопка авторизованого User -->
+      <button class="drop-btn-user user-btn-js is-hidden" type="button">
+        <span class="fone-icon-user">
+          <svg class="icon-user" width="19px" height="19px">
+            <use href="./images/icons.svg#icon-user"></use>
+          </svg>
+        </span>
+        User
+        <svg class="icon-triangle-down" width="23px" height="26px">
+          <use href="./images/icons.svg#icon-triangle-down"></use>
+        </svg>
+      </button>
+
+      <!--   мобільне дроп меню   -->
+      <ul class="drop-menu is-hidden">
+        <li><a class="drop-menu__home link" href="./index.html">Home</a></li>
+        <li>
+          <a class="drop-menu__shopping link" href="./shopping-list.html"
+            >Shopping-list
+            <svg class="icon-cart" width="20" height="20">
+              <use href="./images/icons.svg#icon-cart"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+
+      <!-- кнопка   Log out-->
+      <button class="drop-log-out-btn log-out-btn-js is-hidden" type="button">
+        Log out
+        <svg class="" width="20px" height="20px">
+          <use href="./images/icons.svg#icon-arrow-narrow-right"></use>
+        </svg>
+      </button>
+
+      <ul class="modal__books-list">
+        <li class="modal__books-item">
+          <img src="./images/mobile-modal-menu/mob1@1x.png" alt="book" />
+        </li>
+        <li class="modal__books-item">
+          <img src="./images/mobile-modal-menu/mob2@1x.png" alt="book" />
+        </li>
+        <li class="modal__books-item">
+          <img src="./images/mobile-modal-menu/mob3@1x.png" alt="book" />
+        </li>
+        <li class="modal__books-item">
+          <img src="./images/mobile-modal-menu/mob4@1x.png" alt="book" />
+        </li>
+        <li class="modal__books-item">
+          <img src="./images/mobile-modal-menu/mob5@1x.png" alt="book" />
+        </li>
+        <li class="modal__books-item">
+          <img src="./images/mobile-modal-menu/mob6@1x.png" alt="book" />
+        </li>
+        <li class="modal__books-item">
+          <img src="./images/mobile-modal-menu/mob7@1x.png" alt="book" />
+        </li>
+        <li class="modal__books-item">
+          <img src="./images/mobile-modal-menu/mob8@1x.png" alt="book" />
+        </li>
+        <li class="modal__books-item">
+          <img src="./images/mobile-modal-menu/mob9@1x.png" alt="book" />
+        </li>
+        <li class="modal__books-item">
+          <img src="./images/mobile-modal-menu/mob10@1x.png" alt="book" />
+        </li>
+        <li class="modal__books-item">
+          <img src="./images/mobile-modal-menu/mob11@1x.png" alt="book" />
+        </li>
+        <li class="modal__books-item">
+          <img src="./images/mobile-modal-menu/mob12@1x.png" alt="book" />
+        </li>
+      </ul>
     </div>
   </div>
 </header>
