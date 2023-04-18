@@ -10,8 +10,10 @@ let amountRenderBooks = 0;
 let idBook = 0;
 let title = 0;
 
-window.addEventListener('resize', ev => {
-  const width = ev.target.outerWidth;
+window.addEventListener('resize', handleWindowResize);
+
+function handleWindowResize(event) {
+  const width = event.target.outerWidth;
   console.log(currentRenderWidth);
   if (
     (width > 767 && currentRenderWidth < 768) ||
@@ -21,7 +23,7 @@ window.addEventListener('resize', ev => {
   ) {
     location.reload();
   }
-});
+}
 
 const currentWindowWidth = () => {
   if (currentRenderWidth < 768) {
