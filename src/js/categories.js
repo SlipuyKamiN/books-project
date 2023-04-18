@@ -44,6 +44,8 @@ const validationQuery = query => {
 };
 
 export const drawCategory = async name => {
+  spiner.show();
+
   const books = await fetchBooks.getBooksByCategory(name);
   const markup = makeMarkupGategory(books);
   const titleArr = name.split(' ');
@@ -65,8 +67,6 @@ function markup(ev) {
   if (ev.target.nodeName !== 'BUTTON') {
     return;
   }
-
-  spiner.show();
 
   clearSelectedCategories();
 

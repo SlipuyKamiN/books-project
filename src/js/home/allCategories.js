@@ -81,10 +81,10 @@ export const makeMarkupGategory = category => {
     .join('');
 };
 
-spiner.show();
-
 async function feachAllCategories() {
   try {
+    spiner.show();
+
     const categories = await fetchBooks.getBestSellers();
     validationQuery(categories);
     mainWraperEl.innerHTML = makeMarkupAllCategories(categories);
@@ -98,6 +98,7 @@ async function feachAllCategories() {
     spiner.hide();
   } catch (error) {
     console.log(error);
+    spiner.hide();
   }
 }
 
@@ -118,7 +119,6 @@ const handleImgClick = event => {
 };
 
 const handleSeeMoreBtnClick = event => {
-  spiner.show();
   title = event.target.dataset.category;
 
   setCurrentCategory(title);

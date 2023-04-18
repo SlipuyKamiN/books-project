@@ -27,11 +27,11 @@ if (currentStorage) {
 } else {
   localStorage.setItem(BOOKS_DATA_KEY, JSON.stringify([]));
 }
-console.log(spiner.getEl());
-spiner.show();
 
 export async function handleModalWindow(bookId) {
   try {
+    spiner.show();
+
     const bookData = await fetchBooks.getBookById(bookId);
     const IsUserLogged = JSON.parse(localStorage.getItem(USER_DATA_KEY));
 
