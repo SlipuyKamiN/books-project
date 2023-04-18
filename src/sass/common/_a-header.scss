@@ -338,6 +338,8 @@
 
   margin-bottom: 126px;
 
+  pointer-events: none;
+
   &.is-hidden {
     opacity: 0;
     visibility: hidden;
