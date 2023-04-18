@@ -5,6 +5,7 @@ body {
 
   color: #111111;
   background-color: $primary-background-color;
+  transition: background-color 0.4s ease-in-out;
 
   &.modal-open {
     overflow: hidden;
