@@ -166,3 +166,138 @@ function mapAuthCodeToMessage(authCode) {
       return `Error code: ${authCode}. Please check the data`;
   }
 }
+
+// Database cteation
+import { getDatabase, ref, set, get, update, child } from 'firebase/database';
+
+// Initialize Realtime Database and get a reference to the service
+const database = getDatabase(app);
+const dbRef = ref(getDatabase());
+
+function writeInitialUserData(userId, email) {
+  set(ref(database, 'users/' + userId), {
+    email: email,
+    selectedMode: 'light',
+    shoppingList: [1],
+  });
+}
+
+// writeUserData({ selectedMode: 'pink' });
+
+export async function writeUserData(updates) {
+  try {
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        const userId = user.uid;
+        update(ref(database, `users/${userId}`), updates);
+      } else {
+        return;
+      }
+    });
+  } catch (error) {
+    const errorCode = error.code;
+    Notiflix.Notify.failure(`Update failed! Error code: ${errorCode}`);
+  }
+}
+
+export async function getUserData() {
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      const userId = user.uid;
+      // (async () => {
+      //   try {
+      //     const snapshot = await get(child(dbRef, `users/${userId}`));
+      //     const value = await snapshot.val().selectedMode;
+      //     console.log(value);
+      //     // return value;
+      //   } catch (error) {
+      //     Notiflix.Notify.failure(`Error getting user data from DB: ${error}`);
+      //   }
+      // })();
+      const value = getData(userId);
+      console.log(value)
+      return value;
+    } else {
+      return;
+    }
+  });
+}
+
+const data = await getUserData()
+
+const getData = async (userId) => {
+  try {
+    const snapshot = await get(child(dbRef, `users/${userId}`));
+    const value = await snapshot.val().selectedMode;
+    console.log(value);
+    return value;
+  } catch (error) {
+    Notiflix.Notify.failure(`Error getting user data from DB: ${error}`);
+  }
+}
+
+// console.log(getUserData())
+
+// const colorValue =  getUserData()
+// console.log("Во внешнем коде " + colorValue)
+
+
+// function outerFunction() {
+//   return new Promise(async (resolve, reject) => {
+//     try {
+//       const value = await getUserData();
+//       console.log(value);
+//       resolve(value);
+//     } catch (error) {
+//       console.error(error);
+//       reject(error);
+//     }
+//   });
+// }
+
+// const vari = outerFunction();
+// console.log(vari.then((value) => {return value}))
+
+
+
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+// const auth = getAuth(); // получаем экземпляр объекта аутентификации
+
+// let activeUserId; // объявление переменной для хранения id активного пользователя
+
+// (() => {onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     // пользователь авторизован
+//     activeUserId = user.uid; // записываем id в переменную
+//     console.log("ID активного пользователя: " + activeUserId);
+//   } else {
+//     // пользователь не авторизован
+//     activeUserId = null; // обнуляем id в переменной
+//     console.log("Нет активного пользователя");
+//   }
+// });})()
+
+// console.log(activeUserId)
+
+
+let uid;
+const user111 = auth.currentUser;
+if (user111 !== null) {
+  // The user object has basic properties such as display name, email, etc.
+  const displayName = user111.displayName;
+  const email = user111.email;
+  const photoURL = user111.photoURL;
+  const emailVerified = user111.emailVerified;
+
+  // The user's ID, unique to the Firebase project. Do NOT use
+  // this value to authenticate with your backend server, if
+  // you have one. Use User.getToken() instead.
+  uid = user111.uid;
+  console.log(uid)
+}
+
+console.log(uid)
+
+const result = getData(auth.currentUser.uid).then(value => {return value});
+console.log(result);
