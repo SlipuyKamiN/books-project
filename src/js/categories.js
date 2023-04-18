@@ -4,6 +4,7 @@ import { makeMarkupGategory, showAllCategories } from './home/allCategories';
 import { addEventListenerForBook } from './home/allCategories';
 import { addEventListenerForBook } from './home/allCategories';
 import { showAllCategories } from './home/allCategories';
+import { Spiner } from './spiner-loader';
 
 const listEl = document.querySelector('.categories-list-js');
 const mainListEl = document.querySelector('.main__list-js');
@@ -12,6 +13,8 @@ const allCategoriesBtn = document.querySelector('.all-categories-btn');
 let title = '';
 
 allCategoriesBtn.classList.add('selected-categories');
+
+const spiner = new Spiner();
 
 const createCategoryList = async () => {
   try {
@@ -41,22 +44,21 @@ const validationQuery = query => {
 };
 
 export const drawCategory = async name => {
-  try {
-    const books = await fetchBooks.getBooksByCategory(name);
-    validationQuery(books);
-    const markup = makeMarkupGategory(books);
-    const titleArr = name.split(' ');
-    const titleFirstPart = titleArr.slice(0, titleArr.length - 1).join(' ');
-    const titleLastPart = titleArr.slice(titleArr.length - 1).join();
-    mainTitle.innerHTML = `${titleFirstPart}<span class="main__title--color-purple"> ${titleLastPart}</span>`;
-    mainListEl.innerHTML = markup;
-    mainListEl.classList.add('card-set');
-    const bookCategoryEl = document.querySelectorAll('.category-books__item');
-    addEventListenerForBook(bookCategoryEl);
-    allCategoriesBtn.classList.remove('selected-categories');
-  } catch (error) {
-    console.log(error);
-  }
+  spiner.show();
+
+  const books = await fetchBooks.getBooksByCategory(name);
+  const markup = makeMarkupGategory(books);
+  const titleArr = name.split(' ');
+  const titleFirstPart = titleArr.slice(0, titleArr.length - 1).join(' ');
+  const titleLastPart = titleArr.slice(titleArr.length - 1).join();
+  mainTitle.innerHTML = `${titleFirstPart}<span class="main__title--color-purple"> ${titleLastPart}</span>`;
+  mainListEl.innerHTML = markup;
+  mainListEl.classList.add('card-set');
+  const bookCategoryEl = document.querySelectorAll('.category-books__item');
+  addEventListenerForBook(bookCategoryEl);
+  allCategoriesBtn.classList.remove('selected-categories');
+
+  spiner.hide();
 };
 
 listEl.addEventListener('click', markup);

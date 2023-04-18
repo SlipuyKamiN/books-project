@@ -1,5 +1,6 @@
 import { fetchBooks } from '../js/fetchBooks';
 import renderModal from '../templates/modal.hbs';
+import { Spiner } from './spiner-loader';
 
 const globalRefs = {
   backdrop: document.querySelector('.backdrop-js'),
@@ -10,6 +11,7 @@ const BOOKS_DATA_KEY = 'books-data';
 const USER_DATA_KEY = 'user-data';
 const bookArray = [];
 const currentStorage = JSON.parse(localStorage.getItem(BOOKS_DATA_KEY));
+const spiner = new Spiner();
 
 const imgSrcs = {
   amazonSrcX1: require('../images/modal/image-1@1x.png'),
@@ -27,11 +29,12 @@ if (currentStorage) {
 }
 
 export async function handleModalWindow(bookId) {
-
   try {
+    spiner.show();
+
     const bookData = await fetchBooks.getBookById(bookId);
-    const IsUserLogged = JSON.parse(localStorage.getItem(USER_DATA_KEY)); 
-   
+    const IsUserLogged = JSON.parse(localStorage.getItem(USER_DATA_KEY));
+
     const amazonUrl = bookData.buy_links.find(
       book => book.name === 'Amazon'
     ).url;
@@ -53,6 +56,8 @@ export async function handleModalWindow(bookId) {
       barnesAndNobleUrl,
       ...imgSrcs,
     });
+
+    spiner.hide();
 
     const refs = {
       addBtn: document.querySelector('.modal__add-btn-js'),
@@ -136,9 +141,8 @@ export async function handleModalWindow(bookId) {
     }
 
     function clearInterface() {
-      globalRefs.modal.innerHTML = "";
+      globalRefs.modal.innerHTML = '';
     }
-
   } catch (error) {
     console.log(error);
   }

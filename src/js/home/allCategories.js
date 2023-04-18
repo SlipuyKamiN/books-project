@@ -2,6 +2,7 @@ import Notiflix from 'notiflix';
 import { fetchBooks } from '../fetchBooks';
 import { handleModalWindow } from '../modal';
 import { drawCategory } from '../categories';
+import { Spiner } from '../spiner-loader';
 
 const mainTitleEl = document.querySelector('.main__title-js');
 const mainWraperEl = document.querySelector('.main__list-js');
@@ -10,20 +11,7 @@ let amountRenderBooks = 0;
 let idBook = 0;
 let title = 0;
 
-window.addEventListener('resize', handleWindowResize);
-
-function handleWindowResize(event) {
-  const width = event.target.outerWidth;
-  console.log(currentRenderWidth);
-  if (
-    (width > 767 && currentRenderWidth < 768) ||
-    (width > 1439 && currentRenderWidth < 1440) ||
-    (width < 1440 && currentRenderWidth > 1439) ||
-    (width < 768 && currentRenderWidth > 767)
-  ) {
-    location.reload();
-  }
-}
+const spiner = new Spiner();
 
 const currentWindowWidth = () => {
   if (currentRenderWidth < 768) {
@@ -95,6 +83,8 @@ export const makeMarkupGategory = category => {
 
 async function feachAllCategories() {
   try {
+    spiner.show();
+
     const categories = await fetchBooks.getBestSellers();
     validationQuery(categories);
     mainWraperEl.innerHTML = makeMarkupAllCategories(categories);
@@ -104,8 +94,11 @@ async function feachAllCategories() {
 
     addEventListenerForBook(bookCategoryEl);
     addEventListenerForBtn(seeMoreBtnEl);
+
+    spiner.hide();
   } catch (error) {
     console.log(error);
+    spiner.hide();
   }
 }
 
