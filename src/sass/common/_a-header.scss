@@ -9,6 +9,8 @@
   border: 1.5px solid $dark-color;
   border-radius: 0px 0px 8px 8px;
   background-color: $white-color;
+  transition: background-color $cubic-time, color $cubic-time,
+    border-color $cubic-time;
 
   padding-left: 20px;
   padding-right: 20px;
