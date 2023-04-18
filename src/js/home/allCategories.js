@@ -10,6 +10,21 @@ let amountRenderBooks = 0;
 let idBook = 0;
 let title = 0;
 
+window.addEventListener('resize', handleWindowResize);
+
+function handleWindowResize(event) {
+  const width = event.target.outerWidth;
+  console.log(currentRenderWidth);
+  if (
+    (width > 767 && currentRenderWidth < 768) ||
+    (width > 1439 && currentRenderWidth < 1440) ||
+    (width < 1440 && currentRenderWidth > 1439) ||
+    (width < 768 && currentRenderWidth > 767)
+  ) {
+    location.reload();
+  }
+}
+
 const currentWindowWidth = () => {
   if (currentRenderWidth < 768) {
     amountRenderBooks = 1;
@@ -26,17 +41,6 @@ const validationQuery = query => {
       'Sorry, there was an error on the server. Please try again.'
     );
     return;
-  }
-
-  for (let i = 0; i < query.length; i += 1) {
-    const element = query[i];
-    if (element.books.length === 0) {
-      const fff = document.querySelector('.category-books__title');
-      console.log(fff);
-      Notiflix.Notify.info(
-        `Sorry, but no books found by category ${element.list_name}.`
-      );
-    }
   }
 };
 
@@ -77,7 +81,7 @@ export const makeMarkupGategory = category => {
         </a>
         <h3 class='category-books__name' >${checkLengthBookTitle(
           book.title,
-          18
+          17
         )}</h3>
         <p class='category-books__author'>${checkLengthBookTitle(
           book.author,
