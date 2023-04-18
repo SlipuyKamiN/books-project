@@ -21,8 +21,7 @@
   }
 }
 
-.theme__switch-wrapper  {
-
+.theme__switch-wrapper {
   animation: pulseSwitch 3s ease-in-out infinite;
 }
 
@@ -38,7 +37,7 @@
   }
 }
 
-.dark .theme__switch-wrapper  {
+.dark .theme__switch-wrapper {
   animation: pulseSwitch 3s ease-in-out infinite;
 }
 
@@ -53,15 +52,12 @@
     transform: scale(1);
   }
 }
-
-
 
 .theme__switch {
   position: relative;
   display: inline-block;
   width: 40px;
   height: 20px;
- 
 }
 
 .theme__switch input {
@@ -154,6 +150,7 @@ body.dark,
 /////category section///
 .dark .category-books__title + .category-books__author {
   color: $text-gray-color;
+  transition: color $cubic-time;
 }
 
 .dark .category-books__name,
@@ -173,6 +170,7 @@ body.dark,
 .dark .form__input-password,
 .dark .modal__remobe-btn-message {
   color: $white-color;
+  transition: color $cubic-time;
 }
 
 .dark .load-more-js,
@@ -207,6 +205,8 @@ body.dark,
   background-color: $dark-gray-color;
   border: 2px solid $white-color;
   color: $white-color;
+  transition: color $cubic-time, backgroung-color $cubic-time,
+    border-color $cubic-time;
 }
 
 .dark .form__field input,
@@ -231,5 +231,3 @@ body.dark,
 .dark .shops-list__link.amazon {
   filter: grayscale(100%) invert(50%) brightness(150%);
 }
-
-
