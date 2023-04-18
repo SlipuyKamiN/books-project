@@ -1,5 +1,18 @@
 import openCloseIcon from '../images/icons.svg';
 
+// ВІДПРИТТЯ/ЗАКРИТТЯ КНОПОК АВТОРИЗАЦІЇ
+
+const userBtnEl = document.querySelector('.user-btn-js');
+const logOutBtnEl = document.querySelector('.log-out-btn-js');
+const logInBtnEl = document.querySelector('.drop-auth__modal-open-js');
+
+const handleUserBtnClick = () => {
+  logOutBtnEl.classList.toggle('is-hidden');
+};
+
+userBtnEl.addEventListener('click', handleUserBtnClick);
+logInBtnEl.addEventListener('click', toggleModal);
+
 // ВИДІЛЕННЯ ЖОВТИМ НАЗВУ ПОТОЧНОЇ СТОРІНКИ (меню в хедері)
 const menuHomeEl = document.querySelector('.menu__home');
 const menuShoppingEl = document.querySelector('.menu__shopping');

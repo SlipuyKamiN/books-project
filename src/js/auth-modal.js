@@ -2,6 +2,9 @@ import debounce from 'lodash.debounce';
 
 const refs = {
   openAuthorizationBtn: document.querySelector('button.auth__modal-open-js'),
+  openAuthorizationBtnDropMenu: document.querySelector(
+    'button.drop-auth__modal-open-js'
+  ),
   closeAuthorizationBtn: document.querySelector('button.auth__modal-close-js'),
   modalAuthorization: document.querySelector('div.auth__modal-js'),
   buttonSignUp: document.querySelector('.form__btn-sign-up'),
@@ -14,6 +17,7 @@ const refs = {
 };
 
 refs.openAuthorizationBtn.addEventListener('click', openModal);
+refs.openAuthorizationBtnDropMenu.addEventListener('click', openModal);
 refs.closeAuthorizationBtn.addEventListener('click', closeModal);
 
 function openModal() {
