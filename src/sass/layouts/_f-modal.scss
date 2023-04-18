@@ -7,6 +7,7 @@
     height: 100%;
     background-color: rgba($dark-color, $alpha: 0.4);
     overflow-y: scroll;
+    overflow: hidden;
 
     transition: opacity $cubic-time, visibility $cubic-time;
 
@@ -23,11 +24,10 @@
     margin-right: auto;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1);    
+    transform: translate(-50%, -50%) scale(1);  
 
     padding: 40px 22px;
     width: calc(100% - 20px * 2);
-    min-height: 609px;
 
     background: $white-color;
     border: 2px solid $dark-color;
@@ -40,6 +40,11 @@
         transform: translate(-50%, -50%) scale(0.4);
         visibility: 0;
     }
+
+        @media screen and (min-width: 375px) and (max-width: 767px) {
+            max-height: calc(100% - 20px * 2);
+            overflow-y: scroll;
+        }
   
     @media screen and (min-width: 375px) {
         width: 335px;
@@ -51,13 +56,9 @@
         padding-left: 40px;
         padding-right: 40px;        
     }   
-
-    @media screen and (min-width: 768px) and (max-width: 1439.8px) {
-        transform: translate(-50%, 0);
-    }
 }
 
-.modal__close-btn {
+.modal__close-btn { 
     position: absolute;
     top: 12px;
     right: 12px;
@@ -260,6 +261,7 @@
 
     @media screen and (min-width: 768px) {
         max-width: 324px;
+        padding: 0;
 
         font-size: 12px;
         line-height: calc(14 / 12);
