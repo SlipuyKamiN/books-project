@@ -1,8 +1,10 @@
 import { writeUserData } from '../auth';
+import { Spiner } from '../spiner-loader';
 
 const shoppingList = document.querySelector('.shopping-main__list-js');
 const emptyList = document.querySelector('.empty-list');
 
+const spinner = new Spiner();
 let dataBooks = localStorage.getItem('books-data');
 let selectedPage = 1;
 
@@ -21,6 +23,7 @@ const renderShoppingList = dataBooks => {
     shoppingList.classList.add('visually-hidden');
     emptyList.classList.remove('visually-hidden');
   }
+  spinner.hide();
 };
 // pagination
 
@@ -268,7 +271,7 @@ async function removeCardMarkup(event) {
   const bookToRemoveId = parentNode.dataset.id;
 
   dataBooks = dataBooks.filter(book => book._id !== bookToRemoveId);
-  await writeUserData(dataBooks);//Write user shopping list to DB
+  await writeUserData(dataBooks); //Write user shopping list to DB
   saveToLocalStorage();
   parentNode.remove();
   if (!dataBooks || dataBooks.length === 0) {
