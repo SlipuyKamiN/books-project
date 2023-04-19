@@ -20,8 +20,29 @@ const renderShoppingList = dataBooks => {
   }
 };
 
+import { all } from 'axios';
 // pagination
 import '../../sass/layouts/shopping-list/_i-pagination.scss';
+
+const renderCountButtons = () => {
+  const pagesCounterList = document.querySelector(
+    '.pagination__item-create-pages'
+  );
+  const pageQuantity = Math.ceil(dataBooks.length / 3);
+  const allButtons = [];
+  console.log(pageQuantity);
+
+  for (let i = 1; i <= pageQuantity; i += 1) {
+    allButtons.push(`<li>
+    <button type="button" class=" pagination__btn-current-page pagination__btn-current-page-js">${i}</button>
+    </li>`);
+  }
+
+  console.log(allButtons);
+
+  pagesCounterList.innerHTML = allButtons.join('');
+};
+
 const renderPage = selectedPage => {
   console.log(dataBooks);
   selectedPage = Number(selectedPage);
@@ -33,32 +54,41 @@ const renderPage = selectedPage => {
 
   const booksPerPage = dataBooks.slice(firstBookOnPage, firstBookOnPage + 3);
   renderShoppingList(booksPerPage);
-// pages
-  const renderingPagPages = document.querySelector('.pagination__item-create-pages');
+  // pages
+  const renderingPagPages = document.querySelector(
+    '.pagination__item-create-pages'
+  );
   renderingPagPages.addEventListener('click', selectedPage.textContent);
-  renderingPagPages.innerHTML = `
-  <button type="button" class=" pagination__btn-current-page pagination__btn-current-page-js">${selectedPage - 1}</button>
-  <button type="button" class="pagination__btn-current-page-target pagination__btn-current-page-js">${selectedPage}</button>
-  <button type="button" class="pagination__btn-current-page pagination__btn-current-page-js">${selectedPage + 1}</button>`;
+  renderCountButtons();
+  // renderingPagPages.innerHTML = `
+  // <button type="button" class=" pagination__btn-current-page pagination__btn-current-page-js">${
+  //   selectedPage - 1
+  // }</button>
+  // <button type="button" class="pagination__btn-current-page-target pagination__btn-current-page-js">${selectedPage}</button>
+  // <button type="button" class="pagination__btn-current-page pagination__btn-current-page-js">${
+  //   selectedPage + 1
+  // }</button>`;
 
-// const fixPage = document.querySelector('.is-hidden');
-//   if(selectedPage.textContent > 0){
-//     fixPage.classList.remove('is-hidden');
-//   }else{
-//     fixPage.classList.add('is-hidden');
-// }
-}
-renderPage(1)
+  // const fixPage = document.querySelector('.is-hidden');
+  //   if(selectedPage.textContent > 0){
+  //     fixPage.classList.remove('is-hidden');
+  //   }else{
+  //     fixPage.classList.add('is-hidden');
+  // }
+};
+renderPage(1);
+
 const handleSelectPageBtn = event => {
   const selectedPage = event.target.textContent;
-  if(event.target.nodeName !== "BUTTON"){
+  if (event.target.nodeName !== 'BUTTON') {
     return;
   }
-  shoppingList.innerHTML="";
+  shoppingList.innerHTML = '';
   renderPage(selectedPage);
-}
+};
 const pageBtn = document.querySelector('.pagination__item-js');
 pageBtn.addEventListener('click', handleSelectPageBtn);
+
 // pagination
 
 function createCardMarkup(dataBooks) {
