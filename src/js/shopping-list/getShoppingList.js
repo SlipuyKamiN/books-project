@@ -90,7 +90,7 @@ function createCardMarkup(dataBooks) {
                 </figure>
                 <div class="flex-box__text-mobale">
                   <h2 class="shopping__title">${book.title}</h2>
-                  <p class="shopping__titleText">Hardcover fiction</p>
+                  <p class="shopping__titleText">${book.list_name}</p>
                   <div class='shops-box shops-box-mobile'>
                     <ul class="shops-list">
                     <li>
@@ -156,7 +156,7 @@ function createCardMarkup(dataBooks) {
             <div class="flex-box__text-tablet">
                   <div class='flex-box__information'>
                     <h2 class="shopping__title">${book.title}</h2>
-                    <p class="shopping__titleText">Hardcover fiction</p>
+                    <p class="shopping__titleText">${book.list_name}</p>
                     <p class='shopping__text'>${book.description}</p>
                   </div>
                   <div class="shopping-box-tablet">
