@@ -232,7 +232,7 @@ export const getUserData = async () => {
   const userEmail = user.email;
   try {
     const snapshot = await get(child(dbRef, `users/${userId}`));
-    if (snapshot.val() !== null) {
+    if (snapshot.val() !== null && snapshot.val().shoppingList) {
       const value = await snapshot.val().shoppingList;
       console.log(value);
       return value;
