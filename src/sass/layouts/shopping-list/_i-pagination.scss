@@ -16,6 +16,7 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
+    
   }
   .pagination__item-create-pages {
     display: flex;
@@ -54,6 +55,7 @@
     height: 38px;
     border-radius: 50%;
     color: #000000;
+    font-size: 18px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1080px) {
@@ -108,6 +110,7 @@
     height: 44px;
     border-radius: 50%;
     color: #000000;
+    font-size: 18px;
   }
 }
 @media screen and (min-width: 1080px) {
@@ -183,4 +186,9 @@
 .pagination__btn-current-page.selected {
   background-color: $dark-color;
   color: $white-color;
+  font-size: 18px;
+}
+
+.pagination__btn-current-page{
+  font-size: 18px;
 }
