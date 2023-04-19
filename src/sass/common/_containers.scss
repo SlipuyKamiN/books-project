@@ -1,5 +1,4 @@
 .container {
-  outline: 1px solid blue;
   max-width: 375px;
 
   margin: 0 auto;
@@ -25,7 +24,6 @@
 }
 
 .side-bar {
-  outline: 1px solid tomato;
   width: 100%;
   padding-top: 40px;
 
@@ -44,20 +42,24 @@
   }
 }
 
-.shopping-list__page .side-bar {
-  display: none;
-
-  @media screen and (min-width: 1440px) {
-    display: block;
-  }
+.main {
+  width: 100%;
 }
 
-.main {
-  outline: 1px solid tomato;
+.home__page,
+.shopping-list__page {
   width: 100%;
   padding-top: 40px;
 
   @media screen and (min-width: 768px) {
     padding: 40px 0px;
+  }
+}
+
+.shopping-list__page--hide-side-bar .side-bar {
+  display: none;
+
+  @media screen and (min-width: 1440px) {
+    display: block;
   }
 }

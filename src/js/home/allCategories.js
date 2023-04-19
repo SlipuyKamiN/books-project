@@ -2,6 +2,8 @@ import Notiflix from 'notiflix';
 import { fetchBooks } from '../fetchBooks';
 import { handleModalWindow } from '../modal';
 import { drawCategory } from '../categories';
+import { Spiner } from '../spiner-loader';
+import debounce from 'lodash.debounce';
 
 const mainTitleEl = document.querySelector('.main__title-js');
 const mainWraperEl = document.querySelector('.main__list-js');
@@ -10,7 +12,9 @@ let amountRenderBooks = 0;
 let idBook = 0;
 let title = 0;
 
-window.addEventListener('resize', handleWindowResize);
+const spiner = new Spiner();
+
+window.addEventListener('resize', debounce(handleWindowResize, 50));
 
 function handleWindowResize(event) {
   const width = event.target.outerWidth;
@@ -49,7 +53,7 @@ const makeMarkupAllCategories = categories => {
     .map(category => {
       return `
            <li class='all-categories__item'>
-           <h4 class='category-books__title'>${category.list_name}</h4>
+           <p class='category-books__title'>${category.list_name}</p>
             <ul class='category-books__list-js card-set'>
            ${makeMarkupGategory(category.books)}
            </ul>
@@ -95,6 +99,8 @@ export const makeMarkupGategory = category => {
 
 async function feachAllCategories() {
   try {
+    spiner.show();
+
     const categories = await fetchBooks.getBestSellers();
     validationQuery(categories);
     mainWraperEl.innerHTML = makeMarkupAllCategories(categories);
@@ -104,8 +110,11 @@ async function feachAllCategories() {
 
     addEventListenerForBook(bookCategoryEl);
     addEventListenerForBtn(seeMoreBtnEl);
+
+    spiner.hide();
   } catch (error) {
     console.log(error);
+    spiner.hide();
   }
 }
 
