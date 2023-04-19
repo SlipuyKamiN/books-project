@@ -1,7 +1,10 @@
+import { writeUserData } from '../auth';
+
 const shoppingList = document.querySelector('.shopping-main__list-js');
 const emptyList = document.querySelector('.empty-list');
 
 let dataBooks = localStorage.getItem('books-data');
+let selectedPage = 1;
 
 try {
   dataBooks = JSON.parse(dataBooks);
@@ -19,8 +22,31 @@ const renderShoppingList = dataBooks => {
     emptyList.classList.remove('visually-hidden');
   }
 };
-
 // pagination
+
+const renderCountButtons = selectedPage => {
+  const pagesCounterList = document.querySelector(
+    '.pagination__item-create-pages'
+  );
+  pagesCounterList.addEventListener('click', createFocusSwitcher);
+  function createFocusSwitcher(e) {
+    if (e.target === allButtons) {
+      allButtons.classList.add('focus-color');
+    }
+  }
+  const pageQuantity = Math.ceil(dataBooks.length / 3);
+  const allButtons = [];
+  for (let i = 1; i <= pageQuantity; i += 1) {
+    allButtons.push(`<li>
+    <button type="button" class="pagination__btn-current-page pagination__btn-current-page-js ${
+      selectedPage === i ? 'selected' : ''
+    }">${i}</button>
+    </li>`);
+  }
+
+  pagesCounterList.innerHTML = allButtons.join('');
+};
+
 const renderPage = selectedPage => {
   // console.log(dataBooks);
   selectedPage = Number(selectedPage);
@@ -31,22 +57,40 @@ const renderPage = selectedPage => {
     : (firstBookOnPage = (selectedPage - 1) * 3);
 
   const booksPerPage = dataBooks.slice(firstBookOnPage, firstBookOnPage + 3);
-  // console.dir(booksPerPage);
   renderShoppingList(booksPerPage);
+  // pages
+  const renderingPagPages = document.querySelector(
+    '.pagination__item-create-pages'
+  );
+  renderingPagPages.addEventListener('click', selectedPage.textContent);
+  renderCountButtons(selectedPage);
 };
+renderPage(selectedPage);
 
-// const handleSelectPageBtn = event => {
-//   const selectedPage = event.target.textContent;
-// };
+const handleSelectPageBtn = event => {
+  const selectedPage = event.target.textContent;
+  const selectedBtn = event.target;
 
-renderPage('1');
+  if (event.target.nodeName !== 'BUTTON') {
+    return;
+  }
+  shoppingList.innerHTML = '';
+  renderPage(selectedPage, selectedBtn);
+};
+const pageBtn = document.querySelector('.pagination__item-js');
+pageBtn.addEventListener('click', handleSelectPageBtn);
+
 // pagination
 
 function createCardMarkup(dataBooks) {
   if (!dataBooks || dataBooks.length === 0) {
     shoppingList.classList.add('visually-hidden');
+    document.querySelector('.pagination__block-js').classList.add('is-hidden');
   }
   if (dataBooks.length > 0) {
+    document
+      .querySelector('.pagination__block-js')
+      .classList.remove('is-hidden');
     emptyList.classList.add('visually-hidden');
     shoppingList.classList.remove('visually-hidden');
 
@@ -90,7 +134,7 @@ function createCardMarkup(dataBooks) {
                 </figure>
                 <div class="flex-box__text-mobale">
                   <h2 class="shopping__title">${book.title}</h2>
-                  <p class="shopping__titleText">Hardcover fiction</p>
+                  <p class="shopping__titleText">${book.list_name}</p>
                   <div class='shops-box shops-box-mobile'>
                     <ul class="shops-list">
                     <li>
@@ -156,7 +200,7 @@ function createCardMarkup(dataBooks) {
             <div class="flex-box__text-tablet">
                   <div class='flex-box__information'>
                     <h2 class="shopping__title">${book.title}</h2>
-                    <p class="shopping__titleText">Hardcover fiction</p>
+                    <p class="shopping__titleText">${book.list_name}</p>
                     <p class='shopping__text'>${book.description}</p>
                   </div>
                   <div class="shopping-box-tablet">
@@ -215,7 +259,7 @@ function createCardMarkup(dataBooks) {
   }
 }
 
-function removeCardMarkup(event) {
+async function removeCardMarkup(event) {
   if (event.target.dataset.action !== 'delete') {
     return;
   }
@@ -224,15 +268,21 @@ function removeCardMarkup(event) {
   const bookToRemoveId = parentNode.dataset.id;
 
   dataBooks = dataBooks.filter(book => book._id !== bookToRemoveId);
-
+  await writeUserData(dataBooks);//Write user shopping list to DB
   saveToLocalStorage();
   parentNode.remove();
   if (!dataBooks || dataBooks.length === 0) {
     emptyList.classList.remove('visually-hidden');
+    document.querySelector('.pagination__block-js').classList.add('is-hidden');
   }
   if (dataBooks.length > 0) {
     emptyList.classList.add('visually-hidden');
+    document
+      .querySelector('.pagination__block-js')
+      .classList.remove('is-hidden');
   }
+  shoppingList.innerHTML = '';
+  renderPage(selectedPage);
 }
 
 function saveToLocalStorage() {
