@@ -2,6 +2,7 @@ const shoppingList = document.querySelector('.shopping-main__list-js');
 const emptyList = document.querySelector('.empty-list');
 
 let dataBooks = localStorage.getItem('books-data');
+let selectedPage = 1;
 
 try {
   dataBooks = JSON.parse(dataBooks);
@@ -19,8 +20,29 @@ const renderShoppingList = dataBooks => {
     emptyList.classList.remove('visually-hidden');
   }
 };
-
 // pagination
+
+const renderCountButtons = () => {
+  const pagesCounterList = document.querySelector(
+    '.pagination__item-create-pages'
+  );
+  pagesCounterList.addEventListener('click', createFocusSwitcher);
+  function createFocusSwitcher(e) {
+    if (e.target === allButtons) {
+      allButtons.classList.add('focus-color');
+    }
+  }
+  const pageQuantity = Math.ceil(dataBooks.length / 3);
+  const allButtons = [];
+  for (let i = 1; i <= pageQuantity; i += 1) {
+    allButtons.push(`<li>
+    <button type="button" class="pagination__btn-current-page pagination__btn-current-page-js">${i}</button>
+    </li>`);
+  }
+
+  pagesCounterList.innerHTML = allButtons.join('');
+};
+
 const renderPage = selectedPage => {
   // console.log(dataBooks);
   selectedPage = Number(selectedPage);
@@ -31,15 +53,27 @@ const renderPage = selectedPage => {
     : (firstBookOnPage = (selectedPage - 1) * 3);
 
   const booksPerPage = dataBooks.slice(firstBookOnPage, firstBookOnPage + 3);
-  // console.dir(booksPerPage);
   renderShoppingList(booksPerPage);
+  // pages
+  const renderingPagPages = document.querySelector(
+    '.pagination__item-create-pages'
+  );
+  renderingPagPages.addEventListener('click', selectedPage.textContent);
+  renderCountButtons();
 };
+renderPage(selectedPage);
 
-// const handleSelectPageBtn = event => {
-//   const selectedPage = event.target.textContent;
-// };
+const handleSelectPageBtn = event => {
+  const selectedPage = event.target.textContent;
+  if (event.target.nodeName !== 'BUTTON') {
+    return;
+  }
+  shoppingList.innerHTML = '';
+  renderPage(selectedPage);
+};
+const pageBtn = document.querySelector('.pagination__item-js');
+pageBtn.addEventListener('click', handleSelectPageBtn);
 
-renderPage('1');
 // pagination
 
 function createCardMarkup(dataBooks) {
@@ -233,6 +267,8 @@ function removeCardMarkup(event) {
   if (dataBooks.length > 0) {
     emptyList.classList.add('visually-hidden');
   }
+  shoppingList.innerHTML = '';
+  renderPage(selectedPage);
 }
 
 function saveToLocalStorage() {
