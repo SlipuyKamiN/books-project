@@ -234,7 +234,6 @@ export const getUserData = async () => {
     const snapshot = await get(child(dbRef, `users/${userId}`));
     if (snapshot.val() !== null && snapshot.val().shoppingList) {
       const value = await snapshot.val().shoppingList;
-      console.log(value);
       return value;
     } else {
       return [];
