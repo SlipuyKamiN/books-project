@@ -47,15 +47,20 @@ const monitorAuthState = async () => {
       authUserMenu.classList.remove('is-hidden');
       logOutBtn.classList.add('is-hidden');
 
-      dropUserBtn.querySelector('span').nextSibling.textContent = user.displayName;
+      dropUserBtn.querySelector('span').nextSibling.textContent =
+        user.displayName;
       dropSignUpBtn.classList.add('is-hidden');
       dropUserBtn.classList.remove('is-hidden');
       dropAuthUserMenu.classList.remove('is-hidden');
       dropLogOutBtn.classList.remove('is-hidden');
-      localStorage.setItem('user-data', JSON.stringify({
-        id: user.uid,
-        name: user.displayName,
-        mail: user.email}));  
+      localStorage.setItem(
+        'user-data',
+        JSON.stringify({
+          id: user.uid,
+          name: user.displayName,
+          mail: user.email,
+        })
+      );
     } else {
       authUserMenu.classList.add('is-hidden');
       userBtn.classList.add('is-hidden');
@@ -64,7 +69,7 @@ const monitorAuthState = async () => {
       dropSignUpBtn.classList.remove('is-hidden');
       dropAuthUserMenu.classList.add('is-hidden');
       dropUserBtn.classList.add('is-hidden');
-      localStorage.removeItem('user-data');    
+      localStorage.removeItem('user-data');
     }
   });
 };
@@ -87,7 +92,7 @@ const CreateUser = async (name, email, password) => {
     await updateProfile(auth.currentUser, {
       displayName: name,
     });
-    console.log(userCredential);
+    // console.log(userCredential);
     userBtn.querySelector('span').nextSibling.textContent = user.displayName;
   } catch (error) {
     const errorCode = error.code;
@@ -107,7 +112,7 @@ const LogInUser = async (email, password) => {
       password
     );
     const user = userCredential.user;
-    console.log(user);
+    // console.log(user);
     modalWindow.classList.add('is-hidden');
   } catch (error) {
     const errorCode = error.code;
@@ -171,11 +176,11 @@ function mapAuthCodeToMessage(authCode) {
     case 'auth/user-not-found':
       return 'User not found. Please check the data';
 
-      case 'auth/email-already-in-use':
-        return 'The provided email is already in use.';
+    case 'auth/email-already-in-use':
+      return 'The provided email is already in use.';
 
-        case 'auth/weak-password':
-          return 'Your password must be at least 8 characters long'
+    case 'auth/weak-password':
+      return 'Your password must be at least 8 characters long';
 
     default:
       return `Error code: ${authCode}. Please check the data`;
