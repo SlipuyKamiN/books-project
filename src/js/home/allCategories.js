@@ -134,11 +134,22 @@ const handleImgClick = event => {
   handleModalWindow(idBook);
 };
 
+const currentDocumentScroll = () => {
+  if (currentRenderWidth < 768) {
+    document.documentElement.scrollTop = 736;
+  } else if (currentRenderWidth >= 768 && currentRenderWidth < 1440) {
+    document.documentElement.scrollTop = 650;
+  } else {
+    document.documentElement.scrollTop = 0;
+  }
+};
+
 const handleSeeMoreBtnClick = event => {
   title = event.target.dataset.category;
 
   setCurrentCategory(title);
   drawCategory(title);
+  currentDocumentScroll();
 };
 
 export const checkLengthBookTitle = (title, length) => {
