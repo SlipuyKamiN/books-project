@@ -6,17 +6,29 @@ const menuShoppingEl = document.querySelector('.menu__shopping');
 
 const setCurrentPage = () => {
   const currentPageName = window.location.pathname;
+  console.log(currentPageName);
 
   if (
-    currentPageName === '/index.html' ||
-    currentPageName === '/books-project/index.html'
+    currentPageName === '/shopping-list.html'
   ) {
-    menuHomeEl.classList.add('current');
+     menuShoppingEl.classList.add('current');
     return;
   }
-  menuShoppingEl.classList.add('current');
+ menuHomeEl.classList.add('current');
 };
 
+  
+  //   if (
+//     // currentPageName === '/index.html' ||
+//     // currentPageName === '/books-project/index.html'
+//   ) {
+//     menuHomeEl.classList.add('current');
+//     return;
+//   }
+//   menuShoppingEl.classList.add('current');
+// };
+  
+  
 setCurrentPage();
 
 //   ВІДКРИТТЯ/ЗАКРИТТЯ МОДАЛКИ ДЛЯ МОБ. ВЕРСІЇ

@@ -41,8 +41,8 @@
   padding-bottom: 18px;
 
   @media screen and (min-width: 768px) {
-    padding-top: 24px;
-    padding-bottom: 20px;
+    padding-top: 19px;
+    padding-bottom: 25px;
   }
 }
 
@@ -323,10 +323,6 @@
   }
 }
 
-.drop-auth__modal-open:hover,
-.drop-auth__modal-open:focus {
-  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
-}
 
 .drop-btn-user {
   display: flex;
@@ -356,10 +352,6 @@
   }
 }
 
-.drop-btn-user:hover,
-.drop-btn-user:focus {
-  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
-}
 
 // МОБІЛЬНЕ ДРОП МЕНЮ
 .drop-menu {
@@ -428,11 +420,6 @@
     visibility: hidden;
     pointer-events: none;
   }
-}
-
-.drop-log-out-btn:hover,
-.drop-log-out-btn:focus {
-  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
 }
 
 // КНИГИ
