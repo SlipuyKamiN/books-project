@@ -1,3 +1,5 @@
+import { writeUserData } from '../auth';
+
 const shoppingList = document.querySelector('.shopping-main__list-js');
 const emptyList = document.querySelector('.empty-list');
 
@@ -215,7 +217,7 @@ function createCardMarkup(dataBooks) {
   }
 }
 
-function removeCardMarkup(event) {
+async function removeCardMarkup(event) {
   if (event.target.dataset.action !== 'delete') {
     return;
   }
@@ -224,7 +226,7 @@ function removeCardMarkup(event) {
   const bookToRemoveId = parentNode.dataset.id;
 
   dataBooks = dataBooks.filter(book => book._id !== bookToRemoveId);
-
+  await writeUserData(dataBooks);//Write user shopping list to DB
   saveToLocalStorage();
   parentNode.remove();
   if (!dataBooks || dataBooks.length === 0) {
