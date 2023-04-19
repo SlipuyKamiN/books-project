@@ -24,7 +24,7 @@ const renderShoppingList = dataBooks => {
 };
 // pagination
 
-const renderCountButtons = () => {
+const renderCountButtons = selectedPage => {
   const pagesCounterList = document.querySelector(
     '.pagination__item-create-pages'
   );
@@ -38,7 +38,9 @@ const renderCountButtons = () => {
   const allButtons = [];
   for (let i = 1; i <= pageQuantity; i += 1) {
     allButtons.push(`<li>
-    <button type="button" class="pagination__btn-current-page pagination__btn-current-page-js">${i}</button>
+    <button type="button" class="pagination__btn-current-page pagination__btn-current-page-js ${
+      selectedPage === i ? 'selected' : ''
+    }">${i}</button>
     </li>`);
   }
 
@@ -61,17 +63,19 @@ const renderPage = selectedPage => {
     '.pagination__item-create-pages'
   );
   renderingPagPages.addEventListener('click', selectedPage.textContent);
-  renderCountButtons();
+  renderCountButtons(selectedPage);
 };
 renderPage(selectedPage);
 
 const handleSelectPageBtn = event => {
   const selectedPage = event.target.textContent;
+  const selectedBtn = event.target;
+
   if (event.target.nodeName !== 'BUTTON') {
     return;
   }
   shoppingList.innerHTML = '';
-  renderPage(selectedPage);
+  renderPage(selectedPage, selectedBtn);
 };
 const pageBtn = document.querySelector('.pagination__item-js');
 pageBtn.addEventListener('click', handleSelectPageBtn);
@@ -81,8 +85,12 @@ pageBtn.addEventListener('click', handleSelectPageBtn);
 function createCardMarkup(dataBooks) {
   if (!dataBooks || dataBooks.length === 0) {
     shoppingList.classList.add('visually-hidden');
+    document.querySelector('.pagination__block-js').classList.add('is-hidden');
   }
   if (dataBooks.length > 0) {
+    document
+      .querySelector('.pagination__block-js')
+      .classList.remove('is-hidden');
     emptyList.classList.add('visually-hidden');
     shoppingList.classList.remove('visually-hidden');
 
@@ -265,9 +273,13 @@ async function removeCardMarkup(event) {
   parentNode.remove();
   if (!dataBooks || dataBooks.length === 0) {
     emptyList.classList.remove('visually-hidden');
+    document.querySelector('.pagination__block-js').classList.add('is-hidden');
   }
   if (dataBooks.length > 0) {
     emptyList.classList.add('visually-hidden');
+    document
+      .querySelector('.pagination__block-js')
+      .classList.remove('is-hidden');
   }
   shoppingList.innerHTML = '';
   renderPage(selectedPage);

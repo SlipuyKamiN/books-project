@@ -1,179 +1,186 @@
-@media screen and (min-width: 375px) and (max-width: 768px){
-    .pagination__block {
-        width: 323px;
-        height: 38px;
-        margin: auto;
-        margin-top: 20px;
-    }
-    .pagination__list {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 14;
-    }
-    .pagination__item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-    }
-    .pagination__item-create-pages{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-    }
-    .pagination__btn-arrow-r {
-        width: 38px;
-        height: 38px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #EAC645;
-        border: 1px solid #000000;
-        border-radius: 50%;
-        outline: none;
-    }
-    .pagination__btn-arrow-l {
-        width: 38px;
-        height: 38px;
-        background: #111111;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        border: none;
-        outline: none;
-    }
-    .pagination__btn-current-page {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid #111111;
-        width: 38px;
-        height: 38px;
-        border-radius: 50%;
-        color: #000000;
-    }
-}
-@media screen and (min-width: 768px) and (max-width: 1080px){
-    .pagination__block{
-        width: 446px;
-        max-width: 704px;
-        height: 44px;
-        margin: auto;
-        margin-top: 40px;
-    }
-    .pagination__list {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 24;
-    }
-    .pagination__item,
-    .pagination__item-create-pages {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-    }
-    .pagination__btn-arrow-r {
-        width: 44px;
-        height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #EAC645;
-        border: 1px solid #000000;
-        border-radius: 50%;
-        outline: none;
-        
-    }
-    .pagination__btn-arrow-l {
-        width: 44px;
-        height: 44px;
-        background: #111111;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        border: none;
-        outline: none;
-    }
-    .pagination__btn-current-page {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid #111111;
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        color: #000000;
-    }
-}
-@media screen and (min-width: 1080px) {
-    .pagination__block{
-        width: 446px;
-        max-width: 996px;
-        height: 44px;
-        margin: auto;
-        margin-top: 40px;
-    }
-    .pagination__list {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 24px;
-    }
-    .pagination__item,
-    .pagination__item-create-pages {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-    }
-    .pagination__btn-arrow-r {
-        width: 44px;
-        height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #EAC645;
-        border: 1px solid #000000;
-        border-radius: 50%;
-        outline: none;
-        
-    }
-    .pagination__btn-arrow-l {
-        width: 44px;
-        height: 44px;
-        background: #111111;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        border: none;
-        outline: none;
-    }
-    .pagination__btn-current-page {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid #111111;
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        color: #000000;
-    }
-}
-.focus-color {
+@media screen and (min-width: 375px) and (max-width: 768px) {
+  .pagination__block {
+    width: 323px;
+    height: 38px;
+    margin: auto;
+    margin-top: 20px;
+  }
+  .pagination__list {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 14;
+  }
+  .pagination__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .pagination__item-create-pages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .pagination__btn-arrow-r {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eac645;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    outline: none;
+  }
+  .pagination__btn-arrow-l {
+    width: 38px;
+    height: 38px;
     background: #111111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+  }
+  .pagination__btn-current-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid #111111;
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    color: #FFFF;
+    color: #000000;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1080px) {
+  .pagination__block {
+    width: 446px;
+    max-width: 704px;
+    height: 44px;
+    margin: auto;
+    margin-top: 40px;
+  }
+  .pagination__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24;
+  }
+  .pagination__item,
+  .pagination__item-create-pages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .pagination__btn-arrow-r {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eac645;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    outline: none;
+  }
+  .pagination__btn-arrow-l {
+    width: 44px;
+    height: 44px;
+    background: #111111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+  }
+  .pagination__btn-current-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #111111;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    color: #000000;
+  }
+}
+@media screen and (min-width: 1080px) {
+  .pagination__block {
+    width: 446px;
+    max-width: 996px;
+    height: 44px;
+    margin: auto;
+    margin-top: 40px;
+  }
+  .pagination__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+  .pagination__item,
+  .pagination__item-create-pages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .pagination__btn-arrow-r {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eac645;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    outline: none;
+  }
+  .pagination__btn-arrow-l {
+    width: 44px;
+    height: 44px;
+    background: #111111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+  }
+  .pagination__btn-current-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #111111;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    color: #000000;
+  }
+}
+.focus-color {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111111;
+  border: 1px solid #111111;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #ffff;
+}
+
+.pagination__block.is-hidden {
+  display: none;
+}
+
+.pagination__btn-current-page.selected {
+  background-color: $dark-color;
+  color: $white-color;
 }
