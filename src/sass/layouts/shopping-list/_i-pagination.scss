@@ -1,6 +1,6 @@
-@media screen and (min-width: 375px) and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .pagination__block {
-    width: 323px;
+    max-width: 323px;
     height: 38px;
     margin: auto;
     margin-top: 20px;
@@ -23,6 +23,7 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
+    flex-wrap: wrap;
   }
   .pagination__btn-arrow-r {
     width: 38px;
@@ -58,9 +59,9 @@
     font-size: 18px;
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1080px) {
+@media screen and (min-width: 768px) and (max-width: 1440px) {
   .pagination__block {
-    width: 446px;
+    // width: 446px;
     max-width: 704px;
     height: 44px;
     margin: auto;
@@ -79,6 +80,10 @@
     justify-content: center;
     gap: 8px;
   }
+  .pagination__item-create-pages {
+    flex-grow: 1;
+    flex-wrap: wrap;
+  }
   .pagination__btn-arrow-r {
     width: 44px;
     height: 44px;
@@ -113,9 +118,9 @@
     font-size: 18px;
   }
 }
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 1440px) {
   .pagination__block {
-    width: 446px;
+    // width: 446px;
     max-width: 996px;
     height: 44px;
     margin: auto;
@@ -133,6 +138,11 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+  }
+  .pagination__item-create-pages {
+    flex-grow: 1;
+
+    flex-wrap: wrap;
   }
   .pagination__btn-arrow-r {
     width: 44px;

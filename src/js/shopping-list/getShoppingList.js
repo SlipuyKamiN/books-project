@@ -71,17 +71,50 @@ const renderPage = selectedPage => {
 renderPage(selectedPage);
 
 const handleSelectPageBtn = event => {
-  const selectedPage = event.target.textContent;
-  const selectedBtn = event.target;
+  let clickedPage = event.target.textContent;
 
   if (event.target.nodeName !== 'BUTTON') {
     return;
   }
+
   shoppingList.innerHTML = '';
-  renderPage(selectedPage, selectedBtn);
+  renderPage(clickedPage);
 };
+
+const handleArrowBtnsClick = event => {
+  switch (event.currentTarget) {
+    case firstPageBtn:
+      selectedPage = 1;
+      break;
+    case prevPageBtn:
+      selectedPage = selectedPage > 1 ? selectedPage - 1 : 1;
+      break;
+    case nextPageBtn:
+      selectedPage =
+        selectedPage === Math.ceil(dataBooks.length / 3)
+          ? Math.ceil(dataBooks.length / 3)
+          : selectedPage + 1;
+      break;
+    case lastPageBtn:
+      selectedPage = Math.ceil(dataBooks.length / 3);
+      break;
+  }
+
+  shoppingList.innerHTML = '';
+  renderPage(selectedPage);
+};
+
+const firstPageBtn = document.querySelector('.pagination__btn-first-page-js');
+const prevPageBtn = document.querySelector('.pagination__btn-per-page-js');
+const nextPageBtn = document.querySelector('.pagination__btn-next-page-js');
+const lastPageBtn = document.querySelector('.pagination__btn-last-page-js');
+
 const pageBtn = document.querySelector('.pagination__item-js');
 pageBtn.addEventListener('click', handleSelectPageBtn);
+firstPageBtn.addEventListener('click', handleArrowBtnsClick);
+prevPageBtn.addEventListener('click', handleArrowBtnsClick);
+nextPageBtn.addEventListener('click', handleArrowBtnsClick);
+lastPageBtn.addEventListener('click', handleArrowBtnsClick);
 
 // pagination
 
