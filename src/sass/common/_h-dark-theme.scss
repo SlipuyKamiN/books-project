@@ -231,3 +231,15 @@ body.dark,
 .dark .shops-list__link.amazon {
   filter: grayscale(100%) invert(50%) brightness(150%);
 }
+
+.dark .pagination__btn-current-page{
+  background-color: $dark-color;
+  border: 1px solid $white-color;
+  color: $white-color;
+}
+
+.dark .pagination__btn-current-page.selected{
+  background-color: $white-color;
+  color: $dark-color;
+  
+}
