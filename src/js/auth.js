@@ -75,7 +75,7 @@ const monitorAuthState = async () => {
   });
 };
 
-monitorAuthState();//Run status check
+monitorAuthState(); //Run status check
 
 //Create user with name, email and password
 
@@ -208,7 +208,7 @@ function writeInitialUserData(userId, email) {
 
 export async function writeUserData(newData) {
   try {
-    console.log('writeUserData');
+    // console.log('writeUserData');
     const updates = { shoppingList: newData };
     onAuthStateChanged(auth, user => {
       if (user) {
@@ -242,4 +242,3 @@ export const getUserData = async () => {
     Notiflix.Notify.failure(`Error getting user data from DB: ${error}`);
   }
 };
-
