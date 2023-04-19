@@ -1,7 +1,7 @@
 import { fetchBooks } from '../js/fetchBooks';
 import renderModal from '../templates/modal.hbs';
 import { Spiner } from './spiner-loader';
-
+import { writeUserData } from './auth';
 const globalRefs = {
   backdrop: document.querySelector('.backdrop-js'),
   modal: document.querySelector('.modal-js'),
@@ -97,14 +97,14 @@ export async function handleModalWindow(bookId) {
       bookArray.push(bookData);
 
       localStorage.setItem(BOOKS_DATA_KEY, JSON.stringify(bookArray));
-
+      writeUserData(bookArray); //Write user shopping list to DB
       refs.addBtn.classList.add('is-hidden');
       refs.removeBlock.classList.remove('is-hidden');
     }
 
     function handleRemoveBtnClick() {
       bookArray.splice(bookIndex, 1);
-
+      writeUserData(bookArray); //Write user shopping list to DB
       localStorage.setItem(BOOKS_DATA_KEY, JSON.stringify(bookArray));
 
       refs.addBtn.classList.remove('is-hidden');

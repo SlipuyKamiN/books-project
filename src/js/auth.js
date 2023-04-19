@@ -7,7 +7,7 @@ import {
   updateProfile,
   signOut,
 } from 'firebase/auth';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite'; //access to databes from app
+import { getDatabase, ref, set, get, update, child } from 'firebase/database'; //access to databes from app
 import Notiflix from 'notiflix';
 Notiflix.Notify.init({ position: 'center-top' });
 
@@ -39,7 +39,7 @@ const dropLogOutBtn = document.querySelector('.drop-log-out-btn');
 //Status check (user is signed in or not)
 
 const monitorAuthState = async () => {
-  onAuthStateChanged(auth, user => {
+  onAuthStateChanged(auth, async user => {
     if (user) {
       userBtn.querySelector('span').nextSibling.textContent = user.displayName;
       signUpBtn.classList.add('is-hidden');
@@ -47,15 +47,22 @@ const monitorAuthState = async () => {
       authUserMenu.classList.remove('is-hidden');
       logOutBtn.classList.add('is-hidden');
 
-      dropUserBtn.querySelector('span').nextSibling.textContent = user.displayName;
+      dropUserBtn.querySelector('span').nextSibling.textContent =
+        user.displayName;
       dropSignUpBtn.classList.add('is-hidden');
       dropUserBtn.classList.remove('is-hidden');
       dropAuthUserMenu.classList.remove('is-hidden');
       dropLogOutBtn.classList.remove('is-hidden');
-      localStorage.setItem('user-data', JSON.stringify({
-        id: user.uid,
-        name: user.displayName,
-        mail: user.email}));  
+      localStorage.setItem(
+        'user-data',
+        JSON.stringify({
+          id: user.uid,
+          name: user.displayName,
+          mail: user.email,
+        })
+      );
+      const shoppingList = await getUserData();
+      localStorage.setItem('books-data', JSON.stringify(shoppingList));
     } else {
       authUserMenu.classList.add('is-hidden');
       userBtn.classList.add('is-hidden');
@@ -64,12 +71,11 @@ const monitorAuthState = async () => {
       dropSignUpBtn.classList.remove('is-hidden');
       dropAuthUserMenu.classList.add('is-hidden');
       dropUserBtn.classList.add('is-hidden');
-      localStorage.removeItem('user-data');    
     }
   });
 };
 
-monitorAuthState();
+monitorAuthState();//Run status check
 
 //Create user with name, email and password
 
@@ -80,15 +86,14 @@ const CreateUser = async (name, email, password) => {
       email,
       password
     );
-
     const user = userCredential.user;
     modalWindow.classList.add('is-hidden');
 
     await updateProfile(auth.currentUser, {
       displayName: name,
     });
-    console.log(userCredential);
     userBtn.querySelector('span').nextSibling.textContent = user.displayName;
+    writeInitialUserData(user.uid, user.email);
   } catch (error) {
     const errorCode = error.code;
     Notiflix.Notify.failure(
@@ -106,9 +111,8 @@ const LogInUser = async (email, password) => {
       email,
       password
     );
-    const user = userCredential.user;
-    console.log(user);
     modalWindow.classList.add('is-hidden');
+    document.body.classList.remove('modal-open');
   } catch (error) {
     const errorCode = error.code;
     Notiflix.Notify.failure(
@@ -123,6 +127,8 @@ const handleSignOut = async () => {
   try {
     await signOut(auth);
     document.location.href = './index.html';
+    localStorage.removeItem('user-data');
+    localStorage.removeItem('books-data');
   } catch (error) {
     const errorCode = error.code;
     Notiflix.Notify.failure(
@@ -155,7 +161,7 @@ const handleFormSubmit = event => {
 
 formEl.addEventListener('submit', handleFormSubmit);
 
-//Error code transform to message
+//Error code transform to human friendly message
 
 function mapAuthCodeToMessage(authCode) {
   switch (authCode) {
@@ -171,13 +177,70 @@ function mapAuthCodeToMessage(authCode) {
     case 'auth/user-not-found':
       return 'User not found. Please check the data';
 
-      case 'auth/email-already-in-use':
-        return 'The provided email is already in use.';
+    case 'auth/email-already-in-use':
+      return 'The provided email is already in use.';
 
-        case 'auth/weak-password':
-          return 'Your password must be at least 8 characters long'
+    case 'auth/weak-password':
+      return 'Your password must be at least 8 characters long';
 
     default:
       return `Error code: ${authCode}. Please check the data`;
   }
 }
+
+// DATABASE FUNCTIONS
+
+// Initialize Realtime Database and get a reference to the service
+const database = getDatabase(app);
+const dbRef = ref(getDatabase());
+
+//Write initial data for user then sign up
+
+function writeInitialUserData(userId, email) {
+  set(ref(database, 'users/' + userId), {
+    email: email,
+    selectedMode: 'light',
+    shoppingList: [],
+  });
+}
+
+//Write user data (shopping list) to DB
+
+export async function writeUserData(newData) {
+  try {
+    console.log('writeUserData');
+    const updates = { shoppingList: newData };
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        const userId = user.uid;
+        update(ref(database, `users/${userId}`), updates);
+      } else {
+        return;
+      }
+    });
+  } catch (error) {
+    const errorCode = error.code;
+    Notiflix.Notify.failure(`Update failed! Error code: ${errorCode}`);
+  }
+}
+
+//Get user shopping list from DB
+
+export const getUserData = async () => {
+  const user = JSON.parse(localStorage.getItem('user-data'));
+  const userId = user.id;
+  const userEmail = user.email;
+  try {
+    const snapshot = await get(child(dbRef, `users/${userId}`));
+    if (snapshot.val() !== null) {
+      const value = await snapshot.val().shoppingList;
+      console.log(value);
+      return value;
+    } else {
+      return [];
+    }
+  } catch (error) {
+    Notiflix.Notify.failure(`Error getting user data from DB: ${error}`);
+  }
+};
+
