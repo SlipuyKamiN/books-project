@@ -21,8 +21,9 @@ const renderShoppingList = dataBooks => {
 };
 
 // pagination
+import '../../sass/layouts/shopping-list/_i-pagination.scss';
 const renderPage = selectedPage => {
-  // console.log(dataBooks);
+  console.log(dataBooks);
   selectedPage = Number(selectedPage);
   let firstBookOnPage = null;
 
@@ -31,15 +32,33 @@ const renderPage = selectedPage => {
     : (firstBookOnPage = (selectedPage - 1) * 3);
 
   const booksPerPage = dataBooks.slice(firstBookOnPage, firstBookOnPage + 3);
-  // console.dir(booksPerPage);
   renderShoppingList(booksPerPage);
-};
+// pages
+  const renderingPagPages = document.querySelector('.pagination__item-create-pages');
+  renderingPagPages.addEventListener('click', selectedPage.textContent);
+  renderingPagPages.innerHTML = `
+  <button type="button" class=" pagination__btn-current-page pagination__btn-current-page-js">${selectedPage - 1}</button>
+  <button type="button" class="pagination__btn-current-page-target pagination__btn-current-page-js">${selectedPage}</button>
+  <button type="button" class="pagination__btn-current-page pagination__btn-current-page-js">${selectedPage + 1}</button>`;
 
-// const handleSelectPageBtn = event => {
-//   const selectedPage = event.target.textContent;
-// };
-
-renderPage('1');
+// const fixPage = document.querySelector('.is-hidden');
+//   if(selectedPage.textContent > 0){
+//     fixPage.classList.remove('is-hidden');
+//   }else{
+//     fixPage.classList.add('is-hidden');
+// }
+}
+renderPage(1)
+const handleSelectPageBtn = event => {
+  const selectedPage = event.target.textContent;
+  if(event.target.nodeName !== "BUTTON"){
+    return;
+  }
+  shoppingList.innerHTML="";
+  renderPage(selectedPage);
+}
+const pageBtn = document.querySelector('.pagination__item-js');
+pageBtn.addEventListener('click', handleSelectPageBtn);
 // pagination
 
 function createCardMarkup(dataBooks) {
