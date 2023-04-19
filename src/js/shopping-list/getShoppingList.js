@@ -19,25 +19,26 @@ const renderShoppingList = dataBooks => {
     emptyList.classList.remove('visually-hidden');
   }
 };
-
-import { all } from 'axios';
 // pagination
-import '../../sass/layouts/shopping-list/_i-pagination.scss';
 
 const renderCountButtons = () => {
   const pagesCounterList = document.querySelector(
     '.pagination__item-create-pages'
   );
+  pagesCounterList.addEventListener('click', createFocusSwitcher)
+  function createFocusSwitcher(e){
+    if(e.target === allButtons){
+      allButtons.classList.add('focus-color');
+    }
+  }
   const pageQuantity = Math.ceil(dataBooks.length / 3);
   const allButtons = [];
   console.log(pageQuantity);
-
   for (let i = 1; i <= pageQuantity; i += 1) {
     allButtons.push(`<li>
-    <button type="button" class=" pagination__btn-current-page pagination__btn-current-page-js">${i}</button>
+    <button type="button" class="pagination__btn-current-page pagination__btn-current-page-js">${i}</button>
     </li>`);
   }
-
   console.log(allButtons);
 
   pagesCounterList.innerHTML = allButtons.join('');
@@ -60,21 +61,6 @@ const renderPage = selectedPage => {
   );
   renderingPagPages.addEventListener('click', selectedPage.textContent);
   renderCountButtons();
-  // renderingPagPages.innerHTML = `
-  // <button type="button" class=" pagination__btn-current-page pagination__btn-current-page-js">${
-  //   selectedPage - 1
-  // }</button>
-  // <button type="button" class="pagination__btn-current-page-target pagination__btn-current-page-js">${selectedPage}</button>
-  // <button type="button" class="pagination__btn-current-page pagination__btn-current-page-js">${
-  //   selectedPage + 1
-  // }</button>`;
-
-  // const fixPage = document.querySelector('.is-hidden');
-  //   if(selectedPage.textContent > 0){
-  //     fixPage.classList.remove('is-hidden');
-  //   }else{
-  //     fixPage.classList.add('is-hidden');
-  // }
 };
 renderPage(1);
 
