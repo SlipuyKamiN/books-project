@@ -18,7 +18,7 @@ window.addEventListener('resize', debounce(handleWindowResize, 50));
 
 function handleWindowResize(event) {
   const width = event.target.outerWidth;
-  console.log(currentRenderWidth);
+  // console.log(currentRenderWidth);
   if (
     (width > 767 && currentRenderWidth < 768) ||
     (width > 1439 && currentRenderWidth < 1440) ||
