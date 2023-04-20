@@ -3,6 +3,10 @@ import { Spiner } from '../spiner-loader';
 
 const shoppingList = document.querySelector('.shopping-main__list-js');
 const emptyList = document.querySelector('.empty-list');
+const firstPageBtn = document.querySelector('.pagination__btn-first-page-js');
+const prevPageBtn = document.querySelector('.pagination__btn-per-page-js');
+const nextPageBtn = document.querySelector('.pagination__btn-next-page-js');
+const lastPageBtn = document.querySelector('.pagination__btn-last-page-js');
 
 const spinner = new Spiner();
 let dataBooks = localStorage.getItem('books-data');
@@ -103,11 +107,6 @@ const handleArrowBtnsClick = event => {
   shoppingList.innerHTML = '';
   renderPage(selectedPage);
 };
-
-const firstPageBtn = document.querySelector('.pagination__btn-first-page-js');
-const prevPageBtn = document.querySelector('.pagination__btn-per-page-js');
-const nextPageBtn = document.querySelector('.pagination__btn-next-page-js');
-const lastPageBtn = document.querySelector('.pagination__btn-last-page-js');
 
 const pageBtn = document.querySelector('.pagination__item-js');
 pageBtn.addEventListener('click', handleSelectPageBtn);
