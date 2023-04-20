@@ -24,15 +24,16 @@ const setCurrentPage = () => {
   // console.log(menuShoppingEl);
 
   if (
-    currentPageName === '/shopping-list.html' ||
-    currentPageName === '/books-project/shopping-list.html'
+    currentPageName === '/index.html' ||
+    currentPageName === '/books-project/index.html' ||
+    currentPageName === '/books-project/'
   ) {
-    menuShoppingEl.classList.add('current');
-    menuHomeEl.classList.remove('current');
+    menuHomeEl.classList.add('current');
+    menuShoppingEl.classList.remove('current');
     return;
   }
-  menuHomeEl.classList.add('current');
-  menuShoppingEl.classList.remove('current');
+  menuShoppingEl.classList.add('current');
+  menuHomeEl.classList.remove('current');
 };
 
 setCurrentPage();
