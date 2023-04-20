@@ -20,6 +20,8 @@ const menuShoppingEl = document.querySelector('.menu__shopping');
 const setCurrentPage = () => {
   const currentPageName = window.location.pathname;
   // console.log(currentPageName);
+  // console.log(menuHomeEl);
+  // console.log(menuShoppingEl);
 
   if (
     currentPageName === '/shopping-list.html' ||
