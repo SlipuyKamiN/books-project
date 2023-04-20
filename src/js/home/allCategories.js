@@ -134,7 +134,7 @@ const handleImgClick = event => {
   handleModalWindow(idBook);
 };
 
-const currentDocumentScroll = () => {
+export const currentDocumentScroll = () => {
   if (currentRenderWidth < 768) {
     document.documentElement.scrollTop = 736;
   } else if (currentRenderWidth >= 768 && currentRenderWidth < 1440) {
